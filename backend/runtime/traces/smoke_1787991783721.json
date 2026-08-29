@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "task": "single_vqa",
+  "query": "What is the dominant land cover in this remote sensing image?",
+  "query_hash": "9515ffb184",
+  "input_config": {
+    "n_images": 1,
+    "images": [
+      {
+        "filename": "C:\\project\\satquery\\backend\\runtime\\demo_data\\optical_city.png",
+        "format": "PNG",
+        "modality": "optical",
+        "width": 512,
+        "height": 512,
+        "band_count": 3,
+        "dtype": "uint8",
+        "crs": null,
+        "extent": null,
+        "pixel_size": null,
+        "acquisition_date": null,
+        "metadata_source": "none"
+      }
+    ],
+    "geolocated": false,
+    "co_registered": null,
+    "co_registration_note": null,
+    "bi_temporal": null,
+    "dates_differ": null,
+    "date_note": null,
+    "modality_signature": [
+      "optical"
+    ]
+  },
+  "classification": {
+    "task": "single_vqa",
+    "method": "rules",
+    "reasons": [
+      "default single-image VQA for interrogative/general queries"
+    ],
+    "alternatives": {
+      "single_vqa": 1.0,
+      "single_caption": 0.0,
+      "single_grounding": 0.0,
+      "change_vqa": 0.0,
+      "change_description": 0.0,
+      "sar_optical_fusion": 0.0
+    }
+  },
+  "validation": {
+    "passed": [
+      "format:PNG",
+      "PNG (512x512, 3 band, uint8)",
+      "Single image input."
+    ],
+    "warnings": [],
+    "failed": [],
+    "checks": [
+      {
+        "name": "format",
+        "status": "passed",
+        "message": "PNG (512x512, 3 band, uint8)"
+      },
+      {
+        "name": "input_shape",
+        "status": "passed",
+        "message": "Single image input."
+      }
+    ],
+    "input_config": {
+      "n_images": 1,
+      "images": [
+        {
+          "filename": "C:\\project\\satquery\\backend\\runtime\\demo_data\\optical_city.png",
+          "format": "PNG",
+          "modality": "optical",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": null,
+          "extent": null,
+          "pixel_size": null,
+          "acquisition_date": null,
+          "metadata_source": "none"
+        }
+      ],
+      "geolocated": false,
+      "co_registered": null,
+      "co_registration_note": null,
+      "bi_temporal": null,
+      "dates_differ": null,
+      "date_note": null,
+      "modality_signature": [
+        "optical"
+      ]
+    },
+    "accepted": true
+  },
+  "registry_entries_used": [
+    {
+      "id": "rs_vlm.vqa",
+      "task": "single_vqa",
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "adapter": null,
+      "quantization": null,
+      "fallback": "mock",
+      "permitted_parameters": {
+        "max_new_tokens": 512,
+        "temperature": 0.2
+      }
+    }
+  ],
+  "execution_time_ms": 31,
+  "confidence": {
+    "value": 0.8,
+    "source": "mock",
+    "note": "Deterministic placeholder (skeleton/demo mode), not a calibrated score."
+  },
+  "outputs": {
+    "text": {
+      "text": "In the optical scene, the dominant land-cover signals are developed and agricultural/bare-surface areas, with scattered water-like regions. Relevant to: 'What is the dominant land cover in this remote sensing image?'. [mock output - wired to real specialist once adapters ship]",
+      "n_shots": 1
+    },
+    "boxes": [],
+    "mask": {
+      "path": null,
+      "kind": "none"
+    },
+    "evidence_thumbnails": [
+      "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991783721_optical_city.png"
+    ]
+  },
+  "model_backend": "mock",
+  "created_at": "2026-08-29T08:23:03.752303+00:00",
+  "server_version": "0.1.0"
+}

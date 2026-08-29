@@ -1,0 +1,20 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+numpy>=1.24
+scipy>=1.10
+pillow>=10.0
+pydantic>=2.5
+reportlab>=4.0
+
+# Optional (GeoTIFF I/O). Install for ISRO Cartosat/RISAT product support.
+rasterio>=1.3
+
+# Optional (real inference / LoRA training). GPU env only (Kaggle/Colab).
+# torch>=2.3
+# transformers>=4.44
+# accelerate
+# peft
+# bitsandbytes
+# datasets
+# trl

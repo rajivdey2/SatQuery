@@ -1,0 +1,1 @@
+"""Specialist package: swappable specialists behind one predict() interface."""

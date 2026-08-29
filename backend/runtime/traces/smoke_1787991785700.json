@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0.0",
+  "task": "sar_optical_fusion",
+  "query": "Use the optical and SAR images together to identify built-up and water-covered regions.",
+  "query_hash": "af029baf84",
+  "input_config": {
+    "n_images": 2,
+    "images": [
+      {
+        "filename": "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_optical.tif",
+        "format": "GEOTIFF",
+        "modality": "optical",
+        "width": 512,
+        "height": 512,
+        "band_count": 3,
+        "dtype": "uint8",
+        "crs": "EPSG:32644",
+        "extent": [
+          523000.0,
+          3120000.0,
+          524020.0,
+          3121000.0
+        ],
+        "pixel_size": [
+          1.9921875,
+          1.953125
+        ],
+        "acquisition_date": null,
+        "metadata_source": "none"
+      },
+      {
+        "filename": "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_sar.tif",
+        "format": "GEOTIFF",
+        "modality": "sar",
+        "width": 512,
+        "height": 512,
+        "band_count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:32644",
+        "extent": [
+          523000.0,
+          3120000.0,
+          524020.0,
+          3121000.0
+        ],
+        "pixel_size": [
+          1.9921875,
+          1.953125
+        ],
+        "acquisition_date": null,
+        "metadata_source": "rasterio_tags"
+      }
+    ],
+    "geolocated": true,
+    "co_registered": true,
+    "co_registration_note": "CRS=EPSG:32644, extent overlap 100%",
+    "bi_temporal": false,
+    "dates_differ": null,
+    "date_note": null,
+    "modality_signature": [
+      "optical",
+      "sar"
+    ]
+  },
+  "classification": {
+    "task": "sar_optical_fusion",
+    "method": "rules",
+    "reasons": [
+      "query asks to use optical+SAR together; cross-modal pair detected"
+    ],
+    "alternatives": {
+      "single_vqa": 0.0,
+      "single_caption": 0.0,
+      "single_grounding": 0.0,
+      "change_vqa": 0.0,
+      "change_description": 0.0,
+      "sar_optical_fusion": 1.0
+    }
+  },
+  "validation": {
+    "passed": [
+      "format:GEOTIFF",
+      "format:GEOTIFF",
+      "GEOTIFF (512x512, 3 band, uint8)",
+      "GEOTIFF (512x512, 1 band, uint8)",
+      "Cross-modal optical+SAR pair detected.",
+      "CRS=EPSG:32644, extent overlap 100%"
+    ],
+    "warnings": [],
+    "failed": [],
+    "checks": [
+      {
+        "name": "format",
+        "status": "passed",
+        "message": "GEOTIFF (512x512, 3 band, uint8)"
+      },
+      {
+        "name": "format",
+        "status": "passed",
+        "message": "GEOTIFF (512x512, 1 band, uint8)"
+      },
+      {
+        "name": "pair_type",
+        "status": "passed",
+        "message": "Cross-modal optical+SAR pair detected."
+      },
+      {
+        "name": "co_registration",
+        "status": "passed",
+        "message": "CRS=EPSG:32644, extent overlap 100%"
+      }
+    ],
+    "input_config": {
+      "n_images": 2,
+      "images": [
+        {
+          "filename": "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_optical.tif",
+          "format": "GEOTIFF",
+          "modality": "optical",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": "EPSG:32644",
+          "extent": [
+            523000.0,
+            3120000.0,
+            524020.0,
+            3121000.0
+          ],
+          "pixel_size": [
+            1.9921875,
+            1.953125
+          ],
+          "acquisition_date": null,
+          "metadata_source": "none"
+        },
+        {
+          "filename": "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_sar.tif",
+          "format": "GEOTIFF",
+          "modality": "sar",
+          "width": 512,
+          "height": 512,
+          "band_count": 1,
+          "dtype": "uint8",
+          "crs": "EPSG:32644",
+          "extent": [
+            523000.0,
+            3120000.0,
+            524020.0,
+            3121000.0
+          ],
+          "pixel_size": [
+            1.9921875,
+            1.953125
+          ],
+          "acquisition_date": null,
+          "metadata_source": "rasterio_tags"
+        }
+      ],
+      "geolocated": true,
+      "co_registered": true,
+      "co_registration_note": "CRS=EPSG:32644, extent overlap 100%",
+      "bi_temporal": false,
+      "dates_differ": null,
+      "date_note": null,
+      "modality_signature": [
+        "optical",
+        "sar"
+      ]
+    },
+    "accepted": true
+  },
+  "registry_entries_used": [
+    {
+      "id": "fusion.joint",
+      "task": "sar_optical_fusion",
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "adapter": null,
+      "quantization": null,
+      "fallback": "mock",
+      "permitted_parameters": {
+        "max_new_tokens": 512,
+        "temperature": 0.2
+      }
+    }
+  ],
+  "execution_time_ms": 106,
+  "confidence": {
+    "value": 0.8,
+    "source": "mock",
+    "note": "Deterministic placeholder (skeleton/demo mode), not a calibrated score."
+  },
+  "outputs": {
+    "text": {
+      "text": "Using optical and SAR evidence jointly: modalities [optical, sar] built-up regions and water-covered regions are identified with high agreement across both sensors. [mock output - wired to real specialist once adapters ship]",
+      "n_shots": 1
+    },
+    "boxes": [],
+    "mask": {
+      "path": null,
+      "kind": "none"
+    },
+    "evidence_thumbnails": [
+      "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991785700_areaB_optical.png",
+      "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991785700_areaB_sar.png"
+    ]
+  },
+  "model_backend": "mock",
+  "created_at": "2026-08-29T08:23:05.806506+00:00",
+  "server_version": "0.1.0"
+}

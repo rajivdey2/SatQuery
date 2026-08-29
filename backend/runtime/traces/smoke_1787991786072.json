@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "task": "rejected",
+  "query": "What changed between these two images?",
+  "query_hash": "8c260ad024",
+  "input_config": {
+    "n_images": 2,
+    "images": [],
+    "geolocated": false,
+    "co_registered": null,
+    "co_registration_note": null,
+    "bi_temporal": null,
+    "dates_differ": null,
+    "date_note": null,
+    "modality_signature": []
+  },
+  "classification": {},
+  "validation": {
+    "passed": [],
+    "warnings": [],
+    "failed": [
+      "Rejected: co-registration could not be confirmed for the provided pair. The controller will not run fusion on a pair that may be misaligned."
+    ],
+    "checks": [],
+    "input_config": {
+      "n_images": 2,
+      "images": [],
+      "geolocated": false,
+      "co_registered": null,
+      "co_registration_note": null,
+      "bi_temporal": null,
+      "dates_differ": null,
+      "date_note": null,
+      "modality_signature": []
+    },
+    "accepted": false
+  },
+  "registry_entries_used": [],
+  "execution_time_ms": 2,
+  "confidence": {
+    "value": null,
+    "source": "not_available",
+    "note": ""
+  },
+  "outputs": {
+    "text": {
+      "text": "Rejected: co-registration could not be confirmed for the provided pair. The controller will not run fusion on a pair that may be misaligned.",
+      "n_shots": 1
+    },
+    "boxes": [],
+    "mask": {
+      "path": null,
+      "kind": "none"
+    },
+    "evidence_thumbnails": []
+  },
+  "model_backend": "validator_gate",
+  "created_at": "2026-08-29T08:23:06.074021+00:00",
+  "server_version": ""
+}

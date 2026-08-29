@@ -1,0 +1,34 @@
+[
+  {
+    "query": "Describe the land-cover and major objects visible in this im",
+    "status": "done",
+    "task": "single_caption",
+    "text": "The optical image shows an area of mixed land cover: residential development, op",
+    "boxes": 0,
+    "confidence": "mock"
+  },
+  {
+    "query": "Highlight the water body referred to in the query.",
+    "status": "done",
+    "task": "single_grounding",
+    "text": "The object(s) matching 'Highlight the water body referred to in the query.' are ",
+    "boxes": 1,
+    "confidence": "mock"
+  },
+  {
+    "query": "What changed between these two dates, and where did the chan",
+    "status": "done",
+    "task": "change_vqa",
+    "text": "Based on the bi-temporal pair (2023-01-01 -> 2023-07-01), the built-up area has ",
+    "boxes": 0,
+    "confidence": "mock"
+  },
+  {
+    "query": "Use the optical and SAR images together to identify built-up",
+    "status": "done",
+    "task": "sar_optical_fusion",
+    "text": "Using optical and SAR evidence jointly: modalities [optical, sar] built-up regio",
+    "boxes": 0,
+    "confidence": "mock"
+  }
+]

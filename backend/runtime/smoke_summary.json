@@ -1,0 +1,69 @@
+[
+  {
+    "name": "single_caption",
+    "task": "single_caption",
+    "accepted": true,
+    "ms": 77,
+    "text": "The optical image shows an area of mixed land cover: residential development, open agricultural fields, a network of roa",
+    "confidence": "mock",
+    "trace": "C:\\project\\satquery\\backend\\runtime\\traces\\smoke_1787991783151.json",
+    "pdf": "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991783151.pdf"
+  },
+  {
+    "name": "single_grounding",
+    "task": "single_grounding",
+    "accepted": true,
+    "ms": 33,
+    "text": "The object(s) matching 'Highlight the water body referred to in the query.' are localised in the highlighted box (center",
+    "confidence": "mock",
+    "trace": "C:\\project\\satquery\\backend\\runtime\\traces\\smoke_1787991783452.json",
+    "pdf": "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991783452.pdf"
+  },
+  {
+    "name": "single_vqa",
+    "task": "single_vqa",
+    "accepted": true,
+    "ms": 30,
+    "text": "In the optical scene, the dominant land-cover signals are developed and agricultural/bare-surface areas, with scattered ",
+    "confidence": "mock",
+    "trace": "C:\\project\\satquery\\backend\\runtime\\traces\\smoke_1787991783721.json",
+    "pdf": "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991783721.pdf"
+  },
+  {
+    "name": "change_description",
+    "task": "change_description",
+    "accepted": true,
+    "ms": 1235,
+    "text": "The main change between 2023-01-01 and 2023-07-01 is new building construction concentrated near the northwest corner, p",
+    "confidence": "mock",
+    "trace": "C:\\project\\satquery\\backend\\runtime\\traces\\smoke_1787991783913.json",
+    "pdf": "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991783913.pdf"
+  },
+  {
+    "name": "change_vqa",
+    "task": "change_vqa",
+    "accepted": true,
+    "ms": 60,
+    "text": "Based on the bi-temporal pair (2023-01-01 -> 2023-07-01), the built-up area has increased. [mock output - wired to real ",
+    "confidence": "mock",
+    "trace": "C:\\project\\satquery\\backend\\runtime\\traces\\smoke_1787991785395.json",
+    "pdf": "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991785395.pdf"
+  },
+  {
+    "name": "sar_optical_fusion",
+    "task": "sar_optical_fusion",
+    "accepted": true,
+    "ms": 105,
+    "text": "Using optical and SAR evidence jointly: modalities [optical, sar] built-up regions and water-covered regions are identif",
+    "confidence": "mock",
+    "trace": "C:\\project\\satquery\\backend\\runtime\\traces\\smoke_1787991785700.json",
+    "pdf": "C:\\project\\satquery\\backend\\runtime\\outputs\\smoke_1787991785700.pdf"
+  },
+  {
+    "name": "REJECT_mismatched_crs",
+    "task": "rejected",
+    "accepted": false,
+    "ms": 1,
+    "text": "Rejected: co-registration could not be confirmed for the provided pair. The controller will not run fusion on a pair that may be misaligned."
+  }
+]

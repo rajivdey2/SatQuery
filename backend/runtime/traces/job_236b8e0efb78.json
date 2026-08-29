@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "task": "change_vqa",
+  "query": "What changed between these two dates, and where did the change occur?",
+  "query_hash": "73b5749e1d",
+  "input_config": {
+    "n_images": 2,
+    "images": [
+      {
+        "filename": "C:\\project\\satquery\\backend\\runtime\\uploads\\job_236b8e0efb78\\areaA_20230101.tif",
+        "format": "GEOTIFF",
+        "modality": "optical",
+        "width": 512,
+        "height": 512,
+        "band_count": 3,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "extent": [
+          72.8,
+          19.0,
+          72.84,
+          19.04
+        ],
+        "pixel_size": [
+          0.00007812500000001221,
+          0.00007812499999999833
+        ],
+        "acquisition_date": "2023-01-01",
+        "metadata_source": "none"
+      },
+      {
+        "filename": "C:\\project\\satquery\\backend\\runtime\\uploads\\job_236b8e0efb78\\areaA_20230701.tif",
+        "format": "GEOTIFF",
+        "modality": "optical",
+        "width": 512,
+        "height": 512,
+        "band_count": 3,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "extent": [
+          72.8,
+          19.0,
+          72.84,
+          19.04
+        ],
+        "pixel_size": [
+          0.00007812500000001221,
+          0.00007812499999999833
+        ],
+        "acquisition_date": "2023-07-01",
+        "metadata_source": "none"
+      }
+    ],
+    "geolocated": true,
+    "co_registered": true,
+    "co_registration_note": "CRS=EPSG:4326, extent overlap 100%",
+    "bi_temporal": true,
+    "dates_differ": true,
+    "date_note": "Dates 2023-01-01 -> 2023-07-01",
+    "modality_signature": [
+      "optical",
+      "optical"
+    ]
+  },
+  "classification": {
+    "task": "change_vqa",
+    "method": "rules",
+    "reasons": [
+      "change intent + interrogative structure"
+    ],
+    "alternatives": {
+      "single_vqa": 0.0,
+      "single_caption": 0.0,
+      "single_grounding": 0.0,
+      "change_vqa": 1.0,
+      "change_description": 0.0,
+      "sar_optical_fusion": 0.0
+    }
+  },
+  "validation": {
+    "passed": [
+      "format:GEOTIFF",
+      "format:GEOTIFF",
+      "temporal_dates_differ",
+      "GEOTIFF (512x512, 3 band, uint8)",
+      "GEOTIFF (512x512, 3 band, uint8)",
+      "Bi-temporal/mono-modal pair detected.",
+      "CRS=EPSG:4326, extent overlap 100%",
+      "Dates 2023-01-01 -> 2023-07-01"
+    ],
+    "warnings": [],
+    "failed": [],
+    "checks": [
+      {
+        "name": "format",
+        "status": "passed",
+        "message": "GEOTIFF (512x512, 3 band, uint8)"
+      },
+      {
+        "name": "format",
+        "status": "passed",
+        "message": "GEOTIFF (512x512, 3 band, uint8)"
+      },
+      {
+        "name": "pair_type",
+        "status": "passed",
+        "message": "Bi-temporal/mono-modal pair detected."
+      },
+      {
+        "name": "co_registration",
+        "status": "passed",
+        "message": "CRS=EPSG:4326, extent overlap 100%"
+      },
+      {
+        "name": "temporal",
+        "status": "passed",
+        "message": "Dates 2023-01-01 -> 2023-07-01"
+      }
+    ],
+    "input_config": {
+      "n_images": 2,
+      "images": [
+        {
+          "filename": "C:\\project\\satquery\\backend\\runtime\\uploads\\job_236b8e0efb78\\areaA_20230101.tif",
+          "format": "GEOTIFF",
+          "modality": "optical",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": "EPSG:4326",
+          "extent": [
+            72.8,
+            19.0,
+            72.84,
+            19.04
+          ],
+          "pixel_size": [
+            0.00007812500000001221,
+            0.00007812499999999833
+          ],
+          "acquisition_date": "2023-01-01",
+          "metadata_source": "none"
+        },
+        {
+          "filename": "C:\\project\\satquery\\backend\\runtime\\uploads\\job_236b8e0efb78\\areaA_20230701.tif",
+          "format": "GEOTIFF",
+          "modality": "optical",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": "EPSG:4326",
+          "extent": [
+            72.8,
+            19.0,
+            72.84,
+            19.04
+          ],
+          "pixel_size": [
+            0.00007812500000001221,
+            0.00007812499999999833
+          ],
+          "acquisition_date": "2023-07-01",
+          "metadata_source": "none"
+        }
+      ],
+      "geolocated": true,
+      "co_registered": true,
+      "co_registration_note": "CRS=EPSG:4326, extent overlap 100%",
+      "bi_temporal": true,
+      "dates_differ": true,
+      "date_note": "Dates 2023-01-01 -> 2023-07-01",
+      "modality_signature": [
+        "optical",
+        "optical"
+      ]
+    },
+    "accepted": true
+  },
+  "registry_entries_used": [
+    {
+      "id": "change.vqa",
+      "task": "change_vqa",
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "adapter": null,
+      "quantization": null,
+      "fallback": "mock",
+      "permitted_parameters": {
+        "max_new_tokens": 512,
+        "temperature": 0.2
+      }
+    }
+  ],
+  "execution_time_ms": 144,
+  "confidence": {
+    "value": 0.8,
+    "source": "mock",
+    "note": "Deterministic placeholder (skeleton/demo mode), not a calibrated score."
+  },
+  "outputs": {
+    "text": {
+      "text": "Based on the bi-temporal pair (2023-01-01 -> 2023-07-01), the built-up area has remained similar. [mock output - wired to real specialist once adapters ship]",
+      "n_shots": 1
+    },
+    "boxes": [],
+    "mask": {
+      "path": null,
+      "kind": "none"
+    },
+    "evidence_thumbnails": [
+      "C:\\project\\satquery\\backend\\runtime\\outputs\\job_236b8e0efb78_areaA_20230101.png",
+      "C:\\project\\satquery\\backend\\runtime\\outputs\\job_236b8e0efb78_areaA_20230701.png"
+    ]
+  },
+  "model_backend": "mock",
+  "created_at": "2026-08-29T08:29:05.789438+00:00",
+  "server_version": "0.1.0"
+}

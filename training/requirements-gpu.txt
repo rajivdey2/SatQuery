@@ -1,0 +1,17 @@
+# GPU-only dependencies for training/eval (Kaggle / Colab / local GPU box).
+# Install AFTER cloning this repo into the notebook runtime, e.g.:
+#   pip install -r training/requirements-gpu.txt
+torch>=2.3
+numpy
+scipy
+pillow
+transformers>=4.49
+accelerate
+peft>=0.13
+bitsandbytes
+datasets>=2.19
+trl>=0.13
+pyyaml
+tqdm
+scikit-learn
+safetensors

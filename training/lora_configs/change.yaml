@@ -1,0 +1,30 @@
+# Change specialist LoRA config (CDVQA + LEVIR-CC, two-image prompts).
+model_id: Qwen/Qwen3-VL-4B-Instruct
+peft:
+  lora_rank: 64
+  lora_alpha: 128
+  lora_dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+  freeze_vision: true
+  freeze_embeddings: true
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: float16
+training:
+  epochs: 1
+  lr: 2.0e-4
+  lr_scheduler: cosine
+  warmup_ratio: 0.03
+  per_device_batch: 2
+  grad_accum: 8
+  max_seq_len: 4096
+  max_pixels: 4194304
+  fp16: true
+stages:
+  - name: cdvqa             # mandatory change-VQA eval target (SECOND-based)
+    data_dir: /kaggle/input/cdvqa
+    epochs: 1
+  - name: levir_cc          # free-text change captions (what + where changed)
+    data_dir: /kaggle/input/levir-cc
+    epochs: 1

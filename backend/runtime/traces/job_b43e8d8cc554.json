@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "task": "single_grounding",
+  "query": "Highlight the water body referred to in the query.",
+  "query_hash": "1a4eb0ce06",
+  "input_config": {
+    "n_images": 1,
+    "images": [
+      {
+        "filename": "C:\\project\\satquery\\backend\\runtime\\uploads\\job_b43e8d8cc554\\optical_city.png",
+        "format": "PNG",
+        "modality": "optical",
+        "width": 512,
+        "height": 512,
+        "band_count": 3,
+        "dtype": "uint8",
+        "crs": null,
+        "extent": null,
+        "pixel_size": null,
+        "acquisition_date": null,
+        "metadata_source": "none"
+      }
+    ],
+    "geolocated": false,
+    "co_registered": null,
+    "co_registration_note": null,
+    "bi_temporal": null,
+    "dates_differ": null,
+    "date_note": null,
+    "modality_signature": [
+      "optical"
+    ]
+  },
+  "classification": {
+    "task": "single_grounding",
+    "method": "rules",
+    "reasons": [
+      "grounding intent keywords ('highlight', 'where is', ...)"
+    ],
+    "alternatives": {
+      "single_vqa": 0.0,
+      "single_caption": 0.0,
+      "single_grounding": 1.0,
+      "change_vqa": 0.0,
+      "change_description": 0.0,
+      "sar_optical_fusion": 0.0
+    }
+  },
+  "validation": {
+    "passed": [
+      "format:PNG",
+      "PNG (512x512, 3 band, uint8)",
+      "Single image input."
+    ],
+    "warnings": [],
+    "failed": [],
+    "checks": [
+      {
+        "name": "format",
+        "status": "passed",
+        "message": "PNG (512x512, 3 band, uint8)"
+      },
+      {
+        "name": "input_shape",
+        "status": "passed",
+        "message": "Single image input."
+      }
+    ],
+    "input_config": {
+      "n_images": 1,
+      "images": [
+        {
+          "filename": "C:\\project\\satquery\\backend\\runtime\\uploads\\job_b43e8d8cc554\\optical_city.png",
+          "format": "PNG",
+          "modality": "optical",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": null,
+          "extent": null,
+          "pixel_size": null,
+          "acquisition_date": null,
+          "metadata_source": "none"
+        }
+      ],
+      "geolocated": false,
+      "co_registered": null,
+      "co_registration_note": null,
+      "bi_temporal": null,
+      "dates_differ": null,
+      "date_note": null,
+      "modality_signature": [
+        "optical"
+      ]
+    },
+    "accepted": true
+  },
+  "registry_entries_used": [
+    {
+      "id": "rs_vlm.grounding",
+      "task": "single_grounding",
+      "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "adapter": null,
+      "quantization": null,
+      "fallback": "mock",
+      "permitted_parameters": {
+        "max_new_tokens": 512,
+        "temperature": 0.2
+      }
+    }
+  ],
+  "execution_time_ms": 33,
+  "confidence": {
+    "value": 0.8,
+    "source": "mock",
+    "note": "Deterministic placeholder (skeleton/demo mode), not a calibrated score."
+  },
+  "outputs": {
+    "text": {
+      "text": "The object(s) matching 'Highlight the water body referred to in the query.' are localised in the highlighted box (center of scene). [mock output - wired to real specialist once adapters ship]",
+      "n_shots": 1
+    },
+    "boxes": [
+      {
+        "label": "Highlight the water body referred to in the query.",
+        "bbox": [
+          35.0,
+          30.0,
+          65.0,
+          60.0
+        ],
+        "score": 0.8,
+        "tile_index": null
+      }
+    ],
+    "mask": {
+      "path": null,
+      "kind": "none"
+    },
+    "evidence_thumbnails": [
+      "C:\\project\\satquery\\backend\\runtime\\outputs\\job_b43e8d8cc554_optical_city.png"
+    ]
+  },
+  "model_backend": "mock",
+  "created_at": "2026-08-29T08:29:04.895422+00:00",
+  "server_version": "0.1.0"
+}
