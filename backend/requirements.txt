@@ -1,3 +1,6 @@
+# Runtime dependencies for the SatQuery AI backend.
+# The measurement engine, the controller, the API, the reports and the adapted
+# BigEarthNet-MM head all run on this set alone -- no GPU and no model weights.
 fastapi>=0.110
 uvicorn[standard]>=0.29
 python-multipart>=0.0.9
@@ -7,14 +10,19 @@ pillow>=10.0
 pydantic>=2.5
 reportlab>=4.0
 
-# Optional (GeoTIFF I/O). Install for ISRO Cartosat/RISAT product support.
+# GeoTIFF / CRS handling. Required for the geospatial input scope (Cartosat/RISAT
+# products, co-registration checks, ground areas); PNG/JPEG benchmark inputs work
+# without it, so it is imported lazily.
 rasterio>=1.3
 
-# Optional (real inference / LoRA training). GPU env only (Kaggle/Colab).
+# Test + smoke tooling.
+pytest>=8.0
+httpx>=0.27
+
+# Optional: VLM narration and LoRA adapters. GPU environment only --
+# see training/requirements-gpu.txt.
 # torch>=2.3
-# transformers>=4.44
+# transformers>=4.49
 # accelerate
 # peft
 # bitsandbytes
-# datasets
-# trl

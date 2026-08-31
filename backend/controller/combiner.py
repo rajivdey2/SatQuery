@@ -1,45 +1,52 @@
-"""Combiner + confidence (Controller stage 5).
+"""Combiner (Controller stage 5, first half).
 
-Confidence policy (see CLAUDE.md risk register): only report a number where a
-real signal exists. The current backends give us:
-  * mock            -> value is a placeholder, clearly labeled source="mock"
-  * zero-shot       -> no calibrated signal -> not_available, say so
-  * LoRA adapter    -> logit-margin machinery not yet built -> not_available, say so
-  * validator gate  -> the rejection branch is a genuine (deterministic) signal
+Merges the textual answer with the spatial outputs (boxes, masks, rendered
+overlays) into the single ``Outputs`` block the GUI and the report read, and
+records which registry entry ran with which permitted parameters. Confidence
+itself lives in ``controller/confidence.py``.
 """
 from __future__ import annotations
 
-from backend.controller.audit import Confidence, Outputs, RegistryEntryUsed, TextOutput
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+from backend.controller.audit import (Confidence, EvidenceItem, Outputs, RegistryEntryUsed,
+                                      TextOutput)
+from backend.controller.confidence import estimate
+from backend.controller.registry import RegistryEntry
 from backend.specialists.base import SpecialistResult
-from backend.specialists.tasks import box_to_evidence_boxes
+
+
+def combine(result: SpecialistResult, preview_paths: Optional[List[str]] = None) -> Outputs:
+    """Assemble the answer, the spatial evidence and every rendered artefact."""
+    evidence: List[EvidenceItem] = [e for e in result.evidence if e.path]
+    seen = {e.path for e in evidence}
+    for p in preview_paths or []:
+        if p and p not in seen:
+            evidence.append(EvidenceItem(role="input_preview", path=p,
+                                         caption=Path(p).name))
+            seen.add(p)
+    return Outputs(
+        text=TextOutput(text=result.text, narration_source=result.narration_source,
+                        n_samples=result.n_samples),
+        boxes=list(result.boxes), mask=result.mask, evidence=evidence,
+        evidence_thumbnails=[e.path for e in evidence])
 
 
 def build_confidence(result: SpecialistResult) -> Confidence:
-    if result.confidence_source == "mock":
-        return Confidence(value=result.confidence, source="mock",
-                          note="Deterministic placeholder (skeleton/demo mode), not a calibrated score.")
-    if result.mask.kind != "none" and result.mask.path:
-        return Confidence(value=None, source="validated_overlay",
-                          note="Spatial overlay produced by a dedicated change-map specialist; numeric score not yet calibrated.")
-    # Adapter or zero-shot: report honestly.
-    note = ("Fine-tuned adapter active but top-2 logit-margin confidence is not computed yet "
-            "for this task; reporting 'not available' instead of fabricating a number.")
-    if result.adapter:
-        return Confidence(value=None, source="not_available", note=note)
-    return Confidence(value=None, source="not_available",
-                      note="Zero-shot model response; no calibrated confidence signal available for this task.")
+    return estimate(result.confidence_signals, result.narration_source)
 
 
-def combine(result: SpecialistResult, preview_paths: list[str]) -> Outputs:
-    boxes = [b for b in result.boxes]
-    return Outputs(text=TextOutput(text=result.text),
-                   boxes=boxes,
-                   mask=result.mask,
-                   evidence_thumbnails=[str(p) for p in preview_paths])
+def registry_entry_used(entry: RegistryEntry, result: SpecialistResult,
+                        params: Dict[str, Any],
+                        rejected: Optional[List[str]] = None) -> RegistryEntryUsed:
+    return RegistryEntryUsed(
+        id=entry.id, task=entry.task, tool_kind=result.tool_kind,
+        model_id=result.model_id, adapter=result.adapter,
+        quantization=result.quantization, fallback=result.fallback,
+        permitted_parameters=dict(params), rejected_parameters=list(rejected or []))
 
 
-def registry_entry_used(result: SpecialistResult, entry_id: str, task: str, params: dict) -> RegistryEntryUsed:
-    return RegistryEntryUsed(id=entry_id, task=task, model_id=result.model_id,
-                             adapter=result.adapter, quantization=result.quantization,
-                             fallback=result.fallback,
-                             permitted_parameters=params)
+def measurement_block(result: SpecialistResult) -> Dict[str, Any]:
+    """The numeric evidence, JSON-ready for the audit trace."""
+    return result.measurement_dict()

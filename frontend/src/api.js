@@ -1,35 +1,62 @@
-const POLL_MS = 700
+const POLL_MS = 600
+const POLL_TIMEOUT_MS = 180000
 
-export async function health() {
-  const r = await fetch('/health')
-  if (!r.ok) throw new Error('backend unreachable')
-  return r.json()
-}
-
-export async function analyze(files, query) {
-  const fd = new FormData()
-  files.forEach((f) => fd.append('files', f, f.name))
-  fd.append('query', query)
-  const r = await fetch('/api/analyze', { method: 'POST', body: fd })
-  if (!r.ok) throw new Error((await r.json()).detail || 'analyze failed')
-  return r.json()
-}
-
-export async function pollJob(jobId, onDone, onError) {
-  const r = await fetch(`/api/jobs/${jobId}`)
-  if (!r.ok) throw new Error('job fetch failed')
-  const job = await r.json()
-  if (job.status === 'done' || job.status === 'rejected' || job.status === 'error') {
-    onDone(job)
-    return
+async function json(response) {
+  if (!response.ok) {
+    let detail = `${response.status} ${response.statusText}`
+    try {
+      const body = await response.json()
+      detail = body.detail || detail
+    } catch {
+      /* non-JSON error body */
+    }
+    throw new Error(detail)
   }
-  setTimeout(() => pollJob(jobId, onDone, onError), POLL_MS)
+  return response.json()
 }
 
-export function reportUrl(jobId) {
-  return `/api/jobs/${jobId}/report`
+export const health = () => fetch('/health').then(json)
+export const registry = () => fetch('/api/registry').then(json)
+export const demoInfo = () => fetch('/api/demo').then(json)
+export const recentJobs = () => fetch('/api/jobs?limit=12').then(json)
+
+export async function analyze(files, query, params) {
+  const body = new FormData()
+  files.forEach((f) => body.append('files', f, f.name))
+  body.append('query', query)
+  if (params && Object.keys(params).length) {
+    body.append('model_params', JSON.stringify(params))
+  }
+  return json(await fetch('/api/analyze', { method: 'POST', body }))
 }
 
-export function fileUrl(name) {
-  return `/api/files/${encodeURIComponent(name.split('\\').pop().split('/').pop())}`
+/** Fetch a bundled demo input as a File, so demo runs use the same upload path. */
+export async function demoFile(name) {
+  const response = await fetch(`/api/demo/files/${encodeURIComponent(name)}`)
+  if (!response.ok) throw new Error(`demo file ${name} unavailable`)
+  const blob = await response.blob()
+  return new File([blob], name, { type: blob.type || 'image/tiff' })
+}
+
+export async function pollJob(jobId, { onUpdate } = {}) {
+  const started = Date.now()
+  for (;;) {
+    const job = await json(await fetch(`/api/jobs/${jobId}`))
+    if (onUpdate) onUpdate(job)
+    if (job.status === 'done' || job.status === 'rejected' || job.status === 'error') return job
+    if (Date.now() - started > POLL_TIMEOUT_MS) {
+      throw new Error('The controller did not finish within the timeout.')
+    }
+    await new Promise((resolve) => setTimeout(resolve, POLL_MS))
+  }
+}
+
+export const reportUrl = (jobId) => `/api/jobs/${jobId}/report`
+export const traceUrl = (jobId) => `/api/jobs/${jobId}/trace`
+
+/** Rendered artefacts are served by basename out of the runtime output directory. */
+export function fileUrl(path) {
+  if (!path) return ''
+  const name = String(path).split('\\').pop().split('/').pop()
+  return `/api/files/${encodeURIComponent(name)}`
 }

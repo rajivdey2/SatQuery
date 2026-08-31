@@ -1,0 +1,3092 @@
+{
+  "id": "job_03ec6c742e0e",
+  "status": "done",
+  "query": "Has the built-up area increased, decreased, or remained unchanged?",
+  "files": [
+    "C:\\project\\satquery\\backend\\runtime\\uploads\\job_03ec6c742e0e\\areaA_20230101.tif",
+    "C:\\project\\satquery\\backend\\runtime\\uploads\\job_03ec6c742e0e\\areaA_20230701.tif"
+  ],
+  "filenames": [
+    "areaA_20230101.tif",
+    "areaA_20230701.tif"
+  ],
+  "model_params": {},
+  "ground_truth": null,
+  "model_override": null,
+  "created_at": 1788109765.3866181,
+  "result": {
+    "run_id": "job_03ec6c742e0e",
+    "query": "Has the built-up area increased, decreased, or remained unchanged?",
+    "task": "change_vqa",
+    "text": "Based on the measured signal, built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 15.3% of the scene at the earlier date versus 13.4% at the later date (change -1.90 percentage points, -34.2 ha), which does not clear the\u2026. This is a bi-temporal change verdict; the direction per class is listed in the measurements. [Mock output \u2014 SATQUERY_MOCK is on; phrasing is template, not a measured model.]",
+    "answers": [
+      "Based on the measured signal, built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 15.3% of the scene at the earlier date versus 13.4% at the later date (change -1.90 percentage points, -34.2 ha), which does not clear the\u2026. This is a bi-temporal change verdict; the direction per class is listed in the measurements. [Mock output \u2014 SATQUERY_MOCK is on; phrasing is template, not a measured model.]"
+    ],
+    "boxes": [
+      {
+        "label": "changed area",
+        "bbox": [
+          58.59,
+          49.8,
+          64.06,
+          64.84
+        ],
+        "score": 0.696,
+        "class_name": "change",
+        "area_ha": 9.177,
+        "position": "centre"
+      },
+      {
+        "label": "changed area",
+        "bbox": [
+          10.94,
+          11.52,
+          14.45,
+          15.43
+        ],
+        "score": 0.735,
+        "class_name": "change",
+        "area_ha": 1.811,
+        "position": "north-west"
+      }
+    ],
+    "mask_path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png",
+    "mask_kind": "change_map",
+    "evidence": [
+      {
+        "role": "input_preview",
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_areaA_20230101.png",
+        "caption": "t1 \u00b7 2023-01-01"
+      },
+      {
+        "role": "input_preview",
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_areaA_20230701.png",
+        "caption": "t2 \u00b7 2023-07-01"
+      },
+      {
+        "role": "change_map",
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png",
+        "caption": "Before / after / change mask with the largest change clusters"
+      }
+    ],
+    "confidence": {
+      "value": null,
+      "source": "mock",
+      "calibrated": false,
+      "components": [],
+      "note": "Mock backend was active (SATQUERY_MOCK=1): no measurement was performed, so no confidence is reported."
+    },
+    "measurements": {
+      "change_vqa": {
+        "kind": "change",
+        "method": "cva_brightness",
+        "per_class": [
+          {
+            "name": "water",
+            "label": "water",
+            "t1_fraction": 0.16084,
+            "t2_fraction": 0.14167,
+            "delta_fraction": -0.01917,
+            "delta_ha": -34.533,
+            "relative_change": -0.1192,
+            "direction": "unchanged",
+            "significant": false
+          },
+          {
+            "name": "vegetation",
+            "label": "vegetation",
+            "t1_fraction": 0.365,
+            "t2_fraction": 0.35934,
+            "delta_fraction": -0.00566,
+            "delta_ha": -10.199,
+            "relative_change": -0.0155,
+            "direction": "unchanged",
+            "significant": false
+          },
+          {
+            "name": "built_up",
+            "label": "built-up / man-made surface",
+            "t1_fraction": 0.15344,
+            "t2_fraction": 0.13443,
+            "delta_fraction": -0.01901,
+            "delta_ha": -34.249,
+            "relative_change": -0.1239,
+            "direction": "unchanged",
+            "significant": false
+          },
+          {
+            "name": "bare_soil",
+            "label": "bare soil or fallow ground",
+            "t1_fraction": 0.18934,
+            "t2_fraction": 0.23866,
+            "delta_fraction": 0.04932,
+            "delta_ha": 88.841,
+            "relative_change": 0.2605,
+            "direction": "unchanged",
+            "significant": false
+          }
+        ],
+        "transitions": [
+          {
+            "from": "built_up",
+            "to": "vegetation",
+            "pixels": 1063,
+            "fraction": 0.00419,
+            "area_ha": 7.55,
+            "location": "centre"
+          },
+          {
+            "from": "bare_soil",
+            "to": "vegetation",
+            "pixels": 351,
+            "fraction": 0.00138,
+            "area_ha": 2.493,
+            "location": "distributed across the scene"
+          },
+          {
+            "from": "other",
+            "to": "vegetation",
+            "pixels": 133,
+            "fraction": 0.00052,
+            "area_ha": 0.945,
+            "location": "centre"
+          }
+        ],
+        "changed_fraction": 0.0061,
+        "changed_area_ha": 10.988,
+        "magnitude_threshold": 0.35007,
+        "noise_floor": 0.35007,
+        "clusters": [
+          {
+            "label": "changed area",
+            "class_name": "change",
+            "bbox_norm": [
+              58.59,
+              49.8,
+              64.06,
+              64.84
+            ],
+            "bbox_px": [
+              300,
+              255,
+              328,
+              332
+            ],
+            "centroid_norm": [
+              60.95,
+              56.6
+            ],
+            "area_px": 1292,
+            "area_ha": 9.177,
+            "fraction": 0.00509,
+            "position": "centre",
+            "compactness": 0.599,
+            "score": 0.696
+          },
+          {
+            "label": "changed area",
+            "class_name": "change",
+            "bbox_norm": [
+              10.94,
+              11.52,
+              14.45,
+              15.43
+            ],
+            "bbox_px": [
+              56,
+              59,
+              74,
+              79
+            ],
+            "centroid_norm": [
+              12.7,
+              13.3
+            ],
+            "area_px": 255,
+            "area_ha": 1.811,
+            "fraction": 0.00101,
+            "position": "north-west",
+            "compactness": 0.708,
+            "score": 0.735
+          }
+        ],
+        "t1_date": "2023-01-01",
+        "t2_date": "2023-07-01",
+        "change_map_path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png",
+        "t1": {
+          "kind": "land_cover",
+          "method": "visible_proxy_thresholds_v1",
+          "classes": [
+            {
+              "name": "water",
+              "label": "water",
+              "pixel_count": 40788,
+              "fraction": 0.1564184965600816,
+              "area_ha": 289.7053570954127,
+              "evidence_basis": "visible-only proxy: (Blue-Red)/(Blue+Red) > +0.020 (otsu_rejected_prior_used) and brightness below p45",
+              "reliability": "medium",
+              "region_count": 10
+            },
+            {
+              "name": "vegetation",
+              "label": "vegetation",
+              "pixel_count": 92561,
+              "fraction": 0.3549635299621877,
+              "area_ha": 657.4339893622754,
+              "evidence_basis": "visible-only proxy: excess-green > -0.012 (otsu)",
+              "reliability": "medium",
+              "region_count": 4
+            },
+            {
+              "name": "built_up",
+              "label": "built-up / man-made surface",
+              "pixel_count": 38915,
+              "fraction": 0.14923570152092713,
+              "area_ha": 276.4019802728249,
+              "evidence_basis": "brightness > p60 (0.231) with high 5x5 texture > p65 (0.007)",
+              "reliability": "medium",
+              "region_count": 8
+            },
+            {
+              "name": "bare_soil",
+              "label": "bare soil or fallow ground",
+              "pixel_count": 54347,
+              "fraction": 0.20841610357337342,
+              "area_ha": 386.01100917094226,
+              "evidence_basis": "smooth, non-green, non-water residue",
+              "reliability": "medium",
+              "region_count": 9
+            },
+            {
+              "name": "other",
+              "label": "unclassified",
+              "pixel_count": 34151,
+              "fraction": 0.1309661683834301,
+              "area_ha": 242.5646673081651,
+              "evidence_basis": "no proxy threshold satisfied",
+              "reliability": "medium",
+              "region_count": 7
+            }
+          ],
+          "dominant": "vegetation",
+          "indices": [
+            {
+              "name": "BRIGHTNESS",
+              "available": true,
+              "mean": 0.2106,
+              "std": 0.1705,
+              "p05": 0.0071,
+              "p95": 0.517,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "mean scaled reflectance across available bands"
+            },
+            {
+              "name": "BWI",
+              "available": true,
+              "mean": -0.1985,
+              "std": 0.751,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": 0.02,
+              "threshold_method": "otsu_rejected_prior_used",
+              "separability": 0.8126,
+              "note": "Otsu suggested -0.18, outside the plausible BWI window [-0.10, +0.14] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.02 was used instead"
+            },
+            {
+              "name": "EXG",
+              "available": true,
+              "mean": -0.148,
+              "std": 0.8175,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": -0.0117,
+              "threshold_method": "otsu",
+              "separability": 0.8646,
+              "note": "data-driven split inside the plausible EXG window [-0.08, +0.12]"
+            },
+            {
+              "name": "TEXTURE",
+              "available": true,
+              "mean": 0.0058,
+              "std": 0.0047,
+              "p05": 0.0006,
+              "p95": 0.0136,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "local standard deviation of brightness, 5x5 window"
+            },
+            {
+              "name": "MNDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and SWIR1 bands (absent from 4-band and RGB products)"
+            },
+            {
+              "name": "NDBI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires SWIR1 and NIR bands; built-up detected from brightness and texture instead"
+            },
+            {
+              "name": "NDVI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Red and NIR bands; product has blue, green, red"
+            },
+            {
+              "name": "NDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and NIR bands"
+            }
+          ],
+          "regions": [
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                0.2,
+                30.47,
+                55.08,
+                99.8
+              ],
+              "bbox_px": [
+                1,
+                156,
+                282,
+                511
+              ],
+              "centroid_norm": [
+                27.16,
+                65.39
+              ],
+              "area_px": 63329,
+              "area_ha": 449.808,
+              "fraction": 0.24286,
+              "position": "west",
+              "compactness": 0.635,
+              "score": 0.854
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                49.22,
+                21.68,
+                99.8,
+                99.8
+              ],
+              "bbox_px": [
+                252,
+                111,
+                511,
+                511
+              ],
+              "centroid_norm": [
+                79.85,
+                55.5
+              ],
+              "area_px": 37406,
+              "area_ha": 265.684,
+              "fraction": 0.14345,
+              "position": "east",
+              "compactness": 0.361,
+              "score": 0.744
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                20.7,
+                0.2,
+                55.66,
+                34.38
+              ],
+              "bbox_px": [
+                106,
+                1,
+                285,
+                176
+              ],
+              "centroid_norm": [
+                39.89,
+                17.22
+              ],
+              "area_px": 21428,
+              "area_ha": 152.197,
+              "fraction": 0.08217,
+              "position": "north",
+              "compactness": 0.684,
+              "score": 0.822
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                51.95,
+                1.17,
+                99.8,
+                34.96
+              ],
+              "bbox_px": [
+                266,
+                6,
+                511,
+                179
+              ],
+              "centroid_norm": [
+                77.54,
+                16.36
+              ],
+              "area_px": 19765,
+              "area_ha": 140.385,
+              "fraction": 0.0758,
+              "position": "north-east",
+              "compactness": 0.466,
+              "score": 0.727
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                0.2,
+                0.2,
+                27.73,
+                31.05
+              ],
+              "bbox_px": [
+                1,
+                1,
+                142,
+                159
+              ],
+              "centroid_norm": [
+                12.4,
+                16.74
+              ],
+              "area_px": 13926,
+              "area_ha": 98.912,
+              "fraction": 0.05341,
+              "position": "north-west",
+              "compactness": 0.625,
+              "score": 0.764
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                55.66,
+                35.35,
+                71.48,
+                76.17
+              ],
+              "bbox_px": [
+                285,
+                181,
+                366,
+                390
+              ],
+              "centroid_norm": [
+                62.4,
+                55.46
+              ],
+              "area_px": 9436,
+              "area_ha": 67.021,
+              "fraction": 0.03619,
+              "position": "centre",
+              "compactness": 0.557,
+              "score": 0.716
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                73.83,
+                22.27,
+                99.22,
+                40.43
+              ],
+              "bbox_px": [
+                378,
+                114,
+                508,
+                207
+              ],
+              "centroid_norm": [
+                87.63,
+                30.86
+              ],
+              "area_px": 6673,
+              "area_ha": 47.396,
+              "fraction": 0.02559,
+              "position": "north-east",
+              "compactness": 0.552,
+              "score": 0.701
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                60.35,
+                77.15,
+                74.02,
+                99.8
+              ],
+              "bbox_px": [
+                309,
+                395,
+                379,
+                511
+              ],
+              "centroid_norm": [
+                66.63,
+                89.93
+              ],
+              "area_px": 6323,
+              "area_ha": 44.91,
+              "fraction": 0.02425,
+              "position": "south",
+              "compactness": 0.779,
+              "score": 0.791
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                19.14,
+                76.76,
+                57.03,
+                99.8
+              ],
+              "bbox_px": [
+                98,
+                393,
+                292,
+                511
+              ],
+              "centroid_norm": [
+                42.19,
+                91.43
+              ],
+              "area_px": 6053,
+              "area_ha": 42.993,
+              "fraction": 0.02321,
+              "position": "south",
+              "compactness": 0.264,
+              "score": 0.584
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                0.2,
+                38.87,
+                22.46,
+                60.94
+              ],
+              "bbox_px": [
+                1,
+                199,
+                115,
+                312
+              ],
+              "centroid_norm": [
+                9.54,
+                45.6
+              ],
+              "area_px": 4010,
+              "area_ha": 28.482,
+              "fraction": 0.01538,
+              "position": "west",
+              "compactness": 0.311,
+              "score": 0.593
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                1.76,
+                43.36,
+                17.97,
+                59.77
+              ],
+              "bbox_px": [
+                9,
+                222,
+                92,
+                306
+              ],
+              "centroid_norm": [
+                8.04,
+                50.08
+              ],
+              "area_px": 3818,
+              "area_ha": 27.118,
+              "fraction": 0.01464,
+              "position": "west",
+              "compactness": 0.548,
+              "score": 0.687
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                0.2,
+                29.88,
+                27.73,
+                39.26
+              ],
+              "bbox_px": [
+                1,
+                153,
+                142,
+                201
+              ],
+              "centroid_norm": [
+                12.99,
+                34.8
+              ],
+              "area_px": 3786,
+              "area_ha": 26.891,
+              "fraction": 0.01452,
+              "position": "west",
+              "compactness": 0.559,
+              "score": 0.691
+            }
+          ],
+          "quality": {
+            "band_layout": "rgb",
+            "bands_available": [
+              "blue",
+              "green",
+              "red"
+            ],
+            "indices_available": [
+              "BRIGHTNESS",
+              "BWI",
+              "EXG",
+              "TEXTURE"
+            ],
+            "indices_unavailable": [
+              "MNDWI",
+              "NDBI",
+              "NDVI",
+              "NDWI"
+            ],
+            "valid_pixel_fraction": 0.9947,
+            "separability": 0.8386,
+            "spatial_reference": true,
+            "limitations": [
+              "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability."
+            ]
+          },
+          "scene_labels": [],
+          "label_source": null
+        },
+        "t2": {
+          "kind": "land_cover",
+          "method": "visible_proxy_thresholds_v1",
+          "classes": [
+            {
+              "name": "water",
+              "label": "water",
+              "pixel_count": 36505,
+              "fraction": 0.1431725836562446,
+              "area_ha": 259.2844478956565,
+              "evidence_basis": "visible-only proxy: (Blue-Red)/(Blue+Red) > +0.020 (otsu_rejected_prior_used) and brightness below p45",
+              "reliability": "medium",
+              "region_count": 3
+            },
+            {
+              "name": "vegetation",
+              "label": "vegetation",
+              "pixel_count": 91125,
+              "fraction": 0.3573921842398381,
+              "area_ha": 647.2344970412738,
+              "evidence_basis": "visible-only proxy: excess-green > +0.027 (otsu)",
+              "reliability": "medium",
+              "region_count": 4
+            },
+            {
+              "name": "built_up",
+              "label": "built-up / man-made surface",
+              "pixel_count": 34090,
+              "fraction": 0.1337009553990242,
+              "area_ha": 242.13140196583845,
+              "evidence_basis": "brightness > p60 (0.213) with high 5x5 texture > p65 (0.006)",
+              "reliability": "medium",
+              "region_count": 8
+            },
+            {
+              "name": "bare_soil",
+              "label": "bare soil or fallow ground",
+              "pixel_count": 60997,
+              "fraction": 0.23923018998164505,
+              "area_ha": 433.2440341950791,
+              "evidence_basis": "smooth, non-green, non-water residue",
+              "reliability": "medium",
+              "region_count": 10
+            },
+            {
+              "name": "other",
+              "label": "unclassified",
+              "pixel_count": 32255,
+              "fraction": 0.12650408672324803,
+              "area_ha": 229.09792814338863,
+              "evidence_basis": "no proxy threshold satisfied",
+              "reliability": "medium",
+              "region_count": 5
+            }
+          ],
+          "dominant": "vegetation",
+          "indices": [
+            {
+              "name": "BRIGHTNESS",
+              "available": true,
+              "mean": 0.1867,
+              "std": 0.1601,
+              "p05": 0.0052,
+              "p95": 0.4444,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "mean scaled reflectance across available bands"
+            },
+            {
+              "name": "BWI",
+              "available": true,
+              "mean": -0.3717,
+              "std": 0.7829,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": 0.02,
+              "threshold_method": "otsu_rejected_prior_used",
+              "separability": 0.8677,
+              "note": "Otsu suggested -0.22, outside the plausible BWI window [-0.10, +0.14] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.02 was used instead"
+            },
+            {
+              "name": "EXG",
+              "available": true,
+              "mean": -0.1331,
+              "std": 0.8727,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": 0.0273,
+              "threshold_method": "otsu",
+              "separability": 0.9008,
+              "note": "data-driven split inside the plausible EXG window [-0.08, +0.12]"
+            },
+            {
+              "name": "TEXTURE",
+              "available": true,
+              "mean": 0.005,
+              "std": 0.0045,
+              "p05": 0.0,
+              "p95": 0.0142,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "local standard deviation of brightness, 5x5 window"
+            },
+            {
+              "name": "MNDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and SWIR1 bands (absent from 4-band and RGB products)"
+            },
+            {
+              "name": "NDBI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires SWIR1 and NIR bands; built-up detected from brightness and texture instead"
+            },
+            {
+              "name": "NDVI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Red and NIR bands; product has blue, green, red"
+            },
+            {
+              "name": "NDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and NIR bands"
+            }
+          ],
+          "regions": [
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                43.16,
+                44.53,
+                99.8,
+                99.8
+              ],
+              "bbox_px": [
+                221,
+                228,
+                511,
+                511
+              ],
+              "centroid_norm": [
+                74.46,
+                76.06
+              ],
+              "area_px": 56688,
+              "area_ha": 402.638,
+              "fraction": 0.22233,
+              "position": "south-east",
+              "compactness": 0.691,
+              "score": 0.876
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                0.2,
+                31.84,
+                55.66,
+                99.8
+              ],
+              "bbox_px": [
+                1,
+                163,
+                285,
+                511
+              ],
+              "centroid_norm": [
+                33.56,
+                75.91
+              ],
+              "area_px": 33972,
+              "area_ha": 241.293,
+              "fraction": 0.13324,
+              "position": "south",
+              "compactness": 0.344,
+              "score": 0.737
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                30.86,
+                0.2,
+                99.8,
+                48.24
+              ],
+              "bbox_px": [
+                158,
+                1,
+                511,
+                247
+              ],
+              "centroid_norm": [
+                59.28,
+                26.08
+              ],
+              "area_px": 33745,
+              "area_ha": 239.681,
+              "fraction": 0.13235,
+              "position": "north",
+              "compactness": 0.389,
+              "score": 0.755
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                0.2,
+                0.2,
+                40.62,
+                38.28
+              ],
+              "bbox_px": [
+                1,
+                1,
+                208,
+                196
+              ],
+              "centroid_norm": [
+                17.55,
+                19.11
+              ],
+              "area_px": 30788,
+              "area_ha": 218.678,
+              "fraction": 0.12075,
+              "position": "north-west",
+              "compactness": 0.763,
+              "score": 0.9
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                0.2,
+                41.02,
+                41.41,
+                81.45
+              ],
+              "bbox_px": [
+                1,
+                210,
+                212,
+                417
+              ],
+              "centroid_norm": [
+                19.84,
+                61.39
+              ],
+              "area_px": 22166,
+              "area_ha": 157.439,
+              "fraction": 0.08694,
+              "position": "west",
+              "compactness": 0.507,
+              "score": 0.757
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                53.91,
+                0.2,
+                99.8,
+                28.91
+              ],
+              "bbox_px": [
+                276,
+                1,
+                511,
+                148
+              ],
+              "centroid_norm": [
+                80.38,
+                14.37
+              ],
+              "area_px": 18057,
+              "area_ha": 128.254,
+              "fraction": 0.07082,
+              "position": "north-east",
+              "compactness": 0.523,
+              "score": 0.744
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                24.41,
+                46.09,
+                44.53,
+                73.83
+              ],
+              "bbox_px": [
+                125,
+                236,
+                228,
+                378
+              ],
+              "centroid_norm": [
+                35.42,
+                59.25
+              ],
+              "area_px": 4579,
+              "area_ha": 32.523,
+              "fraction": 0.01796,
+              "position": "centre",
+              "compactness": 0.313,
+              "score": 0.597
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                3.12,
+                35.74,
+                22.46,
+                62.5
+              ],
+              "bbox_px": [
+                16,
+                183,
+                115,
+                320
+              ],
+              "centroid_norm": [
+                10.36,
+                46.93
+              ],
+              "area_px": 4411,
+              "area_ha": 31.33,
+              "fraction": 0.0173,
+              "position": "west",
+              "compactness": 0.325,
+              "score": 0.601
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                73.05,
+                0.2,
+                91.8,
+                12.7
+              ],
+              "bbox_px": [
+                374,
+                1,
+                470,
+                65
+              ],
+              "centroid_norm": [
+                81.18,
+                5.16
+              ],
+              "area_px": 3573,
+              "area_ha": 25.378,
+              "fraction": 0.01401,
+              "position": "north-east",
+              "compactness": 0.582,
+              "score": 0.699
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                55.08,
+                29.49,
+                74.02,
+                38.87
+              ],
+              "bbox_px": [
+                282,
+                151,
+                379,
+                199
+              ],
+              "centroid_norm": [
+                63.61,
+                33.87
+              ],
+              "area_px": 2667,
+              "area_ha": 18.943,
+              "fraction": 0.01046,
+              "position": "centre",
+              "compactness": 0.573,
+              "score": 0.692
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                65.23,
+                68.36,
+                99.8,
+                75.39
+              ],
+              "bbox_px": [
+                334,
+                350,
+                511,
+                386
+              ],
+              "centroid_norm": [
+                81.05,
+                71.73
+              ],
+              "area_px": 2241,
+              "area_ha": 15.917,
+              "fraction": 0.00879,
+              "position": "south-east",
+              "compactness": 0.352,
+              "score": 0.601
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                58.79,
+                3.12,
+                68.95,
+                12.7
+              ],
+              "bbox_px": [
+                301,
+                16,
+                353,
+                65
+              ],
+              "centroid_norm": [
+                63.99,
+                7.62
+              ],
+              "area_px": 1612,
+              "area_ha": 11.45,
+              "fraction": 0.00632,
+              "position": "north",
+              "compactness": 0.633,
+              "score": 0.711
+            }
+          ],
+          "quality": {
+            "band_layout": "rgb",
+            "bands_available": [
+              "blue",
+              "green",
+              "red"
+            ],
+            "indices_available": [
+              "BRIGHTNESS",
+              "BWI",
+              "EXG",
+              "TEXTURE"
+            ],
+            "indices_unavailable": [
+              "MNDWI",
+              "NDBI",
+              "NDVI",
+              "NDWI"
+            ],
+            "valid_pixel_fraction": 0.9726,
+            "separability": 0.8842,
+            "spatial_reference": true,
+            "limitations": [
+              "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability."
+            ]
+          },
+          "scene_labels": [],
+          "label_source": null
+        },
+        "quality": {
+          "band_layout": "rgb vs rgb",
+          "bands_available": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "indices_available": [
+            "BRIGHTNESS"
+          ],
+          "indices_unavailable": [
+            "MNDWI",
+            "NDBI",
+            "NDVI",
+            "NDWI"
+          ],
+          "valid_pixel_fraction": 0.9674,
+          "separability": 0.8386,
+          "spatial_reference": true,
+          "limitations": [
+            "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability.",
+            "Relative radiometric normalisation applied to the later acquisition (band0: gain 0.918, offset +7.151; band1: gain 0.954, offset +1.926; band2: gain 1.017, offset +15.587).",
+            "Change Vector Analysis over BRIGHTNESS; threshold 0.3501 (Otsu 0.1436, separability 0.76, noise floor 0.3501)"
+          ]
+        }
+      }
+    },
+    "model_id": "mock-specialist",
+    "adapter": null,
+    "narration_source": "mock",
+    "tools_used": [
+      "change.vqa"
+    ],
+    "trace_path": "C:\\project\\satquery\\backend\\runtime\\traces\\job_03ec6c742e0e.json",
+    "rejected": null
+  },
+  "trace": {
+    "schema_version": "2.0.0",
+    "run_id": "job_03ec6c742e0e",
+    "task": "change_vqa",
+    "query": "Has the built-up area increased, decreased, or remained unchanged?",
+    "query_hash": "afe989e794",
+    "input_config": {
+      "n_images": 2,
+      "images": [
+        {
+          "filename": "areaA_20230101.tif",
+          "format": "GEOTIFF",
+          "modality": "optical",
+          "modality_confidence": "medium",
+          "modality_reason": "3 bands: true-colour optical composite",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": "EPSG:4326",
+          "extent": [
+            72.8,
+            19.0,
+            72.84,
+            19.04
+          ],
+          "extent_wgs84": [
+            72.8,
+            19.0,
+            72.84,
+            19.04
+          ],
+          "pixel_size": [
+            7.812500000001221e-05,
+            7.812499999999833e-05
+          ],
+          "pixel_area_m2": 71.02710529945392,
+          "acquisition_date": "2023-01-01",
+          "metadata_source": "rasterio_tags",
+          "sensor_guess": null,
+          "band_assignment": {
+            "layout": "rgb",
+            "source": "band_count",
+            "roles": {
+              "blue": 2,
+              "green": 1,
+              "red": 0
+            },
+            "ambiguous": false,
+            "notes": [
+              "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+            ]
+          },
+          "details": {
+            "analysis_shape": [
+              512,
+              512
+            ],
+            "read_decimation": 1.0,
+            "valid_pixel_fraction": 0.9947,
+            "preprocessing_notes": [
+              "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used.",
+              "0.5% of pixels excluded as nodata/footprint padding."
+            ]
+          }
+        },
+        {
+          "filename": "areaA_20230701.tif",
+          "format": "GEOTIFF",
+          "modality": "optical",
+          "modality_confidence": "medium",
+          "modality_reason": "3 bands: true-colour optical composite",
+          "width": 512,
+          "height": 512,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": "EPSG:4326",
+          "extent": [
+            72.8,
+            19.0,
+            72.84,
+            19.04
+          ],
+          "extent_wgs84": [
+            72.8,
+            19.0,
+            72.84,
+            19.04
+          ],
+          "pixel_size": [
+            7.812500000001221e-05,
+            7.812499999999833e-05
+          ],
+          "pixel_area_m2": 71.02710529945392,
+          "acquisition_date": "2023-07-01",
+          "metadata_source": "rasterio_tags",
+          "sensor_guess": null,
+          "band_assignment": {
+            "layout": "rgb",
+            "source": "band_count",
+            "roles": {
+              "blue": 2,
+              "green": 1,
+              "red": 0
+            },
+            "ambiguous": false,
+            "notes": [
+              "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+            ]
+          },
+          "details": {
+            "analysis_shape": [
+              512,
+              512
+            ],
+            "read_decimation": 1.0,
+            "valid_pixel_fraction": 0.9726,
+            "preprocessing_notes": [
+              "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used.",
+              "2.7% of pixels excluded as nodata/footprint padding."
+            ]
+          }
+        }
+      ],
+      "geolocated": true,
+      "co_registered": true,
+      "co_registration_note": "Footprints overlap 100.0% (native CRS EPSG:4326), resolution ratio 1.00x, identical CRS",
+      "bi_temporal": true,
+      "cross_modal": false,
+      "dates_differ": true,
+      "date_note": "Bi-temporal pair: 2023-01-01 -> 2023-07-01.",
+      "modality_signature": [
+        "optical",
+        "optical"
+      ]
+    },
+    "validation": {
+      "passed": [
+        "format:GEOTIFF",
+        "modality:optical",
+        "georeference",
+        "temporal_dates_differ",
+        "areaA_20230101.tif: GEOTIFF, 512x512, 3 band(s), uint8",
+        "areaA_20230101.tif: modality 'optical' (medium confidence) \u2014 3 bands: true-colour optical composite",
+        "areaA_20230101.tif: CRS EPSG:4326, pixel size [7.812500000001221e-05, 7.812499999999833e-05], extent [72.8, 19.0, 72.84, 19.04]",
+        "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
+        "areaA_20230701.tif: GEOTIFF, 512x512, 3 band(s), uint8",
+        "areaA_20230701.tif: modality 'optical' (medium confidence) \u2014 3 bands: true-colour optical composite",
+        "areaA_20230701.tif: CRS EPSG:4326, pixel size [7.812500000001221e-05, 7.812499999999833e-05], extent [72.8, 19.0, 72.84, 19.04]",
+        "areaA_20230701.tif: acquisition date 2023-07-01 (from rasterio_tags)",
+        "Same-modality pair detected (optical): treated as bi-temporal.",
+        "Footprints overlap 100.0% (native CRS EPSG:4326), resolution ratio 1.00x, identical CRS",
+        "Bi-temporal pair: 2023-01-01 -> 2023-07-01."
+      ],
+      "warnings": [],
+      "failed": [],
+      "checks": [
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "areaA_20230101.tif: GEOTIFF, 512x512, 3 band(s), uint8",
+          "detail": {
+            "format": "GEOTIFF",
+            "dtype": "uint8",
+            "bands": 3
+          }
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "areaA_20230101.tif: modality 'optical' (medium confidence) \u2014 3 bands: true-colour optical composite",
+          "detail": {
+            "modality": "optical",
+            "confidence": "medium",
+            "sensor_guess": null
+          }
+        },
+        {
+          "name": "georeference",
+          "status": "passed",
+          "message": "areaA_20230101.tif: CRS EPSG:4326, pixel size [7.812500000001221e-05, 7.812499999999833e-05], extent [72.8, 19.0, 72.84, 19.04]",
+          "detail": {
+            "crs": "EPSG:4326",
+            "pixel_size": [
+              7.812500000001221e-05,
+              7.812499999999833e-05
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "passed",
+          "message": "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
+          "detail": {}
+        },
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "areaA_20230701.tif: GEOTIFF, 512x512, 3 band(s), uint8",
+          "detail": {
+            "format": "GEOTIFF",
+            "dtype": "uint8",
+            "bands": 3
+          }
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "areaA_20230701.tif: modality 'optical' (medium confidence) \u2014 3 bands: true-colour optical composite",
+          "detail": {
+            "modality": "optical",
+            "confidence": "medium",
+            "sensor_guess": null
+          }
+        },
+        {
+          "name": "georeference",
+          "status": "passed",
+          "message": "areaA_20230701.tif: CRS EPSG:4326, pixel size [7.812500000001221e-05, 7.812499999999833e-05], extent [72.8, 19.0, 72.84, 19.04]",
+          "detail": {
+            "crs": "EPSG:4326",
+            "pixel_size": [
+              7.812500000001221e-05,
+              7.812499999999833e-05
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "passed",
+          "message": "areaA_20230701.tif: acquisition date 2023-07-01 (from rasterio_tags)",
+          "detail": {}
+        },
+        {
+          "name": "input_configuration",
+          "status": "passed",
+          "message": "Same-modality pair detected (optical): treated as bi-temporal.",
+          "detail": {
+            "configuration": "bi_temporal_pair",
+            "modalities": [
+              "optical",
+              "optical"
+            ]
+          }
+        },
+        {
+          "name": "co_registration",
+          "status": "passed",
+          "message": "Footprints overlap 100.0% (native CRS EPSG:4326), resolution ratio 1.00x, identical CRS",
+          "detail": {
+            "comparison": "native CRS EPSG:4326",
+            "same_crs": true,
+            "overlap_ratio": 1.0,
+            "resolution_ratio": 1.0,
+            "crs": [
+              "EPSG:4326",
+              "EPSG:4326"
+            ]
+          }
+        },
+        {
+          "name": "temporal",
+          "status": "passed",
+          "message": "Bi-temporal pair: 2023-01-01 -> 2023-07-01.",
+          "detail": {
+            "dates": [
+              "2023-01-01",
+              "2023-07-01"
+            ]
+          }
+        }
+      ],
+      "input_config": {
+        "n_images": 2,
+        "images": [
+          {
+            "filename": "areaA_20230101.tif",
+            "format": "GEOTIFF",
+            "modality": "optical",
+            "modality_confidence": "medium",
+            "modality_reason": "3 bands: true-colour optical composite",
+            "width": 512,
+            "height": 512,
+            "band_count": 3,
+            "dtype": "uint8",
+            "crs": "EPSG:4326",
+            "extent": [
+              72.8,
+              19.0,
+              72.84,
+              19.04
+            ],
+            "extent_wgs84": [
+              72.8,
+              19.0,
+              72.84,
+              19.04
+            ],
+            "pixel_size": [
+              7.812500000001221e-05,
+              7.812499999999833e-05
+            ],
+            "pixel_area_m2": 71.02710529945392,
+            "acquisition_date": "2023-01-01",
+            "metadata_source": "rasterio_tags",
+            "sensor_guess": null,
+            "band_assignment": {
+              "layout": "rgb",
+              "source": "band_count",
+              "roles": {
+                "blue": 2,
+                "green": 1,
+                "red": 0
+              },
+              "ambiguous": false,
+              "notes": [
+                "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+              ]
+            },
+            "details": {
+              "analysis_shape": [
+                512,
+                512
+              ],
+              "read_decimation": 1.0,
+              "valid_pixel_fraction": 0.9947,
+              "preprocessing_notes": [
+                "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used.",
+                "0.5% of pixels excluded as nodata/footprint padding."
+              ]
+            }
+          },
+          {
+            "filename": "areaA_20230701.tif",
+            "format": "GEOTIFF",
+            "modality": "optical",
+            "modality_confidence": "medium",
+            "modality_reason": "3 bands: true-colour optical composite",
+            "width": 512,
+            "height": 512,
+            "band_count": 3,
+            "dtype": "uint8",
+            "crs": "EPSG:4326",
+            "extent": [
+              72.8,
+              19.0,
+              72.84,
+              19.04
+            ],
+            "extent_wgs84": [
+              72.8,
+              19.0,
+              72.84,
+              19.04
+            ],
+            "pixel_size": [
+              7.812500000001221e-05,
+              7.812499999999833e-05
+            ],
+            "pixel_area_m2": 71.02710529945392,
+            "acquisition_date": "2023-07-01",
+            "metadata_source": "rasterio_tags",
+            "sensor_guess": null,
+            "band_assignment": {
+              "layout": "rgb",
+              "source": "band_count",
+              "roles": {
+                "blue": 2,
+                "green": 1,
+                "red": 0
+              },
+              "ambiguous": false,
+              "notes": [
+                "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+              ]
+            },
+            "details": {
+              "analysis_shape": [
+                512,
+                512
+              ],
+              "read_decimation": 1.0,
+              "valid_pixel_fraction": 0.9726,
+              "preprocessing_notes": [
+                "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used.",
+                "2.7% of pixels excluded as nodata/footprint padding."
+              ]
+            }
+          }
+        ],
+        "geolocated": true,
+        "co_registered": true,
+        "co_registration_note": "Footprints overlap 100.0% (native CRS EPSG:4326), resolution ratio 1.00x, identical CRS",
+        "bi_temporal": true,
+        "cross_modal": false,
+        "dates_differ": true,
+        "date_note": "Bi-temporal pair: 2023-01-01 -> 2023-07-01.",
+        "modality_signature": [
+          "optical",
+          "optical"
+        ]
+      },
+      "accepted": true
+    },
+    "classification": {
+      "task": "change_vqa",
+      "method": "rules",
+      "reasons": [
+        "Input is a same-modality pair, the defined input for change analysis.",
+        "Matched change_vqa evidence: increased, decreased, remained unchanged, has the."
+      ],
+      "scores": {
+        "single_vqa": -1.0,
+        "single_caption": -1.0,
+        "single_grounding": -1.0,
+        "change_vqa": 15.0,
+        "change_description": 1.5,
+        "sar_optical_fusion": -1.0
+      },
+      "alternatives": {
+        "change_vqa": 0.9999,
+        "change_description": 0.0001
+      },
+      "runner_up": {
+        "task": "change_description",
+        "score": 0.0001
+      },
+      "infeasible_tasks": {
+        "single_vqa": "rs_vlm.vqa requires exactly one image, 2 supplied",
+        "single_caption": "rs_vlm.caption requires exactly one image, 2 supplied",
+        "single_grounding": "rs_vlm.grounding requires exactly one image, 2 supplied",
+        "sar_optical_fusion": "fusion.joint requires one optical and one SAR image; modalities supplied: ['optical', 'optical']"
+      },
+      "matched_evidence": {
+        "change_vqa": [
+          "increased",
+          "decreased",
+          "remained unchanged",
+          "has the"
+        ]
+      },
+      "candidate_tasks": [
+        "single_vqa",
+        "single_caption",
+        "single_grounding",
+        "change_vqa",
+        "change_description",
+        "sar_optical_fusion"
+      ]
+    },
+    "plan": [
+      "change.vqa"
+    ],
+    "registry_entries_used": [
+      {
+        "id": "change.vqa",
+        "task": "change_vqa",
+        "tool_kind": "mock",
+        "model_id": "mock-specialist",
+        "adapter": null,
+        "quantization": null,
+        "fallback": null,
+        "permitted_parameters": {
+          "min_region_pixels": 64,
+          "smoothing_window": 3,
+          "max_new_tokens": 512,
+          "temperature": 0.2,
+          "change_threshold": null,
+          "significance": 0.01,
+          "normalize_radiometry": true
+        },
+        "rejected_parameters": []
+      }
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "tool": "preprocessing.read_and_calibrate",
+        "task": "",
+        "parameters": {
+          "file": "areaA_20230101.tif",
+          "speckle_filter": null
+        },
+        "outputs_summary": "optical \u00b7 rgb \u00b7 512x512 analysis grid",
+        "duration_ms": 36,
+        "status": "ok",
+        "detail": {
+          "band_roles": {
+            "red": 0,
+            "green": 1,
+            "blue": 2
+          },
+          "band_source": "band_count",
+          "pixel_area_m2": 71.02710529945392
+        }
+      },
+      {
+        "order": 2,
+        "tool": "preprocessing.read_and_calibrate",
+        "task": "",
+        "parameters": {
+          "file": "areaA_20230701.tif",
+          "speckle_filter": null
+        },
+        "outputs_summary": "optical \u00b7 rgb \u00b7 512x512 analysis grid",
+        "duration_ms": 39,
+        "status": "ok",
+        "detail": {
+          "band_roles": {
+            "red": 0,
+            "green": 1,
+            "blue": 2
+          },
+          "band_source": "band_count",
+          "pixel_area_m2": 71.02710529945392
+        }
+      },
+      {
+        "order": 3,
+        "tool": "preprocessing.pair_alignment",
+        "task": "change_vqa",
+        "parameters": {
+          "reference": "areaA_20230101.tif"
+        },
+        "outputs_summary": "t1 512x512 (2023-01-01) vs t2 512x512 (2023-07-01)",
+        "duration_ms": 0,
+        "status": "ok",
+        "detail": {
+          "t1": "areaA_20230101.tif",
+          "t2": "areaA_20230701.tif",
+          "same_grid": true,
+          "chronology": "acquisition dates"
+        }
+      },
+      {
+        "order": 4,
+        "tool": "analysis.change_detection",
+        "task": "change_vqa",
+        "parameters": {
+          "min_region_pixels": 64,
+          "smoothing_window": 3,
+          "change_threshold": null,
+          "significance": 0.01,
+          "normalize_radiometry": true
+        },
+        "outputs_summary": "0.61% changed; method=cva_brightness; threshold=0.35007",
+        "duration_ms": 619,
+        "status": "ok",
+        "detail": {
+          "per_class_delta": {
+            "water": -0.01917,
+            "vegetation": -0.00566,
+            "built_up": -0.01901,
+            "bare_soil": 0.04932
+          },
+          "significant": [],
+          "noise_floor": 0.35007
+        }
+      },
+      {
+        "order": 5,
+        "tool": "render.change_map",
+        "task": "change_vqa",
+        "parameters": {
+          "clusters": 2
+        },
+        "outputs_summary": "job_03ec6c742e0e_change.png",
+        "duration_ms": 85,
+        "status": "ok",
+        "detail": {}
+      },
+      {
+        "order": 6,
+        "tool": "change.vqa",
+        "task": "change_vqa",
+        "parameters": {
+          "min_region_pixels": 64,
+          "smoothing_window": 3,
+          "max_new_tokens": 512,
+          "temperature": 0.2,
+          "change_threshold": null,
+          "significance": 0.01,
+          "normalize_radiometry": true
+        },
+        "outputs_summary": "442 chars, 2 box(es), mask=change_map, narration=mock",
+        "duration_ms": 705,
+        "status": "ok",
+        "detail": {
+          "reason_in_plan": "registry entry for classified task 'change_vqa'",
+          "primary": true
+        }
+      }
+    ],
+    "effective_parameters": {
+      "min_region_pixels": 64,
+      "smoothing_window": 3,
+      "max_new_tokens": 512,
+      "temperature": 0.2,
+      "change_threshold": null,
+      "significance": 0.01,
+      "normalize_radiometry": true
+    },
+    "measurements": {
+      "change_vqa": {
+        "kind": "change",
+        "method": "cva_brightness",
+        "per_class": [
+          {
+            "name": "water",
+            "label": "water",
+            "t1_fraction": 0.16084,
+            "t2_fraction": 0.14167,
+            "delta_fraction": -0.01917,
+            "delta_ha": -34.533,
+            "relative_change": -0.1192,
+            "direction": "unchanged",
+            "significant": false
+          },
+          {
+            "name": "vegetation",
+            "label": "vegetation",
+            "t1_fraction": 0.365,
+            "t2_fraction": 0.35934,
+            "delta_fraction": -0.00566,
+            "delta_ha": -10.199,
+            "relative_change": -0.0155,
+            "direction": "unchanged",
+            "significant": false
+          },
+          {
+            "name": "built_up",
+            "label": "built-up / man-made surface",
+            "t1_fraction": 0.15344,
+            "t2_fraction": 0.13443,
+            "delta_fraction": -0.01901,
+            "delta_ha": -34.249,
+            "relative_change": -0.1239,
+            "direction": "unchanged",
+            "significant": false
+          },
+          {
+            "name": "bare_soil",
+            "label": "bare soil or fallow ground",
+            "t1_fraction": 0.18934,
+            "t2_fraction": 0.23866,
+            "delta_fraction": 0.04932,
+            "delta_ha": 88.841,
+            "relative_change": 0.2605,
+            "direction": "unchanged",
+            "significant": false
+          }
+        ],
+        "transitions": [
+          {
+            "from": "built_up",
+            "to": "vegetation",
+            "pixels": 1063,
+            "fraction": 0.00419,
+            "area_ha": 7.55,
+            "location": "centre"
+          },
+          {
+            "from": "bare_soil",
+            "to": "vegetation",
+            "pixels": 351,
+            "fraction": 0.00138,
+            "area_ha": 2.493,
+            "location": "distributed across the scene"
+          },
+          {
+            "from": "other",
+            "to": "vegetation",
+            "pixels": 133,
+            "fraction": 0.00052,
+            "area_ha": 0.945,
+            "location": "centre"
+          }
+        ],
+        "changed_fraction": 0.0061,
+        "changed_area_ha": 10.988,
+        "magnitude_threshold": 0.35007,
+        "noise_floor": 0.35007,
+        "clusters": [
+          {
+            "label": "changed area",
+            "class_name": "change",
+            "bbox_norm": [
+              58.59,
+              49.8,
+              64.06,
+              64.84
+            ],
+            "bbox_px": [
+              300,
+              255,
+              328,
+              332
+            ],
+            "centroid_norm": [
+              60.95,
+              56.6
+            ],
+            "area_px": 1292,
+            "area_ha": 9.177,
+            "fraction": 0.00509,
+            "position": "centre",
+            "compactness": 0.599,
+            "score": 0.696
+          },
+          {
+            "label": "changed area",
+            "class_name": "change",
+            "bbox_norm": [
+              10.94,
+              11.52,
+              14.45,
+              15.43
+            ],
+            "bbox_px": [
+              56,
+              59,
+              74,
+              79
+            ],
+            "centroid_norm": [
+              12.7,
+              13.3
+            ],
+            "area_px": 255,
+            "area_ha": 1.811,
+            "fraction": 0.00101,
+            "position": "north-west",
+            "compactness": 0.708,
+            "score": 0.735
+          }
+        ],
+        "t1_date": "2023-01-01",
+        "t2_date": "2023-07-01",
+        "change_map_path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png",
+        "t1": {
+          "kind": "land_cover",
+          "method": "visible_proxy_thresholds_v1",
+          "classes": [
+            {
+              "name": "water",
+              "label": "water",
+              "pixel_count": 40788,
+              "fraction": 0.1564184965600816,
+              "area_ha": 289.7053570954127,
+              "evidence_basis": "visible-only proxy: (Blue-Red)/(Blue+Red) > +0.020 (otsu_rejected_prior_used) and brightness below p45",
+              "reliability": "medium",
+              "region_count": 10
+            },
+            {
+              "name": "vegetation",
+              "label": "vegetation",
+              "pixel_count": 92561,
+              "fraction": 0.3549635299621877,
+              "area_ha": 657.4339893622754,
+              "evidence_basis": "visible-only proxy: excess-green > -0.012 (otsu)",
+              "reliability": "medium",
+              "region_count": 4
+            },
+            {
+              "name": "built_up",
+              "label": "built-up / man-made surface",
+              "pixel_count": 38915,
+              "fraction": 0.14923570152092713,
+              "area_ha": 276.4019802728249,
+              "evidence_basis": "brightness > p60 (0.231) with high 5x5 texture > p65 (0.007)",
+              "reliability": "medium",
+              "region_count": 8
+            },
+            {
+              "name": "bare_soil",
+              "label": "bare soil or fallow ground",
+              "pixel_count": 54347,
+              "fraction": 0.20841610357337342,
+              "area_ha": 386.01100917094226,
+              "evidence_basis": "smooth, non-green, non-water residue",
+              "reliability": "medium",
+              "region_count": 9
+            },
+            {
+              "name": "other",
+              "label": "unclassified",
+              "pixel_count": 34151,
+              "fraction": 0.1309661683834301,
+              "area_ha": 242.5646673081651,
+              "evidence_basis": "no proxy threshold satisfied",
+              "reliability": "medium",
+              "region_count": 7
+            }
+          ],
+          "dominant": "vegetation",
+          "indices": [
+            {
+              "name": "BRIGHTNESS",
+              "available": true,
+              "mean": 0.2106,
+              "std": 0.1705,
+              "p05": 0.0071,
+              "p95": 0.517,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "mean scaled reflectance across available bands"
+            },
+            {
+              "name": "BWI",
+              "available": true,
+              "mean": -0.1985,
+              "std": 0.751,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": 0.02,
+              "threshold_method": "otsu_rejected_prior_used",
+              "separability": 0.8126,
+              "note": "Otsu suggested -0.18, outside the plausible BWI window [-0.10, +0.14] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.02 was used instead"
+            },
+            {
+              "name": "EXG",
+              "available": true,
+              "mean": -0.148,
+              "std": 0.8175,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": -0.0117,
+              "threshold_method": "otsu",
+              "separability": 0.8646,
+              "note": "data-driven split inside the plausible EXG window [-0.08, +0.12]"
+            },
+            {
+              "name": "TEXTURE",
+              "available": true,
+              "mean": 0.0058,
+              "std": 0.0047,
+              "p05": 0.0006,
+              "p95": 0.0136,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "local standard deviation of brightness, 5x5 window"
+            },
+            {
+              "name": "MNDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and SWIR1 bands (absent from 4-band and RGB products)"
+            },
+            {
+              "name": "NDBI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires SWIR1 and NIR bands; built-up detected from brightness and texture instead"
+            },
+            {
+              "name": "NDVI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Red and NIR bands; product has blue, green, red"
+            },
+            {
+              "name": "NDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and NIR bands"
+            }
+          ],
+          "regions": [
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                0.2,
+                30.47,
+                55.08,
+                99.8
+              ],
+              "bbox_px": [
+                1,
+                156,
+                282,
+                511
+              ],
+              "centroid_norm": [
+                27.16,
+                65.39
+              ],
+              "area_px": 63329,
+              "area_ha": 449.808,
+              "fraction": 0.24286,
+              "position": "west",
+              "compactness": 0.635,
+              "score": 0.854
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                49.22,
+                21.68,
+                99.8,
+                99.8
+              ],
+              "bbox_px": [
+                252,
+                111,
+                511,
+                511
+              ],
+              "centroid_norm": [
+                79.85,
+                55.5
+              ],
+              "area_px": 37406,
+              "area_ha": 265.684,
+              "fraction": 0.14345,
+              "position": "east",
+              "compactness": 0.361,
+              "score": 0.744
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                20.7,
+                0.2,
+                55.66,
+                34.38
+              ],
+              "bbox_px": [
+                106,
+                1,
+                285,
+                176
+              ],
+              "centroid_norm": [
+                39.89,
+                17.22
+              ],
+              "area_px": 21428,
+              "area_ha": 152.197,
+              "fraction": 0.08217,
+              "position": "north",
+              "compactness": 0.684,
+              "score": 0.822
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                51.95,
+                1.17,
+                99.8,
+                34.96
+              ],
+              "bbox_px": [
+                266,
+                6,
+                511,
+                179
+              ],
+              "centroid_norm": [
+                77.54,
+                16.36
+              ],
+              "area_px": 19765,
+              "area_ha": 140.385,
+              "fraction": 0.0758,
+              "position": "north-east",
+              "compactness": 0.466,
+              "score": 0.727
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                0.2,
+                0.2,
+                27.73,
+                31.05
+              ],
+              "bbox_px": [
+                1,
+                1,
+                142,
+                159
+              ],
+              "centroid_norm": [
+                12.4,
+                16.74
+              ],
+              "area_px": 13926,
+              "area_ha": 98.912,
+              "fraction": 0.05341,
+              "position": "north-west",
+              "compactness": 0.625,
+              "score": 0.764
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                55.66,
+                35.35,
+                71.48,
+                76.17
+              ],
+              "bbox_px": [
+                285,
+                181,
+                366,
+                390
+              ],
+              "centroid_norm": [
+                62.4,
+                55.46
+              ],
+              "area_px": 9436,
+              "area_ha": 67.021,
+              "fraction": 0.03619,
+              "position": "centre",
+              "compactness": 0.557,
+              "score": 0.716
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                73.83,
+                22.27,
+                99.22,
+                40.43
+              ],
+              "bbox_px": [
+                378,
+                114,
+                508,
+                207
+              ],
+              "centroid_norm": [
+                87.63,
+                30.86
+              ],
+              "area_px": 6673,
+              "area_ha": 47.396,
+              "fraction": 0.02559,
+              "position": "north-east",
+              "compactness": 0.552,
+              "score": 0.701
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                60.35,
+                77.15,
+                74.02,
+                99.8
+              ],
+              "bbox_px": [
+                309,
+                395,
+                379,
+                511
+              ],
+              "centroid_norm": [
+                66.63,
+                89.93
+              ],
+              "area_px": 6323,
+              "area_ha": 44.91,
+              "fraction": 0.02425,
+              "position": "south",
+              "compactness": 0.779,
+              "score": 0.791
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                19.14,
+                76.76,
+                57.03,
+                99.8
+              ],
+              "bbox_px": [
+                98,
+                393,
+                292,
+                511
+              ],
+              "centroid_norm": [
+                42.19,
+                91.43
+              ],
+              "area_px": 6053,
+              "area_ha": 42.993,
+              "fraction": 0.02321,
+              "position": "south",
+              "compactness": 0.264,
+              "score": 0.584
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                0.2,
+                38.87,
+                22.46,
+                60.94
+              ],
+              "bbox_px": [
+                1,
+                199,
+                115,
+                312
+              ],
+              "centroid_norm": [
+                9.54,
+                45.6
+              ],
+              "area_px": 4010,
+              "area_ha": 28.482,
+              "fraction": 0.01538,
+              "position": "west",
+              "compactness": 0.311,
+              "score": 0.593
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                1.76,
+                43.36,
+                17.97,
+                59.77
+              ],
+              "bbox_px": [
+                9,
+                222,
+                92,
+                306
+              ],
+              "centroid_norm": [
+                8.04,
+                50.08
+              ],
+              "area_px": 3818,
+              "area_ha": 27.118,
+              "fraction": 0.01464,
+              "position": "west",
+              "compactness": 0.548,
+              "score": 0.687
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                0.2,
+                29.88,
+                27.73,
+                39.26
+              ],
+              "bbox_px": [
+                1,
+                153,
+                142,
+                201
+              ],
+              "centroid_norm": [
+                12.99,
+                34.8
+              ],
+              "area_px": 3786,
+              "area_ha": 26.891,
+              "fraction": 0.01452,
+              "position": "west",
+              "compactness": 0.559,
+              "score": 0.691
+            }
+          ],
+          "quality": {
+            "band_layout": "rgb",
+            "bands_available": [
+              "blue",
+              "green",
+              "red"
+            ],
+            "indices_available": [
+              "BRIGHTNESS",
+              "BWI",
+              "EXG",
+              "TEXTURE"
+            ],
+            "indices_unavailable": [
+              "MNDWI",
+              "NDBI",
+              "NDVI",
+              "NDWI"
+            ],
+            "valid_pixel_fraction": 0.9947,
+            "separability": 0.8386,
+            "spatial_reference": true,
+            "limitations": [
+              "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability."
+            ]
+          },
+          "scene_labels": [],
+          "label_source": null
+        },
+        "t2": {
+          "kind": "land_cover",
+          "method": "visible_proxy_thresholds_v1",
+          "classes": [
+            {
+              "name": "water",
+              "label": "water",
+              "pixel_count": 36505,
+              "fraction": 0.1431725836562446,
+              "area_ha": 259.2844478956565,
+              "evidence_basis": "visible-only proxy: (Blue-Red)/(Blue+Red) > +0.020 (otsu_rejected_prior_used) and brightness below p45",
+              "reliability": "medium",
+              "region_count": 3
+            },
+            {
+              "name": "vegetation",
+              "label": "vegetation",
+              "pixel_count": 91125,
+              "fraction": 0.3573921842398381,
+              "area_ha": 647.2344970412738,
+              "evidence_basis": "visible-only proxy: excess-green > +0.027 (otsu)",
+              "reliability": "medium",
+              "region_count": 4
+            },
+            {
+              "name": "built_up",
+              "label": "built-up / man-made surface",
+              "pixel_count": 34090,
+              "fraction": 0.1337009553990242,
+              "area_ha": 242.13140196583845,
+              "evidence_basis": "brightness > p60 (0.213) with high 5x5 texture > p65 (0.006)",
+              "reliability": "medium",
+              "region_count": 8
+            },
+            {
+              "name": "bare_soil",
+              "label": "bare soil or fallow ground",
+              "pixel_count": 60997,
+              "fraction": 0.23923018998164505,
+              "area_ha": 433.2440341950791,
+              "evidence_basis": "smooth, non-green, non-water residue",
+              "reliability": "medium",
+              "region_count": 10
+            },
+            {
+              "name": "other",
+              "label": "unclassified",
+              "pixel_count": 32255,
+              "fraction": 0.12650408672324803,
+              "area_ha": 229.09792814338863,
+              "evidence_basis": "no proxy threshold satisfied",
+              "reliability": "medium",
+              "region_count": 5
+            }
+          ],
+          "dominant": "vegetation",
+          "indices": [
+            {
+              "name": "BRIGHTNESS",
+              "available": true,
+              "mean": 0.1867,
+              "std": 0.1601,
+              "p05": 0.0052,
+              "p95": 0.4444,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "mean scaled reflectance across available bands"
+            },
+            {
+              "name": "BWI",
+              "available": true,
+              "mean": -0.3717,
+              "std": 0.7829,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": 0.02,
+              "threshold_method": "otsu_rejected_prior_used",
+              "separability": 0.8677,
+              "note": "Otsu suggested -0.22, outside the plausible BWI window [-0.10, +0.14] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.02 was used instead"
+            },
+            {
+              "name": "EXG",
+              "available": true,
+              "mean": -0.1331,
+              "std": 0.8727,
+              "p05": -1.0,
+              "p95": 1.0,
+              "threshold": 0.0273,
+              "threshold_method": "otsu",
+              "separability": 0.9008,
+              "note": "data-driven split inside the plausible EXG window [-0.08, +0.12]"
+            },
+            {
+              "name": "TEXTURE",
+              "available": true,
+              "mean": 0.005,
+              "std": 0.0045,
+              "p05": 0.0,
+              "p95": 0.0142,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "local standard deviation of brightness, 5x5 window"
+            },
+            {
+              "name": "MNDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and SWIR1 bands (absent from 4-band and RGB products)"
+            },
+            {
+              "name": "NDBI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires SWIR1 and NIR bands; built-up detected from brightness and texture instead"
+            },
+            {
+              "name": "NDVI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Red and NIR bands; product has blue, green, red"
+            },
+            {
+              "name": "NDWI",
+              "available": false,
+              "mean": null,
+              "std": null,
+              "p05": null,
+              "p95": null,
+              "threshold": null,
+              "threshold_method": null,
+              "separability": null,
+              "note": "requires Green and NIR bands"
+            }
+          ],
+          "regions": [
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                43.16,
+                44.53,
+                99.8,
+                99.8
+              ],
+              "bbox_px": [
+                221,
+                228,
+                511,
+                511
+              ],
+              "centroid_norm": [
+                74.46,
+                76.06
+              ],
+              "area_px": 56688,
+              "area_ha": 402.638,
+              "fraction": 0.22233,
+              "position": "south-east",
+              "compactness": 0.691,
+              "score": 0.876
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                0.2,
+                31.84,
+                55.66,
+                99.8
+              ],
+              "bbox_px": [
+                1,
+                163,
+                285,
+                511
+              ],
+              "centroid_norm": [
+                33.56,
+                75.91
+              ],
+              "area_px": 33972,
+              "area_ha": 241.293,
+              "fraction": 0.13324,
+              "position": "south",
+              "compactness": 0.344,
+              "score": 0.737
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                30.86,
+                0.2,
+                99.8,
+                48.24
+              ],
+              "bbox_px": [
+                158,
+                1,
+                511,
+                247
+              ],
+              "centroid_norm": [
+                59.28,
+                26.08
+              ],
+              "area_px": 33745,
+              "area_ha": 239.681,
+              "fraction": 0.13235,
+              "position": "north",
+              "compactness": 0.389,
+              "score": 0.755
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                0.2,
+                0.2,
+                40.62,
+                38.28
+              ],
+              "bbox_px": [
+                1,
+                1,
+                208,
+                196
+              ],
+              "centroid_norm": [
+                17.55,
+                19.11
+              ],
+              "area_px": 30788,
+              "area_ha": 218.678,
+              "fraction": 0.12075,
+              "position": "north-west",
+              "compactness": 0.763,
+              "score": 0.9
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                0.2,
+                41.02,
+                41.41,
+                81.45
+              ],
+              "bbox_px": [
+                1,
+                210,
+                212,
+                417
+              ],
+              "centroid_norm": [
+                19.84,
+                61.39
+              ],
+              "area_px": 22166,
+              "area_ha": 157.439,
+              "fraction": 0.08694,
+              "position": "west",
+              "compactness": 0.507,
+              "score": 0.757
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                53.91,
+                0.2,
+                99.8,
+                28.91
+              ],
+              "bbox_px": [
+                276,
+                1,
+                511,
+                148
+              ],
+              "centroid_norm": [
+                80.38,
+                14.37
+              ],
+              "area_px": 18057,
+              "area_ha": 128.254,
+              "fraction": 0.07082,
+              "position": "north-east",
+              "compactness": 0.523,
+              "score": 0.744
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                24.41,
+                46.09,
+                44.53,
+                73.83
+              ],
+              "bbox_px": [
+                125,
+                236,
+                228,
+                378
+              ],
+              "centroid_norm": [
+                35.42,
+                59.25
+              ],
+              "area_px": 4579,
+              "area_ha": 32.523,
+              "fraction": 0.01796,
+              "position": "centre",
+              "compactness": 0.313,
+              "score": 0.597
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                3.12,
+                35.74,
+                22.46,
+                62.5
+              ],
+              "bbox_px": [
+                16,
+                183,
+                115,
+                320
+              ],
+              "centroid_norm": [
+                10.36,
+                46.93
+              ],
+              "area_px": 4411,
+              "area_ha": 31.33,
+              "fraction": 0.0173,
+              "position": "west",
+              "compactness": 0.325,
+              "score": 0.601
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                73.05,
+                0.2,
+                91.8,
+                12.7
+              ],
+              "bbox_px": [
+                374,
+                1,
+                470,
+                65
+              ],
+              "centroid_norm": [
+                81.18,
+                5.16
+              ],
+              "area_px": 3573,
+              "area_ha": 25.378,
+              "fraction": 0.01401,
+              "position": "north-east",
+              "compactness": 0.582,
+              "score": 0.699
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                55.08,
+                29.49,
+                74.02,
+                38.87
+              ],
+              "bbox_px": [
+                282,
+                151,
+                379,
+                199
+              ],
+              "centroid_norm": [
+                63.61,
+                33.87
+              ],
+              "area_px": 2667,
+              "area_ha": 18.943,
+              "fraction": 0.01046,
+              "position": "centre",
+              "compactness": 0.573,
+              "score": 0.692
+            },
+            {
+              "label": "water",
+              "class_name": "water",
+              "bbox_norm": [
+                65.23,
+                68.36,
+                99.8,
+                75.39
+              ],
+              "bbox_px": [
+                334,
+                350,
+                511,
+                386
+              ],
+              "centroid_norm": [
+                81.05,
+                71.73
+              ],
+              "area_px": 2241,
+              "area_ha": 15.917,
+              "fraction": 0.00879,
+              "position": "south-east",
+              "compactness": 0.352,
+              "score": 0.601
+            },
+            {
+              "label": "bare soil or fallow ground",
+              "class_name": "bare_soil",
+              "bbox_norm": [
+                58.79,
+                3.12,
+                68.95,
+                12.7
+              ],
+              "bbox_px": [
+                301,
+                16,
+                353,
+                65
+              ],
+              "centroid_norm": [
+                63.99,
+                7.62
+              ],
+              "area_px": 1612,
+              "area_ha": 11.45,
+              "fraction": 0.00632,
+              "position": "north",
+              "compactness": 0.633,
+              "score": 0.711
+            }
+          ],
+          "quality": {
+            "band_layout": "rgb",
+            "bands_available": [
+              "blue",
+              "green",
+              "red"
+            ],
+            "indices_available": [
+              "BRIGHTNESS",
+              "BWI",
+              "EXG",
+              "TEXTURE"
+            ],
+            "indices_unavailable": [
+              "MNDWI",
+              "NDBI",
+              "NDVI",
+              "NDWI"
+            ],
+            "valid_pixel_fraction": 0.9726,
+            "separability": 0.8842,
+            "spatial_reference": true,
+            "limitations": [
+              "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability."
+            ]
+          },
+          "scene_labels": [],
+          "label_source": null
+        },
+        "quality": {
+          "band_layout": "rgb vs rgb",
+          "bands_available": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "indices_available": [
+            "BRIGHTNESS"
+          ],
+          "indices_unavailable": [
+            "MNDWI",
+            "NDBI",
+            "NDVI",
+            "NDWI"
+          ],
+          "valid_pixel_fraction": 0.9674,
+          "separability": 0.8386,
+          "spatial_reference": true,
+          "limitations": [
+            "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability.",
+            "Relative radiometric normalisation applied to the later acquisition (band0: gain 0.918, offset +7.151; band1: gain 0.954, offset +1.926; band2: gain 1.017, offset +15.587).",
+            "Change Vector Analysis over BRIGHTNESS; threshold 0.3501 (Otsu 0.1436, separability 0.76, noise floor 0.3501)"
+          ]
+        }
+      }
+    },
+    "outputs": {
+      "text": {
+        "text": "Based on the measured signal, built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 15.3% of the scene at the earlier date versus 13.4% at the later date (change -1.90 percentage points, -34.2 ha), which does not clear the\u2026. This is a bi-temporal change verdict; the direction per class is listed in the measurements. [Mock output \u2014 SATQUERY_MOCK is on; phrasing is template, not a measured model.]",
+        "narration_source": "mock",
+        "n_samples": 1
+      },
+      "boxes": [
+        {
+          "label": "changed area",
+          "bbox": [
+            58.59,
+            49.8,
+            64.06,
+            64.84
+          ],
+          "score": 0.696,
+          "class_name": "change",
+          "area_ha": 9.177,
+          "position": "centre"
+        },
+        {
+          "label": "changed area",
+          "bbox": [
+            10.94,
+            11.52,
+            14.45,
+            15.43
+          ],
+          "score": 0.735,
+          "class_name": "change",
+          "area_ha": 1.811,
+          "position": "north-west"
+        }
+      ],
+      "mask": {
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png",
+        "kind": "change_map",
+        "changed_fraction": 0.0061
+      },
+      "evidence": [
+        {
+          "role": "input_preview",
+          "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_areaA_20230101.png",
+          "caption": "t1 \u00b7 2023-01-01"
+        },
+        {
+          "role": "input_preview",
+          "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_areaA_20230701.png",
+          "caption": "t2 \u00b7 2023-07-01"
+        },
+        {
+          "role": "change_map",
+          "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png",
+          "caption": "Before / after / change mask with the largest change clusters"
+        }
+      ],
+      "evidence_thumbnails": [
+        "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_areaA_20230101.png",
+        "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_areaA_20230701.png",
+        "C:\\project\\satquery\\backend\\runtime\\outputs\\job_03ec6c742e0e_change.png"
+      ]
+    },
+    "confidence": {
+      "value": null,
+      "source": "mock",
+      "calibrated": false,
+      "components": [],
+      "note": "Mock backend was active (SATQUERY_MOCK=1): no measurement was performed, so no confidence is reported."
+    },
+    "execution_time_ms": 875,
+    "model_backend": "mock",
+    "environment": {
+      "server_version": "0.2.0",
+      "device": "cpu",
+      "torch_available": true,
+      "vlm_narration_enabled": false,
+      "vlm_model_id": null,
+      "mock_mode": true,
+      "max_analysis_pixels": 4194304
+    },
+    "error": null,
+    "created_at": "2026-08-30T17:09:26.263780+00:00",
+    "server_version": "0.2.0"
+  },
+  "error": null,
+  "finished_at": 1788109766.2688844
+}

@@ -19,9 +19,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
-from common import SYSTEM_RS, emit, die, out_open
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from common import SYSTEM_RS, die, emit, out_open  # noqa: E402
 
 
 def convert(root: Path, out: Path) -> None:
