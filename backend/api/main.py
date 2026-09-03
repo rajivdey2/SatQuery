@@ -45,9 +45,9 @@ app.add_middleware(
 # The five representative queries from the problem statement, verbatim.
 DEMO_QUERIES = [
     {"query": "Describe the land-cover and major objects visible in this image.",
-     "expects": "single_caption", "inputs": ["areaA_20230101.tif"]},
+     "expects": "single_caption", "inputs": ["optical.jpeg"]},
     {"query": "Highlight the water body referred to in the query.",
-     "expects": "single_grounding", "inputs": ["areaA_20230101.tif"]},
+     "expects": "single_grounding", "inputs": ["optical.jpeg"]},
     {"query": "What changed between these two dates, and where did the change occur?",
      "expects": "change_description", "inputs": ["areaA_20230101.tif", "areaA_20230701.tif"]},
     {"query": "Use the optical and SAR images together to identify built-up and water-covered regions.",

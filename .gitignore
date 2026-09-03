@@ -1,2 +1,14 @@
 venv
 node_modules
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Runtime generated files
+backend/runtime/jobs/
+backend/runtime/outputs/
+backend/runtime/traces/
+backend/runtime/uploads/
