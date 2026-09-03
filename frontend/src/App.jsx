@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { analyze, demoFile, demoInfo, health, pollJob } from './api.js'
 import AnswerCard from './components/AnswerCard.jsx'
 import AuditPanel from './components/AuditPanel.jsx'
@@ -19,6 +20,7 @@ import {
 const ACCEPTED = ['.png', '.jpg', '.jpeg', '.tif', '.tiff']
 
 export default function App() {
+  const navigate = useNavigate()
   const inputRef = useRef(null)
   const [files, setFiles] = useState([])
   const [query, setQuery] = useState('')
@@ -112,7 +114,7 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <div className="brand">
+        <div className="brand" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <span className="brand-mark">
             <Satellite />
           </span>
