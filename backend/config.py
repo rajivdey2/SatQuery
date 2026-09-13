@@ -45,10 +45,11 @@ UPLOAD_DIR = RUNTIME_DIR / "uploads"
 OUTPUT_DIR = RUNTIME_DIR / "outputs"
 TRACE_DIR = RUNTIME_DIR / "traces"
 JOB_DIR = RUNTIME_DIR / "jobs"
+EXAMPLE_DIR = RUNTIME_DIR / "examples"
 MODEL_DIR = Path(os.environ.get("SATQUERY_MODEL_DIR", PROJECT_DIR / "models"))
 DEMO_DIR = RUNTIME_DIR / "demo_data"
 
-for _d in (UPLOAD_DIR, OUTPUT_DIR, TRACE_DIR, JOB_DIR):
+for _d in (UPLOAD_DIR, OUTPUT_DIR, TRACE_DIR, JOB_DIR, EXAMPLE_DIR):
     _d.mkdir(parents=True, exist_ok=True)
 
 

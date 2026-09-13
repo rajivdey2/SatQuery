@@ -103,9 +103,13 @@ def main() -> None:
     print('     set ADAPTER_RS_VLM=backend/runtime/adapters/rs_vlm')
     print("     python -m uvicorn backend.api.main:app --port 8000")
     print("   The audit trace per single-image VQA/caption/grounding will now report adapter=rs_vlm.")
-    print("4. Refresh eval numbers:")
-    print("     python training/eval/run_benchmarks.py --adapter backend/runtime/adapters/rs_vlm --dataset rsvqa --root <RSVQA-root>")
-    print("     python training/eval/run_benchmarks.py --adapter backend/runtime/adapters/rs_vlm --dataset vrsbench_ground --root <VRSBENCH> --ann <vrsbench grounding jsonl>")
+    print("4. Refresh eval numbers (--backend vlm is required for the adapter to be used):")
+    print("     python training/eval/run_benchmarks.py --dataset rsvqa --root <RSVQA-root> \\")
+    print("         --backend vlm --adapter backend/runtime/adapters/rs_vlm")
+    print("     python training/eval/run_benchmarks.py --dataset vrsbench_ground --root <VRSBENCH> \\")
+    print("         --ann <vrsbench grounding jsonl> --backend vlm \\")
+    print("         --adapter backend/runtime/adapters/rs_vlm")
+    print("   Baseline column first (no GPU needed):  --backend analysis")
 
 
 if __name__ == "__main__":

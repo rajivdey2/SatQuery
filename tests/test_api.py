@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -47,7 +48,12 @@ def files(tmp_path_factory):
     return out
 
 
-def _analyze(client, paths, query, params=None):
+def _analyze(client, paths, query, params=None, timeout_s: float = 120.0):
+    """POST the images, then poll until the background controller run settles.
+
+    The endpoint returns as soon as the job is queued -- the controller runs on a
+    worker thread -- so a single GET would race it.
+    """
     handles = [("files", (Path(p).name, Path(p).read_bytes(), "image/tiff")) for p in paths]
     data = {"query": query}
     if params is not None:
@@ -55,8 +61,15 @@ def _analyze(client, paths, query, params=None):
     response = client.post("/api/analyze", files=handles, data=data)
     assert response.status_code == 200, response.text
     job_id = response.json()["job_id"]
-    job = client.get(f"/api/jobs/{job_id}").json()
-    assert job["status"] in ("done", "rejected", "error"), job
+
+    deadline = time.time() + timeout_s
+    while True:
+        job = client.get(f"/api/jobs/{job_id}").json()
+        if job["status"] in ("done", "rejected", "error"):
+            break
+        assert time.time() < deadline, f"job {job_id} stuck in {job['status']}"
+        time.sleep(0.1)
+    assert job["status"] != "error", job.get("error")
     return job
 
 

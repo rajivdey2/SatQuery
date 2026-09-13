@@ -1,0 +1,568 @@
+{
+  "id": "example_edge_rejected_pair",
+  "status": "rejected",
+  "query": "What changed between these two dates?",
+  "filenames": [
+    "areaA_20230101.tif",
+    "areaD_mismatch.tif"
+  ],
+  "files": [
+    "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif",
+    "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaD_mismatch.tif"
+  ],
+  "created_at": 1788176439.284774,
+  "result": {
+    "run_id": "example_edge_rejected_pair",
+    "query": "What changed between these two dates?",
+    "task": "rejected",
+    "text": "Input rejected. The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area. Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis.",
+    "answers": [
+      "Input rejected. The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area. Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis."
+    ],
+    "boxes": [],
+    "mask_path": null,
+    "mask_kind": "none",
+    "evidence": [],
+    "confidence": {
+      "value": 1.0,
+      "source": "validator_gate",
+      "calibrated": false,
+      "components": [
+        {
+          "name": "deterministic_checks",
+          "value": 1.0,
+          "weight": 1.0,
+          "note": "2 input check(s) failed deterministically"
+        }
+      ],
+      "note": "The input was rejected by deterministic compatibility checks, not by a model. The rejection is certain; no answer was produced."
+    },
+    "measurements": {},
+    "model_id": "",
+    "adapter": null,
+    "narration_source": "measurement",
+    "tools_used": [],
+    "trace_path": "C:\\project\\satquery\\backend\\runtime\\traces\\example_edge_rejected_pair.json",
+    "rejected": {
+      "title": "Input rejected. The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area. Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis.",
+      "validation_failed": [
+        "The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area.",
+        "Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis."
+      ],
+      "validation_warnings": [],
+      "checks": [
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "areaA_20230101.tif: GEOTIFF, 384x384, 12 band(s), int16",
+          "detail": {
+            "format": "GEOTIFF",
+            "dtype": "int16",
+            "bands": 12
+          }
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "detail": {
+            "modality": "multispectral",
+            "confidence": "high",
+            "sensor_guess": "Sentinel-2 (MSI)"
+          }
+        },
+        {
+          "name": "georeference",
+          "status": "passed",
+          "message": "areaA_20230101.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
+          "detail": {
+            "crs": "EPSG:32644",
+            "pixel_size": [
+              10.0,
+              10.0
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "passed",
+          "message": "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
+          "detail": {}
+        },
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: GEOTIFF, 384x384, 12 band(s), int16",
+          "detail": {
+            "format": "GEOTIFF",
+            "dtype": "int16",
+            "bands": 12
+          }
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "detail": {
+            "modality": "multispectral",
+            "confidence": "high",
+            "sensor_guess": "Sentinel-2 (MSI)"
+          }
+        },
+        {
+          "name": "georeference",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: CRS EPSG:32643, pixel size [10.0, 10.0], extent [410000.0, 2000000.0, 413840.0, 2003840.0]",
+          "detail": {
+            "crs": "EPSG:32643",
+            "pixel_size": [
+              10.0,
+              10.0
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: acquisition date 2023-02-02 (from rasterio_tags)",
+          "detail": {}
+        },
+        {
+          "name": "input_configuration",
+          "status": "passed",
+          "message": "Same-modality pair detected (multispectral): treated as bi-temporal.",
+          "detail": {
+            "configuration": "bi_temporal_pair",
+            "modalities": [
+              "multispectral",
+              "multispectral"
+            ]
+          }
+        },
+        {
+          "name": "co_registration",
+          "status": "failed",
+          "message": "The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area.",
+          "detail": {
+            "comparison": "reprojected to EPSG:4326 for comparison",
+            "same_crs": false,
+            "overlap_ratio": 0.0,
+            "resolution_ratio": 1.0,
+            "crs": [
+              "EPSG:32644",
+              "EPSG:32643"
+            ]
+          }
+        },
+        {
+          "name": "temporal",
+          "status": "passed",
+          "message": "Bi-temporal pair: 2023-01-01 -> 2023-02-02.",
+          "detail": {
+            "dates": [
+              "2023-01-01",
+              "2023-02-02"
+            ]
+          }
+        },
+        {
+          "name": "compatibility",
+          "status": "failed",
+          "message": "Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis.",
+          "detail": {}
+        }
+      ]
+    }
+  },
+  "trace": {
+    "schema_version": "2.0.0",
+    "run_id": "example_edge_rejected_pair",
+    "task": "rejected",
+    "query": "What changed between these two dates?",
+    "query_hash": "dc26f90c79",
+    "input_config": {
+      "n_images": 2,
+      "images": [
+        {
+          "filename": "areaA_20230101.tif",
+          "format": "GEOTIFF",
+          "modality": "multispectral",
+          "modality_confidence": "high",
+          "modality_reason": "metadata mentions 'sentinel-2'",
+          "width": 384,
+          "height": 384,
+          "band_count": 12,
+          "dtype": "int16",
+          "crs": "EPSG:32644",
+          "extent": [
+            523000.0,
+            3120000.0,
+            526840.0,
+            3123840.0
+          ],
+          "extent_wgs84": [
+            81.23436999536607,
+            28.205524585275306,
+            81.27358761459774,
+            28.240260600084046
+          ],
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "pixel_area_m2": null,
+          "acquisition_date": "2023-01-01",
+          "metadata_source": "rasterio_tags",
+          "sensor_guess": "Sentinel-2 (MSI)",
+          "band_assignment": {},
+          "details": {}
+        },
+        {
+          "filename": "areaD_mismatch.tif",
+          "format": "GEOTIFF",
+          "modality": "multispectral",
+          "modality_confidence": "high",
+          "modality_reason": "metadata mentions 'sentinel-2'",
+          "width": 384,
+          "height": 384,
+          "band_count": 12,
+          "dtype": "int16",
+          "crs": "EPSG:32643",
+          "extent": [
+            410000.0,
+            2000000.0,
+            413840.0,
+            2003840.0
+          ],
+          "extent_wgs84": [
+            74.14928223288712,
+            18.08683431727282,
+            74.18573706626279,
+            18.121695337541233
+          ],
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "pixel_area_m2": null,
+          "acquisition_date": "2023-02-02",
+          "metadata_source": "rasterio_tags",
+          "sensor_guess": "Sentinel-2 (MSI)",
+          "band_assignment": {},
+          "details": {}
+        }
+      ],
+      "geolocated": true,
+      "co_registered": false,
+      "co_registration_note": "The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area.",
+      "bi_temporal": true,
+      "cross_modal": false,
+      "dates_differ": true,
+      "date_note": "Bi-temporal pair: 2023-01-01 -> 2023-02-02.",
+      "modality_signature": [
+        "multispectral",
+        "multispectral"
+      ]
+    },
+    "validation": {
+      "passed": [
+        "format:GEOTIFF",
+        "modality:multispectral",
+        "georeference",
+        "temporal_dates_differ",
+        "areaA_20230101.tif: GEOTIFF, 384x384, 12 band(s), int16",
+        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaA_20230101.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
+        "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
+        "areaD_mismatch.tif: GEOTIFF, 384x384, 12 band(s), int16",
+        "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaD_mismatch.tif: CRS EPSG:32643, pixel size [10.0, 10.0], extent [410000.0, 2000000.0, 413840.0, 2003840.0]",
+        "areaD_mismatch.tif: acquisition date 2023-02-02 (from rasterio_tags)",
+        "Same-modality pair detected (multispectral): treated as bi-temporal.",
+        "Bi-temporal pair: 2023-01-01 -> 2023-02-02."
+      ],
+      "warnings": [],
+      "failed": [
+        "The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area.",
+        "Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis."
+      ],
+      "checks": [
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "areaA_20230101.tif: GEOTIFF, 384x384, 12 band(s), int16",
+          "detail": {
+            "format": "GEOTIFF",
+            "dtype": "int16",
+            "bands": 12
+          }
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "detail": {
+            "modality": "multispectral",
+            "confidence": "high",
+            "sensor_guess": "Sentinel-2 (MSI)"
+          }
+        },
+        {
+          "name": "georeference",
+          "status": "passed",
+          "message": "areaA_20230101.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
+          "detail": {
+            "crs": "EPSG:32644",
+            "pixel_size": [
+              10.0,
+              10.0
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "passed",
+          "message": "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
+          "detail": {}
+        },
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: GEOTIFF, 384x384, 12 band(s), int16",
+          "detail": {
+            "format": "GEOTIFF",
+            "dtype": "int16",
+            "bands": 12
+          }
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "detail": {
+            "modality": "multispectral",
+            "confidence": "high",
+            "sensor_guess": "Sentinel-2 (MSI)"
+          }
+        },
+        {
+          "name": "georeference",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: CRS EPSG:32643, pixel size [10.0, 10.0], extent [410000.0, 2000000.0, 413840.0, 2003840.0]",
+          "detail": {
+            "crs": "EPSG:32643",
+            "pixel_size": [
+              10.0,
+              10.0
+            ]
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "passed",
+          "message": "areaD_mismatch.tif: acquisition date 2023-02-02 (from rasterio_tags)",
+          "detail": {}
+        },
+        {
+          "name": "input_configuration",
+          "status": "passed",
+          "message": "Same-modality pair detected (multispectral): treated as bi-temporal.",
+          "detail": {
+            "configuration": "bi_temporal_pair",
+            "modalities": [
+              "multispectral",
+              "multispectral"
+            ]
+          }
+        },
+        {
+          "name": "co_registration",
+          "status": "failed",
+          "message": "The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area.",
+          "detail": {
+            "comparison": "reprojected to EPSG:4326 for comparison",
+            "same_crs": false,
+            "overlap_ratio": 0.0,
+            "resolution_ratio": 1.0,
+            "crs": [
+              "EPSG:32644",
+              "EPSG:32643"
+            ]
+          }
+        },
+        {
+          "name": "temporal",
+          "status": "passed",
+          "message": "Bi-temporal pair: 2023-01-01 -> 2023-02-02.",
+          "detail": {
+            "dates": [
+              "2023-01-01",
+              "2023-02-02"
+            ]
+          }
+        },
+        {
+          "name": "compatibility",
+          "status": "failed",
+          "message": "Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis.",
+          "detail": {}
+        }
+      ],
+      "input_config": {
+        "n_images": 2,
+        "images": [
+          {
+            "filename": "areaA_20230101.tif",
+            "format": "GEOTIFF",
+            "modality": "multispectral",
+            "modality_confidence": "high",
+            "modality_reason": "metadata mentions 'sentinel-2'",
+            "width": 384,
+            "height": 384,
+            "band_count": 12,
+            "dtype": "int16",
+            "crs": "EPSG:32644",
+            "extent": [
+              523000.0,
+              3120000.0,
+              526840.0,
+              3123840.0
+            ],
+            "extent_wgs84": [
+              81.23436999536607,
+              28.205524585275306,
+              81.27358761459774,
+              28.240260600084046
+            ],
+            "pixel_size": [
+              10.0,
+              10.0
+            ],
+            "pixel_area_m2": null,
+            "acquisition_date": "2023-01-01",
+            "metadata_source": "rasterio_tags",
+            "sensor_guess": "Sentinel-2 (MSI)",
+            "band_assignment": {},
+            "details": {}
+          },
+          {
+            "filename": "areaD_mismatch.tif",
+            "format": "GEOTIFF",
+            "modality": "multispectral",
+            "modality_confidence": "high",
+            "modality_reason": "metadata mentions 'sentinel-2'",
+            "width": 384,
+            "height": 384,
+            "band_count": 12,
+            "dtype": "int16",
+            "crs": "EPSG:32643",
+            "extent": [
+              410000.0,
+              2000000.0,
+              413840.0,
+              2003840.0
+            ],
+            "extent_wgs84": [
+              74.14928223288712,
+              18.08683431727282,
+              74.18573706626279,
+              18.121695337541233
+            ],
+            "pixel_size": [
+              10.0,
+              10.0
+            ],
+            "pixel_area_m2": null,
+            "acquisition_date": "2023-02-02",
+            "metadata_source": "rasterio_tags",
+            "sensor_guess": "Sentinel-2 (MSI)",
+            "band_assignment": {},
+            "details": {}
+          }
+        ],
+        "geolocated": true,
+        "co_registered": false,
+        "co_registration_note": "The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area.",
+        "bi_temporal": true,
+        "cross_modal": false,
+        "dates_differ": true,
+        "date_note": "Bi-temporal pair: 2023-01-01 -> 2023-02-02.",
+        "modality_signature": [
+          "multispectral",
+          "multispectral"
+        ]
+      },
+      "accepted": false
+    },
+    "classification": {
+      "task": "rejected",
+      "method": "validator_gate",
+      "reasons": [
+        "input rejected before task classification"
+      ]
+    },
+    "plan": [],
+    "registry_entries_used": [],
+    "steps": [],
+    "effective_parameters": {},
+    "measurements": {},
+    "outputs": {
+      "text": {
+        "text": "Input rejected. The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area. Rejected: the pair is not verifiably co-registered, so neither per-pixel change detection nor optical/SAR fusion can be trusted on it. Supply co-registered products, or a single image for single-image analysis.",
+        "narration_source": "validator",
+        "n_samples": 1
+      },
+      "boxes": [],
+      "mask": {
+        "path": null,
+        "kind": "none",
+        "changed_fraction": null
+      },
+      "evidence": [],
+      "evidence_thumbnails": []
+    },
+    "confidence": {
+      "value": 1.0,
+      "source": "validator_gate",
+      "calibrated": false,
+      "components": [
+        {
+          "name": "deterministic_checks",
+          "value": 1.0,
+          "weight": 1.0,
+          "note": "2 input check(s) failed deterministically"
+        }
+      ],
+      "note": "The input was rejected by deterministic compatibility checks, not by a model. The rejection is certain; no answer was produced."
+    },
+    "execution_time_ms": 51,
+    "model_backend": "validator_gate",
+    "environment": {
+      "server_version": "0.2.0",
+      "device": "cpu",
+      "torch_available": false,
+      "vlm_narration_enabled": false,
+      "vlm_model_id": null,
+      "mock_mode": false,
+      "max_analysis_pixels": 4194304
+    },
+    "error": null,
+    "created_at": "2026-08-31T11:40:39.284774+00:00",
+    "server_version": "0.2.0"
+  },
+  "error": null,
+  "example": {
+    "slug": "edge-rejected-pair",
+    "title": "A pair the controller refuses",
+    "subtitle": "Compatibility gate \u00b7 rejection with an explanation",
+    "query": "What changed between these two dates?",
+    "inputs": [
+      "areaA_20230101.tif",
+      "areaD_mismatch.tif"
+    ],
+    "highlight": "Two scenes that do not overlap. The controller measures the overlap, refuses the run, and says why \u2014 the behaviour the unseen ISRO evaluation set rewards.",
+    "expects": "rejected",
+    "baked_at": "2026-08-31T17:10:39",
+    "backend": "analysis_engine"
+  }
+}

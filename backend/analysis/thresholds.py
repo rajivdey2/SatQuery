@@ -63,10 +63,16 @@ def otsu(values: np.ndarray, bins: int = 256,
     denom = omega * (1.0 - omega)
     with np.errstate(divide="ignore", invalid="ignore"):
         sigma_b = np.where(denom > 1e-12, (mu_t * omega - mu) ** 2 / np.maximum(denom, 1e-12), 0.0)
-    k = int(np.nanargmax(sigma_b))
+    # When the two modes are cleanly separated, every bin inside the empty gap
+    # between them scores identically. Taking argmax would return the *left edge*
+    # of that gap, which biases every threshold low -- for a water index that means
+    # systematically over-detecting water. Use the middle of the optimal plateau.
+    best = float(np.nanmax(sigma_b))
+    tied = np.flatnonzero(sigma_b >= best - 1e-12)
+    threshold = float(np.mean(centres[tied])) if tied.size else float(centres[0])
     sigma_total = float(np.sum(p * (centres - mu_t) ** 2))
-    eta = float(sigma_b[k] / sigma_total) if sigma_total > 1e-12 else 0.0
-    return float(centres[k]), float(np.clip(eta, 0.0, 1.0))
+    eta = best / sigma_total if sigma_total > 1e-12 else 0.0
+    return threshold, float(np.clip(eta, 0.0, 1.0))
 
 
 def fisher_ratio(values: np.ndarray, mask: np.ndarray) -> float:
@@ -84,22 +90,26 @@ def fisher_ratio(values: np.ndarray, mask: np.ndarray) -> float:
 
 
 def threshold_with_prior(values: np.ndarray, prior: float, window: float,
-                         name: str = "", min_separability: float = 0.25,
+                         name: str = "", min_separability: float = 0.75,
                          lo: Optional[float] = None, hi: Optional[float] = None,
                          dark_mode: bool = False) -> Threshold:
-    """Data-driven threshold, accepted only inside a physically plausible window.
+    """Data-driven threshold, accepted only when the data actually supports one.
 
-    Pure Otsu on a scene that contains no water will happily split the water index
-    somewhere in the middle and report 40% water. Worse, Otsu finds the *dominant*
-    split in the histogram, which in a mostly-vegetated scene is the
-    vegetation/everything-else boundary rather than the land/water boundary being
-    looked for.
+    Two independent guards, because Otsu will always return *a* number:
 
-    So the data only gets to move the threshold if it lands inside
-    ``prior +/- window``, which is where the class boundary physically is. Outside
-    that window the published threshold is used unchanged and the disagreement is
-    recorded -- clamping to the edge of the window would silently produce a
-    threshold that neither the physics nor the data supports.
+    1. **Is the histogram really bimodal?** Otsu's between-class variance ratio
+       (eta) is ~0.64 for a single Gaussian and >0.9 for two clean modes, so the
+       default cut-off of 0.75 sits between "one blob" and "two populations".
+       Below it, the published physical threshold is used instead -- otherwise a
+       scene containing no water at all gets an arbitrary NDWI split somewhere in
+       the middle and is reported as 40% water.
+    2. **Is the split where the class boundary physically is?** Otsu finds the
+       *dominant* split, which in a mostly-vegetated scene is the
+       vegetation/everything-else boundary, not the land/water boundary. So the
+       data only gets to move the threshold if it lands inside ``prior +/- window``.
+       Outside that window the prior is used unchanged and the disagreement is
+       recorded -- clamping to the edge of the window would produce a threshold
+       neither the physics nor the data supports.
 
     ``dark_mode`` restricts the histogram to values at or below the median first,
     which isolates the darkest mode. That is what makes a SAR water threshold work
@@ -124,9 +134,10 @@ def threshold_with_prior(values: np.ndarray, prior: float, window: float,
         frac = float((v > prior).mean())
         return Threshold(value=prior, method="prior_fixed", separability=eta,
                          fraction_above=frac,
-                         note=(f"{name} histogram is close to unimodal (eta={eta:.2f} < "
-                               f"{min_separability:.2f}); used the physical threshold {prior:+.2f} "
-                               "instead of an arbitrary data split"))
+                         note=(f"{name} histogram is not convincingly bimodal (eta={eta:.2f} < "
+                               f"{min_separability:.2f}; a single Gaussian scores about 0.64), so "
+                               f"the physical threshold {prior:+.2f} was used rather than an "
+                               "arbitrary data split"))
     if low <= t_otsu <= high:
         return Threshold(value=float(t_otsu), method=f"{method_prefix}otsu", separability=eta,
                          fraction_above=float((v > t_otsu).mean()),
@@ -140,14 +151,52 @@ def threshold_with_prior(values: np.ndarray, prior: float, window: float,
               f"boundary, so the physical threshold {prior:+.2f} was used instead"))
 
 
+def valley_depth(values: np.ndarray, threshold: float, bins: int = 64) -> float:
+    """How deep the histogram valley at ``threshold`` is, in [0, 1].
+
+    Otsu's variance ratio cannot answer "are there really two populations here":
+    the lower half of a single Gaussian scores about 0.69, while a genuine minority
+    dark class separated by an empty gap can score *lower* than that. What actually
+    distinguishes them is whether the density dips at the split.
+
+    ``1.0`` means the threshold sits in an empty gap between two modes. ``0.0``
+    means there is no dip -- the threshold is somewhere on the slope of a single
+    population, and any split there is arbitrary.
+    """
+    v = _finite(values)
+    if v.size < 64:
+        return 0.0
+    lo, hi = (float(x) for x in np.percentile(v, [0.5, 99.5]))
+    if not lo < threshold < hi:
+        return 0.0
+    hist, edges = np.histogram(np.clip(v, lo, hi), bins=bins, range=(lo, hi))
+    # Light smoothing so a single empty bin cannot fake a valley.
+    kernel = np.array([1.0, 2.0, 3.0, 2.0, 1.0])
+    smooth = np.convolve(hist.astype(np.float64), kernel / kernel.sum(), mode="same")
+    idx = int(np.clip(np.searchsorted(edges, threshold) - 1, 0, bins - 1))
+    left, right = smooth[: idx + 1], smooth[idx:]
+    if left.size < 2 or right.size < 2:
+        return 0.0
+    peak = min(float(left.max()), float(right.max()))
+    if peak <= 0.0:
+        return 0.0
+    return float(np.clip(1.0 - smooth[idx] / peak, 0.0, 1.0))
+
+
 def dark_mode_threshold(values: np.ndarray, name: str = "",
+                        min_valley: float = 0.35,
                         min_separability: float = 0.2) -> Optional[Threshold]:
     """Split off the darkest mode of a histogram, with no physical prior.
 
     Used for uncalibrated SAR digital numbers, where the dB values carry an unknown
     gain so no published level applies, but water is still the darkest surface in
-    the scene. Returns ``None`` when the dark side of the histogram is not
-    bimodal enough for any threshold to be defensible.
+    the scene.
+
+    Accepting the split requires an actual *valley* at it (see ``valley_depth``),
+    not merely a high variance ratio -- otherwise a scene with no water at all gets
+    a threshold on the shoulder of the single land mode and is reported as 16%
+    water. Returns a ``*_rejected`` threshold (for the trace) when no defensible
+    split exists.
     """
     v = _finite(values)
     if v.size < 64:
@@ -157,17 +206,20 @@ def dark_mode_threshold(values: np.ndarray, name: str = "",
     if subset.size < 64 or float(subset.max() - subset.min()) < 1e-9:
         return None
     value, eta = otsu(subset)
+    valley = valley_depth(subset, value)
     fraction = float((v < value).mean())
-    if eta < min_separability or fraction > 0.5:
+    if valley < min_valley or eta < min_separability or fraction > 0.5:
         return Threshold(value=float(value), method="dark_mode_otsu_rejected",
                          separability=eta, fraction_above=1.0 - fraction,
-                         note=(f"{name}: the dark side of the histogram is not clearly bimodal "
-                               f"(eta={eta:.2f}, would select {fraction * 100:.0f}% of the scene), "
-                               "so no level threshold is claimed"))
+                         note=(f"{name}: no distinct dark population (valley depth "
+                               f"{valley:.2f} < {min_valley:.2f}, eta={eta:.2f}, would select "
+                               f"{fraction * 100:.0f}% of the scene), so no level threshold "
+                               "is claimed"))
     return Threshold(value=float(value), method="dark_mode_otsu", separability=eta,
                      fraction_above=1.0 - fraction,
-                     note=(f"{name}: darkest histogram mode split at {value:.2f} "
-                           f"(scene-relative; the product carries an unknown gain)"))
+                     note=(f"{name}: distinct dark mode split at {value:.2f} "
+                           f"(valley depth {valley:.2f}; scene-relative, because the product "
+                           "carries an unknown gain)"))
 
 
 def robust_scale(a: np.ndarray, valid: Optional[np.ndarray] = None) -> np.ndarray:

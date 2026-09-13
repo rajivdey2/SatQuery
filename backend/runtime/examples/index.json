@@ -1,0 +1,244 @@
+{
+  "available": true,
+  "baked_at": "2026-08-31T17:10:40",
+  "backend": "analysis_engine",
+  "server_version": "0.2.0",
+  "examples": [
+    {
+      "slug": "ps1-scene-description",
+      "title": "Describe the land cover and major objects",
+      "subtitle": "Problem-statement query 1 \u00b7 single-image scene description",
+      "query": "Describe the land-cover and major objects visible in this image.",
+      "inputs": [
+        "areaA_20230101.tif"
+      ],
+      "highlight": "Twelve-band Sentinel-2-style input: every spectral index is available, so class extents come with hectares and a high separability score.",
+      "expects": "single_caption",
+      "routed_task": "single_caption",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "rs_vlm.caption"
+      ],
+      "plan": [
+        "rs_vlm.caption"
+      ],
+      "confidence": {
+        "value": 0.848,
+        "source": "measurement_composite"
+      },
+      "execution_time_ms": 361,
+      "n_boxes": 0,
+      "mask_kind": "class_map",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps1_scene_description_areaA_20230101_classmap.png",
+      "answer_preview": "The multispectral scene is dominated by vegetation. Measured extents: vegetation 51.6% (761.3 ha); unclassified 38.8% (571.9 ha); built-up / man-made surface 5.2% (77.0 ha); water 4.0% (58.\u2026"
+    },
+    {
+      "slug": "ps2-grounding",
+      "title": "Highlight the water body",
+      "subtitle": "Problem-statement query 2 \u00b7 text-guided grounding",
+      "query": "Highlight the water body referred to in the query.",
+      "inputs": [
+        "areaA_20230101.tif"
+      ],
+      "highlight": "The referring expression is resolved to a class, then to a connected region, and returned as a box in the same 0\u2013100 coordinates the audit trace reports.",
+      "expects": "single_grounding",
+      "routed_task": "single_grounding",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "rs_vlm.grounding"
+      ],
+      "plan": [
+        "rs_vlm.grounding"
+      ],
+      "confidence": {
+        "value": 0.774,
+        "source": "measurement_composite"
+      },
+      "execution_time_ms": 248,
+      "n_boxes": 1,
+      "mask_kind": "none",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps2_grounding_areaA_20230101_grounding.png",
+      "answer_preview": "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.5, 99.7, 76.6] in 0-100 image coordinates (30.8 ha). 2 candidate regions\u2026"
+    },
+    {
+      "slug": "ps3-change-description",
+      "title": "What changed, and where",
+      "subtitle": "Problem-statement query 3 \u00b7 bi-temporal change description",
+      "query": "What changed between these two dates, and where did the change occur?",
+      "inputs": [
+        "areaA_20230101.tif",
+        "areaA_20230701.tif"
+      ],
+      "highlight": "Change vector analysis against an estimated noise floor, a per-class transition table, and a rendered before / after / change triptych.",
+      "expects": "change_description",
+      "routed_task": "change_description",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "change.description"
+      ],
+      "plan": [
+        "change.description"
+      ],
+      "confidence": {
+        "value": 0.548,
+        "source": "measurement_composite"
+      },
+      "execution_time_ms": 532,
+      "n_boxes": 6,
+      "mask_kind": "change_map",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps3_change_description_change.png",
+      "answer_preview": "6.0% of the area changed between 2023-01-01 and 2023-07-01 (88.0 ha). Dominant transitions: vegetation -> unclassified (3.0%, north); vegetation -> built-up / man-made surface (0.7%, north-\u2026"
+    },
+    {
+      "slug": "ps4-optical-sar-fusion",
+      "title": "Use optical and SAR together",
+      "subtitle": "Problem-statement query 4 \u00b7 cross-modal joint extraction",
+      "query": "Use the optical and SAR images together to identify built-up and water-covered regions.",
+      "inputs": [
+        "areaB_optical.tif",
+        "areaB_sar.tif"
+      ],
+      "highlight": "Both sensors are measured independently and then compared: per-class Cohen's kappa, and the area the radar recovers where cloud blocks the optical scene.",
+      "expects": "sar_optical_fusion",
+      "routed_task": "sar_optical_fusion",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "fusion.joint"
+      ],
+      "plan": [
+        "fusion.joint"
+      ],
+      "confidence": {
+        "value": 0.416,
+        "source": "cross_modal_agreement"
+      },
+      "execution_time_ms": 426,
+      "n_boxes": 6,
+      "mask_kind": "fusion_map",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps4_optical_sar_fusion_fusion.png",
+      "answer_preview": "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (34.0 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.03 (op\u2026"
+    },
+    {
+      "slug": "ps5-change-vqa",
+      "title": "Has the built-up area increased?",
+      "subtitle": "Problem-statement query 5 \u00b7 change-based VQA",
+      "query": "Has the built-up area increased, decreased, or remained unchanged?",
+      "inputs": [
+        "areaA_20230101.tif",
+        "areaA_20230701.tif"
+      ],
+      "highlight": "A direction verdict that only fires when the measured delta clears both the noise floor and the classifier's own flip rate on unchanged ground.",
+      "expects": "change_vqa",
+      "routed_task": "change_vqa",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "change.vqa"
+      ],
+      "plan": [
+        "change.vqa"
+      ],
+      "confidence": {
+        "value": 0.548,
+        "source": "measurement_composite"
+      },
+      "execution_time_ms": 537,
+      "n_boxes": 6,
+      "mask_kind": "change_map",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps5_change_vqa_change.png",
+      "answer_preview": "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.2% of the scene at the earlier date versus 4.0% at the later date (change -1.18 percentag\u2026"
+    },
+    {
+      "slug": "edge-rejected-pair",
+      "title": "A pair the controller refuses",
+      "subtitle": "Compatibility gate \u00b7 rejection with an explanation",
+      "query": "What changed between these two dates?",
+      "inputs": [
+        "areaA_20230101.tif",
+        "areaD_mismatch.tif"
+      ],
+      "highlight": "Two scenes that do not overlap. The controller measures the overlap, refuses the run, and says why \u2014 the behaviour the unseen ISRO evaluation set rewards.",
+      "expects": "rejected",
+      "routed_task": "rejected",
+      "matched": true,
+      "status": "rejected",
+      "tools_used": [],
+      "plan": [],
+      "confidence": {
+        "value": 1.0,
+        "source": "validator_gate"
+      },
+      "execution_time_ms": 51,
+      "n_boxes": 0,
+      "mask_kind": "none",
+      "thumbnail": null,
+      "answer_preview": "Input rejected. The two footprints overlap by only 0.0% (reprojected to EPSG:4326 for comparison); at least 50% is required. These images do not cover the same area. Rejected: the pair is n\u2026"
+    },
+    {
+      "slug": "edge-two-tool-plan",
+      "title": "Fusion plus localisation",
+      "subtitle": "Agentic orchestration \u00b7 two registry entries in one plan",
+      "query": "Use the optical and SAR images together and highlight where the water is.",
+      "inputs": [
+        "areaB_optical.tif",
+        "areaB_sar.tif"
+      ],
+      "highlight": "The query asks for something the fusion entry does not produce, so the router adds the grounding entry and the trace shows both steps.",
+      "expects": "sar_optical_fusion",
+      "routed_task": "sar_optical_fusion",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "fusion.joint",
+        "rs_vlm.grounding"
+      ],
+      "plan": [
+        "fusion.joint",
+        "rs_vlm.grounding"
+      ],
+      "confidence": {
+        "value": 0.428,
+        "source": "cross_modal_agreement"
+      },
+      "execution_time_ms": 534,
+      "n_boxes": 7,
+      "mask_kind": "fusion_map",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_two_tool_plan_areaB_optical_grounding.png",
+      "answer_preview": "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (34.0 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.03 (op\u2026"
+    },
+    {
+      "slug": "edge-benchmark-png",
+      "title": "A benchmark PNG with no near-infrared",
+      "subtitle": "Graceful degradation \u00b7 visible-band proxies only",
+      "query": "Describe the land cover in this image.",
+      "inputs": [
+        "optical_city.png"
+      ],
+      "highlight": "NDVI and NDWI are reported unavailable rather than silently approximated; the answer carries the caveat and the confidence is penalised.",
+      "expects": "single_caption",
+      "routed_task": "single_caption",
+      "matched": true,
+      "status": "done",
+      "tools_used": [
+        "rs_vlm.caption"
+      ],
+      "plan": [
+        "rs_vlm.caption"
+      ],
+      "confidence": {
+        "value": 0.542,
+        "source": "measurement_composite"
+      },
+      "execution_time_ms": 180,
+      "n_boxes": 0,
+      "mask_kind": "class_map",
+      "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png",
+      "answer_preview": "The optical scene is dominated by vegetation. Measured extents: unclassified 65.6%; vegetation 21.7%; water 6.4%; built-up / man-made surface 5.8%. Notable regions: water in the bottom; wat\u2026"
+    }
+  ],
+  "note": "Pre-computed with the real controller: the answers, measurements and audit traces below are the actual output for these inputs, stored so the dashboard is not empty on load. Each one can be re-run live."
+}

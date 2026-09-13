@@ -135,7 +135,10 @@ def refined_lee(a: np.ndarray, win: int = 7, enl: Optional[float] = None) -> np.
         smoothed = ndimage.convolve(x, k / k.sum(), mode="nearest")
         directional = np.where(sector == key, smoothed, directional)
     structured = ci2 > (4.0 * cu2)
-    out = np.where(structured, 0.5 * (directional + lee), lee)
+    # In heterogeneous windows use the directional estimate alone. Blending it with
+    # the isotropic Lee result would keep half the cross-edge smoothing, which is
+    # what smears a narrow river into its banks and loses it entirely.
+    out = np.where(structured, directional, lee)
     return out.astype(np.float32)
 
 

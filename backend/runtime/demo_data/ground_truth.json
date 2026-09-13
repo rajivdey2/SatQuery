@@ -1,0 +1,101 @@
+{
+  "generator": "scripts/make_demo_data.py",
+  "grid": {
+    "size": 384,
+    "pixel_size_m": 10.0,
+    "pixel_area_ha": 0.01,
+    "crs": "EPSG:32644",
+    "extent": [
+      523000.0,
+      3120000.0,
+      526840.0,
+      3123840.0
+    ]
+  },
+  "areaA_t1": {
+    "classes": {
+      "water": {
+        "fraction": 0.03962,
+        "area_ha": 58.42
+      },
+      "vegetation": {
+        "fraction": 0.51125,
+        "area_ha": 753.87
+      },
+      "built_up": {
+        "fraction": 0.14016,
+        "area_ha": 206.67
+      },
+      "bare_soil": {
+        "fraction": 0.30897,
+        "area_ha": 455.6
+      }
+    },
+    "water": {
+      "bbox_norm": [
+        0.0,
+        67.45,
+        99.74,
+        76.3
+      ],
+      "area_ha": 30.73,
+      "n_water_regions": 2
+    }
+  },
+  "areaA_t2": {
+    "classes": {
+      "water": {
+        "fraction": 0.03133,
+        "area_ha": 46.2
+      },
+      "vegetation": {
+        "fraction": 0.46909,
+        "area_ha": 691.7
+      },
+      "built_up": {
+        "fraction": 0.17385,
+        "area_ha": 256.35
+      },
+      "bare_soil": {
+        "fraction": 0.32573,
+        "area_ha": 480.31
+      }
+    }
+  },
+  "change_areaA": {
+    "built_up_gain_px": 4968,
+    "built_up_gain_ha": 49.68,
+    "water_loss_px": 1222,
+    "water_loss_ha": 12.22,
+    "vegetation_to_bare_px": 1873,
+    "vegetation_to_bare_ha": 18.73,
+    "changed_px": 8063,
+    "changed_fraction": 0.05468,
+    "changed_ha": 80.63
+  },
+  "areaB": {
+    "classes": {
+      "water": {
+        "fraction": 0.03962,
+        "area_ha": 58.42
+      },
+      "vegetation": {
+        "fraction": 0.51125,
+        "area_ha": 753.87
+      },
+      "built_up": {
+        "fraction": 0.14016,
+        "area_ha": 206.67
+      },
+      "bare_soil": {
+        "fraction": 0.30897,
+        "area_ha": 455.6
+      }
+    },
+    "cloud_fraction": 0.04645,
+    "note": "areaB_optical has a synthetic cloud patch; the SAR image does not, so fusion should recover the obscured area from the radar evidence"
+  },
+  "areaD": {
+    "note": "different CRS and footprint: pairing it with areaA must be rejected"
+  }
+}

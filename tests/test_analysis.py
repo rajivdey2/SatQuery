@@ -46,7 +46,9 @@ def test_prior_wins_when_the_histogram_is_unimodal():
     t = threshold_with_prior(rng.normal(-0.4, 0.15, 8000), prior=0.0, window=0.25, name="NDWI")
     assert t.method == "prior_fixed"
     assert t.value == pytest.approx(0.0)
-    assert "unimodal" in t.note
+    assert "not convincingly bimodal" in t.note
+    # A single Gaussian scores ~0.64, which is exactly why the cut-off sits above it.
+    assert 0.55 < t.separability < 0.75
 
 
 def test_out_of_window_otsu_falls_back_to_the_prior():

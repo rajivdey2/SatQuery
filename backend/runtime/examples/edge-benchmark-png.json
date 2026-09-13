@@ -1,0 +1,1402 @@
+{
+  "id": "example_edge_benchmark_png",
+  "status": "done",
+  "query": "Describe the land cover in this image.",
+  "filenames": [
+    "optical_city.png"
+  ],
+  "files": [
+    "C:\\project\\satquery\\backend\\runtime\\demo_data\\optical_city.png"
+  ],
+  "created_at": 1788176440.0089698,
+  "result": {
+    "run_id": "example_edge_benchmark_png",
+    "query": "Describe the land cover in this image.",
+    "task": "single_caption",
+    "text": "The optical scene is dominated by vegetation. Measured extents: unclassified 65.6%; vegetation 21.7%; water 6.4%; built-up / man-made surface 5.8%. Notable regions: water in the bottom; water in the upper-left. 2 separate water regions; 110 separate vegetation regions. Caveats: No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability. No CRS/geotransform: areas cannot be reported in hectares and spatial descriptions use image orientation, not compass bearings.",
+    "answers": [
+      "The optical scene is dominated by vegetation. Measured extents: unclassified 65.6%; vegetation 21.7%; water 6.4%; built-up / man-made surface 5.8%. Notable regions: water in the bottom; water in the upper-left. 2 separate water regions; 110 separate vegetation regions. Caveats: No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability. No CRS/geotransform: areas cannot be reported in hectares and spatial descriptions use image orientation, not compass bearings."
+    ],
+    "boxes": [],
+    "mask_path": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png",
+    "mask_kind": "class_map",
+    "evidence": [
+      {
+        "role": "input_preview",
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city.png",
+        "caption": "optical input \u00b7 optical_city.png"
+      },
+      {
+        "role": "class_map",
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png",
+        "caption": "Measured land-cover classes"
+      }
+    ],
+    "confidence": {
+      "value": 0.542,
+      "source": "measurement_composite",
+      "calibrated": false,
+      "components": [
+        {
+          "name": "separability",
+          "value": 0.6168,
+          "weight": 0.3,
+          "note": "Otsu between-class variance ratio of the applied thresholds"
+        },
+        {
+          "name": "band_completeness",
+          "value": 0.5,
+          "weight": 0.18,
+          "note": "fraction of the wanted spectral indices the product supports"
+        },
+        {
+          "name": "valid_pixel_fraction",
+          "value": 1.0,
+          "weight": 0.08,
+          "note": "share of the frame that is valid (not nodata)"
+        },
+        {
+          "name": "penalty_factor",
+          "value": 0.855,
+          "weight": 0.0,
+          "note": "multiplicative penalty from the notes above"
+        }
+      ],
+      "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 2 measurement limitation(s) reduced the score by 10%. No CRS: areas are in pixels only (-5%)."
+    },
+    "measurements": {
+      "single_caption": {
+        "kind": "land_cover",
+        "method": "visible_proxy_thresholds_v1",
+        "classes": [
+          {
+            "name": "water",
+            "label": "water",
+            "pixel_count": 9482,
+            "fraction": 0.0643039279513889,
+            "area_ha": null,
+            "evidence_basis": "visible-only proxy: (Blue-Red)/(Blue+Red) > +0.137 (otsu) and brightness below p45",
+            "reliability": "medium",
+            "region_count": 2
+          },
+          {
+            "name": "vegetation",
+            "label": "vegetation",
+            "pixel_count": 31987,
+            "fraction": 0.2169257269965278,
+            "area_ha": null,
+            "evidence_basis": "visible-only proxy: excess-green > +0.020 (otsu_rejected_prior_used)",
+            "reliability": "medium",
+            "region_count": 110
+          },
+          {
+            "name": "built_up",
+            "label": "built-up / man-made surface",
+            "pixel_count": 8534,
+            "fraction": 0.05787489149305555,
+            "area_ha": null,
+            "evidence_basis": "brightness > p60 (0.604) with high 5x5 texture > p65 (0.073)",
+            "reliability": "medium",
+            "region_count": 24
+          },
+          {
+            "name": "bare_soil",
+            "label": "bare soil or fallow ground",
+            "pixel_count": 724,
+            "fraction": 0.004909939236111111,
+            "area_ha": null,
+            "evidence_basis": "smooth, non-green, non-water residue",
+            "reliability": "medium",
+            "region_count": 0
+          },
+          {
+            "name": "other",
+            "label": "unclassified",
+            "pixel_count": 96729,
+            "fraction": 0.6559855143229166,
+            "area_ha": null,
+            "evidence_basis": "no proxy threshold satisfied",
+            "reliability": "medium",
+            "region_count": 3
+          }
+        ],
+        "dominant": "vegetation",
+        "indices": [
+          {
+            "name": "BRIGHTNESS",
+            "available": true,
+            "mean": 0.3649,
+            "std": 0.3311,
+            "p05": 0.0425,
+            "p95": 0.8346,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "mean scaled reflectance across available bands"
+          },
+          {
+            "name": "BWI",
+            "available": true,
+            "mean": 0.0403,
+            "std": 0.3797,
+            "p05": -0.5427,
+            "p95": 0.7555,
+            "threshold": 0.1367,
+            "threshold_method": "otsu",
+            "separability": 0.5881,
+            "note": "data-driven split inside the plausible BWI window [-0.10, +0.14]"
+          },
+          {
+            "name": "EXG",
+            "available": true,
+            "mean": 0.145,
+            "std": 0.4471,
+            "p05": -0.5862,
+            "p95": 1.0,
+            "threshold": 0.02,
+            "threshold_method": "otsu_rejected_prior_used",
+            "separability": 0.6455,
+            "note": "Otsu suggested +0.25, outside the plausible EXG window [-0.08, +0.12] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.02 was used instead"
+          },
+          {
+            "name": "TEXTURE",
+            "available": true,
+            "mean": 0.071,
+            "std": 0.076,
+            "p05": 0.0166,
+            "p95": 0.2794,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "local standard deviation of brightness, 5x5 window"
+          },
+          {
+            "name": "MNDWI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires Green and SWIR1 bands (absent from 4-band and RGB products)"
+          },
+          {
+            "name": "NDBI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires SWIR1 and NIR bands; built-up detected from brightness and texture instead"
+          },
+          {
+            "name": "NDVI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires Red and NIR bands; product has blue, green, red"
+          },
+          {
+            "name": "NDWI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires Green and NIR bands"
+          }
+        ],
+        "regions": [
+          {
+            "label": "water",
+            "class_name": "water",
+            "bbox_norm": [
+              0.26,
+              67.45,
+              99.74,
+              76.56
+            ],
+            "bbox_px": [
+              1,
+              259,
+              383,
+              294
+            ],
+            "centroid_norm": [
+              49.87,
+              72.5
+            ],
+            "area_px": 3075,
+            "area_ha": null,
+            "fraction": 0.02085,
+            "position": "bottom",
+            "compactness": 0.23,
+            "score": 0.567
+          },
+          {
+            "label": "water",
+            "class_name": "water",
+            "bbox_norm": [
+              10.94,
+              11.2,
+              30.21,
+              26.04
+            ],
+            "bbox_px": [
+              42,
+              43,
+              116,
+              100
+            ],
+            "centroid_norm": [
+              19.89,
+              18.1
+            ],
+            "area_px": 2921,
+            "area_ha": null,
+            "fraction": 0.01981,
+            "position": "upper-left",
+            "compactness": 0.693,
+            "score": 0.751
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              71.09,
+              26.56,
+              96.35,
+              40.36
+            ],
+            "bbox_px": [
+              273,
+              102,
+              370,
+              155
+            ],
+            "centroid_norm": [
+              82.07,
+              33.12
+            ],
+            "area_px": 1354,
+            "area_ha": null,
+            "fraction": 0.00918,
+            "position": "upper-right",
+            "compactness": 0.263,
+            "score": 0.566
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              38.02,
+              29.95,
+              54.17,
+              39.84
+            ],
+            "bbox_px": [
+              146,
+              115,
+              208,
+              153
+            ],
+            "centroid_norm": [
+              46.23,
+              34.72
+            ],
+            "area_px": 804,
+            "area_ha": null,
+            "fraction": 0.00545,
+            "position": "centre",
+            "compactness": 0.341,
+            "score": 0.593
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              84.38,
+              50.0,
+              99.74,
+              63.28
+            ],
+            "bbox_px": [
+              324,
+              192,
+              383,
+              243
+            ],
+            "centroid_norm": [
+              91.44,
+              54.98
+            ],
+            "area_px": 773,
+            "area_ha": null,
+            "fraction": 0.00524,
+            "position": "right",
+            "compactness": 0.257,
+            "score": 0.559
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              11.72,
+              33.59,
+              22.92,
+              45.05
+            ],
+            "bbox_px": [
+              45,
+              129,
+              88,
+              173
+            ],
+            "centroid_norm": [
+              18.64,
+              39.34
+            ],
+            "area_px": 728,
+            "area_ha": null,
+            "fraction": 0.00494,
+            "position": "left",
+            "compactness": 0.385,
+            "score": 0.61
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              51.3,
+              69.53,
+              55.73,
+              76.3
+            ],
+            "bbox_px": [
+              197,
+              267,
+              214,
+              293
+            ],
+            "centroid_norm": [
+              53.71,
+              72.42
+            ],
+            "area_px": 170,
+            "area_ha": null,
+            "fraction": 0.00115,
+            "position": "bottom",
+            "compactness": 0.385,
+            "score": 0.605
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              27.86,
+              91.15,
+              32.81,
+              94.27
+            ],
+            "bbox_px": [
+              107,
+              350,
+              126,
+              362
+            ],
+            "centroid_norm": [
+              30.13,
+              92.74
+            ],
+            "area_px": 151,
+            "area_ha": null,
+            "fraction": 0.00102,
+            "position": "lower-left",
+            "compactness": 0.662,
+            "score": 0.716
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              47.66,
+              76.04,
+              54.69,
+              78.91
+            ],
+            "bbox_px": [
+              183,
+              292,
+              210,
+              303
+            ],
+            "centroid_norm": [
+              51.03,
+              77.67
+            ],
+            "area_px": 138,
+            "area_ha": null,
+            "fraction": 0.00094,
+            "position": "bottom",
+            "compactness": 0.465,
+            "score": 0.637
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              87.24,
+              41.15,
+              90.89,
+              46.35
+            ],
+            "bbox_px": [
+              335,
+              158,
+              349,
+              178
+            ],
+            "centroid_norm": [
+              88.86,
+              43.48
+            ],
+            "area_px": 103,
+            "area_ha": null,
+            "fraction": 0.0007,
+            "position": "right",
+            "compactness": 0.368,
+            "score": 0.598
+          }
+        ],
+        "quality": {
+          "band_layout": "rgb",
+          "bands_available": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "indices_available": [
+            "BRIGHTNESS",
+            "BWI",
+            "EXG",
+            "TEXTURE"
+          ],
+          "indices_unavailable": [
+            "MNDWI",
+            "NDBI",
+            "NDVI",
+            "NDWI"
+          ],
+          "valid_pixel_fraction": 1.0,
+          "separability": 0.6168,
+          "spatial_reference": false,
+          "limitations": [
+            "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability.",
+            "No CRS/geotransform: areas cannot be reported in hectares and spatial descriptions use image orientation, not compass bearings."
+          ]
+        },
+        "scene_labels": [],
+        "label_source": null
+      }
+    },
+    "model_id": "satquery-analysis-engine-v1",
+    "adapter": null,
+    "narration_source": "measurement",
+    "tools_used": [
+      "rs_vlm.caption"
+    ],
+    "trace_path": "C:\\project\\satquery\\backend\\runtime\\traces\\example_edge_benchmark_png.json",
+    "rejected": null
+  },
+  "trace": {
+    "schema_version": "2.0.0",
+    "run_id": "example_edge_benchmark_png",
+    "task": "single_caption",
+    "query": "Describe the land cover in this image.",
+    "query_hash": "e5ce9c2c4e",
+    "input_config": {
+      "n_images": 1,
+      "images": [
+        {
+          "filename": "optical_city.png",
+          "format": "PNG",
+          "modality": "optical",
+          "modality_confidence": "medium",
+          "modality_reason": "3 bands: true-colour optical composite",
+          "width": 384,
+          "height": 384,
+          "band_count": 3,
+          "dtype": "uint8",
+          "crs": null,
+          "extent": null,
+          "extent_wgs84": null,
+          "pixel_size": null,
+          "pixel_area_m2": null,
+          "acquisition_date": null,
+          "metadata_source": "none",
+          "sensor_guess": null,
+          "band_assignment": {
+            "layout": "rgb",
+            "source": "band_count",
+            "roles": {
+              "blue": 2,
+              "green": 1,
+              "red": 0
+            },
+            "ambiguous": false,
+            "notes": [
+              "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+            ]
+          },
+          "details": {
+            "analysis_shape": [
+              384,
+              384
+            ],
+            "read_decimation": 1.0,
+            "valid_pixel_fraction": 1.0,
+            "preprocessing_notes": [
+              "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+            ]
+          }
+        }
+      ],
+      "geolocated": false,
+      "co_registered": null,
+      "co_registration_note": null,
+      "bi_temporal": null,
+      "cross_modal": null,
+      "dates_differ": null,
+      "date_note": null,
+      "modality_signature": [
+        "optical"
+      ]
+    },
+    "validation": {
+      "passed": [
+        "format:PNG",
+        "modality:optical",
+        "optical_city.png: PNG, 384x384, 3 band(s), uint8",
+        "optical_city.png: modality 'optical' (medium confidence) \u2014 3 bands: true-colour optical composite",
+        "Single-image input (optical)."
+      ],
+      "warnings": [
+        "optical_city.png is PNG: accepted as benchmark input only. It carries no CRS, no acquisition date and 8-bit radiometry, so areas cannot be reported in hectares and spectral indices are limited to visible-band proxies.",
+        "optical_city.png: no acquisition date in product tags or filename."
+      ],
+      "failed": [],
+      "checks": [
+        {
+          "name": "format",
+          "status": "passed",
+          "message": "optical_city.png: PNG, 384x384, 3 band(s), uint8",
+          "detail": {
+            "format": "PNG",
+            "dtype": "uint8",
+            "bands": 3
+          }
+        },
+        {
+          "name": "format_policy",
+          "status": "warning",
+          "message": "optical_city.png is PNG: accepted as benchmark input only. It carries no CRS, no acquisition date and 8-bit radiometry, so areas cannot be reported in hectares and spectral indices are limited to visible-band proxies.",
+          "detail": {}
+        },
+        {
+          "name": "modality",
+          "status": "passed",
+          "message": "optical_city.png: modality 'optical' (medium confidence) \u2014 3 bands: true-colour optical composite",
+          "detail": {
+            "modality": "optical",
+            "confidence": "medium",
+            "sensor_guess": null
+          }
+        },
+        {
+          "name": "metadata",
+          "status": "warning",
+          "message": "optical_city.png: no acquisition date in product tags or filename.",
+          "detail": {}
+        },
+        {
+          "name": "input_configuration",
+          "status": "passed",
+          "message": "Single-image input (optical).",
+          "detail": {
+            "configuration": "single_image"
+          }
+        }
+      ],
+      "input_config": {
+        "n_images": 1,
+        "images": [
+          {
+            "filename": "optical_city.png",
+            "format": "PNG",
+            "modality": "optical",
+            "modality_confidence": "medium",
+            "modality_reason": "3 bands: true-colour optical composite",
+            "width": 384,
+            "height": 384,
+            "band_count": 3,
+            "dtype": "uint8",
+            "crs": null,
+            "extent": null,
+            "extent_wgs84": null,
+            "pixel_size": null,
+            "pixel_area_m2": null,
+            "acquisition_date": null,
+            "metadata_source": "none",
+            "sensor_guess": null,
+            "band_assignment": {
+              "layout": "rgb",
+              "source": "band_count",
+              "roles": {
+                "blue": 2,
+                "green": 1,
+                "red": 0
+              },
+              "ambiguous": false,
+              "notes": [
+                "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+              ]
+            },
+            "details": {
+              "analysis_shape": [
+                384,
+                384
+              ],
+              "read_decimation": 1.0,
+              "valid_pixel_fraction": 1.0,
+              "preprocessing_notes": [
+                "3-band product treated as R,G,B (benchmark PNG/JPEG convention). No NIR/SWIR: NDVI/NDWI/NDBI unavailable, visible-only proxies used."
+              ]
+            }
+          }
+        ],
+        "geolocated": false,
+        "co_registered": null,
+        "co_registration_note": null,
+        "bi_temporal": null,
+        "cross_modal": null,
+        "dates_differ": null,
+        "date_note": null,
+        "modality_signature": [
+          "optical"
+        ]
+      },
+      "accepted": true
+    },
+    "classification": {
+      "task": "single_caption",
+      "method": "rules",
+      "reasons": [
+        "Matched single_caption evidence: describe."
+      ],
+      "scores": {
+        "single_vqa": 0.5,
+        "single_caption": 3.0,
+        "single_grounding": 0.0,
+        "change_vqa": -1.0,
+        "change_description": -1.0,
+        "sar_optical_fusion": -1.0
+      },
+      "alternatives": {
+        "single_vqa": 0.1426,
+        "single_caption": 0.7552,
+        "single_grounding": 0.1022
+      },
+      "runner_up": {
+        "task": "single_vqa",
+        "score": 0.1426
+      },
+      "infeasible_tasks": {
+        "change_vqa": "change.vqa requires an image pair, 1 supplied",
+        "change_description": "change.description requires an image pair, 1 supplied",
+        "sar_optical_fusion": "fusion.joint requires an image pair, 1 supplied"
+      },
+      "matched_evidence": {
+        "single_caption": [
+          "describe"
+        ]
+      },
+      "candidate_tasks": [
+        "single_vqa",
+        "single_caption",
+        "single_grounding",
+        "change_vqa",
+        "change_description",
+        "sar_optical_fusion"
+      ]
+    },
+    "plan": [
+      "rs_vlm.caption"
+    ],
+    "registry_entries_used": [
+      {
+        "id": "rs_vlm.caption",
+        "task": "single_caption",
+        "tool_kind": "analysis",
+        "model_id": "satquery-analysis-engine-v1",
+        "adapter": null,
+        "quantization": null,
+        "fallback": null,
+        "permitted_parameters": {
+          "min_region_pixels": 64,
+          "smoothing_window": 3,
+          "max_new_tokens": 512,
+          "temperature": 0.2
+        },
+        "rejected_parameters": []
+      }
+    ],
+    "steps": [
+      {
+        "order": 1,
+        "tool": "preprocessing.read_and_calibrate",
+        "task": "",
+        "parameters": {
+          "file": "optical_city.png",
+          "speckle_filter": null
+        },
+        "outputs_summary": "optical \u00b7 rgb \u00b7 384x384 analysis grid",
+        "duration_ms": 17,
+        "status": "ok",
+        "detail": {
+          "band_roles": {
+            "red": 0,
+            "green": 1,
+            "blue": 2
+          },
+          "band_source": "band_count",
+          "pixel_area_m2": null
+        }
+      },
+      {
+        "order": 2,
+        "tool": "preprocessing.prepare_image",
+        "task": "single_caption",
+        "parameters": {
+          "speckle_filter": null,
+          "band_roles": {
+            "red": 0,
+            "green": 1,
+            "blue": 2
+          }
+        },
+        "outputs_summary": "optical rgb, 384x384 analysis grid, 3 resolved band roles",
+        "duration_ms": 0,
+        "status": "ok",
+        "detail": {
+          "band_assignment_source": "band_count",
+          "pixel_area_m2": null
+        }
+      },
+      {
+        "order": 3,
+        "tool": "analysis.land_cover",
+        "task": "single_caption",
+        "parameters": {
+          "min_region_pixels": 64,
+          "smoothing_window": 3
+        },
+        "outputs_summary": "dominant=vegetation; indices=BRIGHTNESS,BWI,EXG,TEXTURE; separability=0.6168",
+        "duration_ms": 111,
+        "status": "ok",
+        "detail": {
+          "class_fractions": {
+            "water": 0.0643039279513889,
+            "vegetation": 0.2169257269965278,
+            "built_up": 0.05787489149305555,
+            "bare_soil": 0.004909939236111111,
+            "other": 0.6559855143229166
+          }
+        }
+      },
+      {
+        "order": 4,
+        "tool": "render.class_map",
+        "task": "single_caption",
+        "parameters": {},
+        "outputs_summary": "example_edge_benchmark_png_optical_city_classmap.png",
+        "duration_ms": 26,
+        "status": "ok",
+        "detail": {}
+      },
+      {
+        "order": 5,
+        "tool": "rs_vlm.caption",
+        "task": "single_caption",
+        "parameters": {
+          "min_region_pixels": 64,
+          "smoothing_window": 3,
+          "max_new_tokens": 512,
+          "temperature": 0.2
+        },
+        "outputs_summary": "555 chars, 0 box(es), mask=class_map, narration=measurement",
+        "duration_ms": 137,
+        "status": "ok",
+        "detail": {
+          "reason_in_plan": "registry entry for classified task 'single_caption'",
+          "primary": true
+        }
+      }
+    ],
+    "effective_parameters": {
+      "min_region_pixels": 64,
+      "smoothing_window": 3,
+      "max_new_tokens": 512,
+      "temperature": 0.2
+    },
+    "measurements": {
+      "single_caption": {
+        "kind": "land_cover",
+        "method": "visible_proxy_thresholds_v1",
+        "classes": [
+          {
+            "name": "water",
+            "label": "water",
+            "pixel_count": 9482,
+            "fraction": 0.0643039279513889,
+            "area_ha": null,
+            "evidence_basis": "visible-only proxy: (Blue-Red)/(Blue+Red) > +0.137 (otsu) and brightness below p45",
+            "reliability": "medium",
+            "region_count": 2
+          },
+          {
+            "name": "vegetation",
+            "label": "vegetation",
+            "pixel_count": 31987,
+            "fraction": 0.2169257269965278,
+            "area_ha": null,
+            "evidence_basis": "visible-only proxy: excess-green > +0.020 (otsu_rejected_prior_used)",
+            "reliability": "medium",
+            "region_count": 110
+          },
+          {
+            "name": "built_up",
+            "label": "built-up / man-made surface",
+            "pixel_count": 8534,
+            "fraction": 0.05787489149305555,
+            "area_ha": null,
+            "evidence_basis": "brightness > p60 (0.604) with high 5x5 texture > p65 (0.073)",
+            "reliability": "medium",
+            "region_count": 24
+          },
+          {
+            "name": "bare_soil",
+            "label": "bare soil or fallow ground",
+            "pixel_count": 724,
+            "fraction": 0.004909939236111111,
+            "area_ha": null,
+            "evidence_basis": "smooth, non-green, non-water residue",
+            "reliability": "medium",
+            "region_count": 0
+          },
+          {
+            "name": "other",
+            "label": "unclassified",
+            "pixel_count": 96729,
+            "fraction": 0.6559855143229166,
+            "area_ha": null,
+            "evidence_basis": "no proxy threshold satisfied",
+            "reliability": "medium",
+            "region_count": 3
+          }
+        ],
+        "dominant": "vegetation",
+        "indices": [
+          {
+            "name": "BRIGHTNESS",
+            "available": true,
+            "mean": 0.3649,
+            "std": 0.3311,
+            "p05": 0.0425,
+            "p95": 0.8346,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "mean scaled reflectance across available bands"
+          },
+          {
+            "name": "BWI",
+            "available": true,
+            "mean": 0.0403,
+            "std": 0.3797,
+            "p05": -0.5427,
+            "p95": 0.7555,
+            "threshold": 0.1367,
+            "threshold_method": "otsu",
+            "separability": 0.5881,
+            "note": "data-driven split inside the plausible BWI window [-0.10, +0.14]"
+          },
+          {
+            "name": "EXG",
+            "available": true,
+            "mean": 0.145,
+            "std": 0.4471,
+            "p05": -0.5862,
+            "p95": 1.0,
+            "threshold": 0.02,
+            "threshold_method": "otsu_rejected_prior_used",
+            "separability": 0.6455,
+            "note": "Otsu suggested +0.25, outside the plausible EXG window [-0.08, +0.12] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.02 was used instead"
+          },
+          {
+            "name": "TEXTURE",
+            "available": true,
+            "mean": 0.071,
+            "std": 0.076,
+            "p05": 0.0166,
+            "p95": 0.2794,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "local standard deviation of brightness, 5x5 window"
+          },
+          {
+            "name": "MNDWI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires Green and SWIR1 bands (absent from 4-band and RGB products)"
+          },
+          {
+            "name": "NDBI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires SWIR1 and NIR bands; built-up detected from brightness and texture instead"
+          },
+          {
+            "name": "NDVI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires Red and NIR bands; product has blue, green, red"
+          },
+          {
+            "name": "NDWI",
+            "available": false,
+            "mean": null,
+            "std": null,
+            "p05": null,
+            "p95": null,
+            "threshold": null,
+            "threshold_method": null,
+            "separability": null,
+            "note": "requires Green and NIR bands"
+          }
+        ],
+        "regions": [
+          {
+            "label": "water",
+            "class_name": "water",
+            "bbox_norm": [
+              0.26,
+              67.45,
+              99.74,
+              76.56
+            ],
+            "bbox_px": [
+              1,
+              259,
+              383,
+              294
+            ],
+            "centroid_norm": [
+              49.87,
+              72.5
+            ],
+            "area_px": 3075,
+            "area_ha": null,
+            "fraction": 0.02085,
+            "position": "bottom",
+            "compactness": 0.23,
+            "score": 0.567
+          },
+          {
+            "label": "water",
+            "class_name": "water",
+            "bbox_norm": [
+              10.94,
+              11.2,
+              30.21,
+              26.04
+            ],
+            "bbox_px": [
+              42,
+              43,
+              116,
+              100
+            ],
+            "centroid_norm": [
+              19.89,
+              18.1
+            ],
+            "area_px": 2921,
+            "area_ha": null,
+            "fraction": 0.01981,
+            "position": "upper-left",
+            "compactness": 0.693,
+            "score": 0.751
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              71.09,
+              26.56,
+              96.35,
+              40.36
+            ],
+            "bbox_px": [
+              273,
+              102,
+              370,
+              155
+            ],
+            "centroid_norm": [
+              82.07,
+              33.12
+            ],
+            "area_px": 1354,
+            "area_ha": null,
+            "fraction": 0.00918,
+            "position": "upper-right",
+            "compactness": 0.263,
+            "score": 0.566
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              38.02,
+              29.95,
+              54.17,
+              39.84
+            ],
+            "bbox_px": [
+              146,
+              115,
+              208,
+              153
+            ],
+            "centroid_norm": [
+              46.23,
+              34.72
+            ],
+            "area_px": 804,
+            "area_ha": null,
+            "fraction": 0.00545,
+            "position": "centre",
+            "compactness": 0.341,
+            "score": 0.593
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              84.38,
+              50.0,
+              99.74,
+              63.28
+            ],
+            "bbox_px": [
+              324,
+              192,
+              383,
+              243
+            ],
+            "centroid_norm": [
+              91.44,
+              54.98
+            ],
+            "area_px": 773,
+            "area_ha": null,
+            "fraction": 0.00524,
+            "position": "right",
+            "compactness": 0.257,
+            "score": 0.559
+          },
+          {
+            "label": "vegetation",
+            "class_name": "vegetation",
+            "bbox_norm": [
+              11.72,
+              33.59,
+              22.92,
+              45.05
+            ],
+            "bbox_px": [
+              45,
+              129,
+              88,
+              173
+            ],
+            "centroid_norm": [
+              18.64,
+              39.34
+            ],
+            "area_px": 728,
+            "area_ha": null,
+            "fraction": 0.00494,
+            "position": "left",
+            "compactness": 0.385,
+            "score": 0.61
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              51.3,
+              69.53,
+              55.73,
+              76.3
+            ],
+            "bbox_px": [
+              197,
+              267,
+              214,
+              293
+            ],
+            "centroid_norm": [
+              53.71,
+              72.42
+            ],
+            "area_px": 170,
+            "area_ha": null,
+            "fraction": 0.00115,
+            "position": "bottom",
+            "compactness": 0.385,
+            "score": 0.605
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              27.86,
+              91.15,
+              32.81,
+              94.27
+            ],
+            "bbox_px": [
+              107,
+              350,
+              126,
+              362
+            ],
+            "centroid_norm": [
+              30.13,
+              92.74
+            ],
+            "area_px": 151,
+            "area_ha": null,
+            "fraction": 0.00102,
+            "position": "lower-left",
+            "compactness": 0.662,
+            "score": 0.716
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              47.66,
+              76.04,
+              54.69,
+              78.91
+            ],
+            "bbox_px": [
+              183,
+              292,
+              210,
+              303
+            ],
+            "centroid_norm": [
+              51.03,
+              77.67
+            ],
+            "area_px": 138,
+            "area_ha": null,
+            "fraction": 0.00094,
+            "position": "bottom",
+            "compactness": 0.465,
+            "score": 0.637
+          },
+          {
+            "label": "built-up / man-made surface",
+            "class_name": "built_up",
+            "bbox_norm": [
+              87.24,
+              41.15,
+              90.89,
+              46.35
+            ],
+            "bbox_px": [
+              335,
+              158,
+              349,
+              178
+            ],
+            "centroid_norm": [
+              88.86,
+              43.48
+            ],
+            "area_px": 103,
+            "area_ha": null,
+            "fraction": 0.0007,
+            "position": "right",
+            "compactness": 0.368,
+            "score": 0.598
+          }
+        ],
+        "quality": {
+          "band_layout": "rgb",
+          "bands_available": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "indices_available": [
+            "BRIGHTNESS",
+            "BWI",
+            "EXG",
+            "TEXTURE"
+          ],
+          "indices_unavailable": [
+            "MNDWI",
+            "NDBI",
+            "NDVI",
+            "NDWI"
+          ],
+          "valid_pixel_fraction": 1.0,
+          "separability": 0.6168,
+          "spatial_reference": false,
+          "limitations": [
+            "No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability.",
+            "No CRS/geotransform: areas cannot be reported in hectares and spatial descriptions use image orientation, not compass bearings."
+          ]
+        },
+        "scene_labels": [],
+        "label_source": null
+      }
+    },
+    "outputs": {
+      "text": {
+        "text": "The optical scene is dominated by vegetation. Measured extents: unclassified 65.6%; vegetation 21.7%; water 6.4%; built-up / man-made surface 5.8%. Notable regions: water in the bottom; water in the upper-left. 2 separate water regions; 110 separate vegetation regions. Caveats: No near-infrared band: NDVI/NDWI unavailable, vegetation and water detected from visible-band proxies (ExG, blue-over-red) with reduced reliability. No CRS/geotransform: areas cannot be reported in hectares and spatial descriptions use image orientation, not compass bearings.",
+        "narration_source": "measurement",
+        "n_samples": 1
+      },
+      "boxes": [],
+      "mask": {
+        "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png",
+        "kind": "class_map",
+        "changed_fraction": null
+      },
+      "evidence": [
+        {
+          "role": "input_preview",
+          "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city.png",
+          "caption": "optical input \u00b7 optical_city.png"
+        },
+        {
+          "role": "class_map",
+          "path": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png",
+          "caption": "Measured land-cover classes"
+        }
+      ],
+      "evidence_thumbnails": [
+        "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city.png",
+        "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png"
+      ]
+    },
+    "confidence": {
+      "value": 0.542,
+      "source": "measurement_composite",
+      "calibrated": false,
+      "components": [
+        {
+          "name": "separability",
+          "value": 0.6168,
+          "weight": 0.3,
+          "note": "Otsu between-class variance ratio of the applied thresholds"
+        },
+        {
+          "name": "band_completeness",
+          "value": 0.5,
+          "weight": 0.18,
+          "note": "fraction of the wanted spectral indices the product supports"
+        },
+        {
+          "name": "valid_pixel_fraction",
+          "value": 1.0,
+          "weight": 0.08,
+          "note": "share of the frame that is valid (not nodata)"
+        },
+        {
+          "name": "penalty_factor",
+          "value": 0.855,
+          "weight": 0.0,
+          "note": "multiplicative penalty from the notes above"
+        }
+      ],
+      "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 2 measurement limitation(s) reduced the score by 10%. No CRS: areas are in pixels only (-5%)."
+    },
+    "execution_time_ms": 180,
+    "model_backend": "analysis_engine",
+    "environment": {
+      "server_version": "0.2.0",
+      "device": "cpu",
+      "torch_available": false,
+      "vlm_narration_enabled": false,
+      "vlm_model_id": null,
+      "mock_mode": false,
+      "max_analysis_pixels": 4194304
+    },
+    "error": null,
+    "created_at": "2026-08-31T11:40:40.008969+00:00",
+    "server_version": "0.2.0"
+  },
+  "error": null,
+  "example": {
+    "slug": "edge-benchmark-png",
+    "title": "A benchmark PNG with no near-infrared",
+    "subtitle": "Graceful degradation \u00b7 visible-band proxies only",
+    "query": "Describe the land cover in this image.",
+    "inputs": [
+      "optical_city.png"
+    ],
+    "highlight": "NDVI and NDWI are reported unavailable rather than silently approximated; the answer carries the caveat and the confidence is penalised.",
+    "expects": "single_caption",
+    "baked_at": "2026-08-31T17:10:40",
+    "backend": "analysis_engine"
+  }
+}

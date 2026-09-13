@@ -22,6 +22,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import FileResponse, JSONResponse
 
 from backend.analysis import scene_labels
+from backend.api import examples as example_store
 from backend.api.jobs import create_job, get_job, list_jobs
 from backend.config import DEMO_DIR, OUTPUT_DIR, TRACE_DIR, settings
 from backend.controller.registry import describe_registry
@@ -76,6 +77,24 @@ def registry() -> dict:
     payload = describe_registry()
     payload["specialists"] = describe_all()
     return payload
+
+
+@app.get("/api/examples")
+def examples() -> dict:
+    """Pre-computed showcase runs, so the dashboard is never empty on load."""
+    return example_store.load_index()
+
+
+@app.get("/api/examples/{slug}")
+def example(slug: str) -> dict:
+    """One baked example, in the same shape as a job so the GUI reuses its renderer."""
+    record = example_store.load_record(slug)
+    if record is None:
+        raise HTTPException(
+            status_code=404,
+            detail=(f"No baked example '{slug}'. Run `python scripts/build_examples.py` "
+                    "to create the showcase set."))
+    return example_store.as_job(record)
 
 
 @app.get("/api/demo")

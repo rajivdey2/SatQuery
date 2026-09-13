@@ -88,10 +88,7 @@ def _sar_level_threshold(db: np.ndarray, valid: Optional[np.ndarray], calibrated
 
     pool = db[valid] if valid is not None else db
     if calibrated:
-        t = _apply(stack, "SAR_DB", thresholds)
-        if t is None or t.separability < 0.2:
-            return t
-        return t
+        return _apply(stack, "SAR_DB", thresholds)
     t = dark_mode_threshold(pool, name="backscatter")
     if t is None:
         return None
@@ -223,11 +220,20 @@ def _classify_sar(img: PreparedImage, stack: IndexStack,
         basis[WATER] = ("no water claimed: the backscatter histogram is effectively unimodal, so any "
                         "level threshold would be arbitrary on this uncalibrated product")
     else:
-        # Open water is a specular reflector: very low backscatter and radiometrically smooth.
-        water = (db < t_water.value) & (tex <= smooth_cut)
+        # Open water is a specular reflector: very low backscatter and radiometrically
+        # smooth. The roughness guard removes dark-but-rough false positives (radar
+        # shadow), but a narrow river is only a few pixels wide, so its 5x5 texture
+        # window still straddles both banks and the guard would delete it. Pixels well
+        # below the water threshold are therefore accepted regardless of roughness:
+        # no land surface returns that little energy.
+        very_dark_margin = 4.0
+        very_dark = db < (t_water.value - very_dark_margin)
+        water = ((db < t_water.value) & (tex <= smooth_cut)) | very_dark
         scale = "calibrated sigma0" if calibrated else "scene-relative (uncalibrated DN)"
         basis[WATER] = (f"backscatter < {t_water.value:.1f} dB ({t_water.method}, {scale}) with low "
-                        f"roughness (texture <= p45 = {smooth_cut:.2f} dB): specular water surface")
+                        f"roughness (texture <= p45 = {smooth_cut:.2f} dB), or below "
+                        f"{t_water.value - very_dark_margin:.1f} dB regardless of roughness: "
+                        "specular water surface")
 
     t_rough = _apply(stack, "SAR_TEXTURE", thresholds)
     db_hi = _percentile(db, valid, 75)

@@ -29,6 +29,9 @@ stages:
   - name: rsvqaxben          # bootstrap on BigEarthNet-derived VQA (domain adapt)
     data_dir: /kaggle/input/rsvqaxben
     epochs: 1
-  - name: vrsbench_vqa_cap   # primary single-image SFT
+  - name: vrsbench_vqa_cap   # primary single-image SFT (VQA + captioning)
     data_dir: /kaggle/input/vrsbench-split
+    epochs: 1
+  - name: rsvg_grounding     # referring expression -> box, 0..100 coordinates
+    data_dir: /kaggle/input/rsvg
     epochs: 1

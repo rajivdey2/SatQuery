@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { analyze, demoFile, demoInfo, health, pollJob } from './api.js'
+import { analyze, demoFile, demoInfo, exampleJob, examplesIndex, health, pollJob } from './api.js'
 import AnswerCard from './components/AnswerCard.jsx'
 import AuditPanel from './components/AuditPanel.jsx'
 import EvidenceGallery from './components/EvidenceGallery.jsx'
+import ExamplesPanel from './components/ExamplesPanel.jsx'
 import MeasurementPanel from './components/MeasurementPanel.jsx'
 import RegistryPanel from './components/RegistryPanel.jsx'
 import {
@@ -20,7 +20,6 @@ import {
 const ACCEPTED = ['.png', '.jpg', '.jpeg', '.tif', '.tiff']
 
 export default function App() {
-  const navigate = useNavigate()
   const inputRef = useRef(null)
   const [files, setFiles] = useState([])
   const [query, setQuery] = useState('')
@@ -32,6 +31,8 @@ export default function App() {
   const [demo, setDemo] = useState(null)
   const [paramText, setParamText] = useState('')
   const [showParams, setShowParams] = useState(false)
+  const [examples, setExamples] = useState(null)
+  const [activeExample, setActiveExample] = useState(null)
 
   useEffect(() => {
     const check = () =>
@@ -41,6 +42,7 @@ export default function App() {
     check()
     const timer = setInterval(check, 6000)
     demoInfo().then(setDemo).catch(() => setDemo(null))
+    examplesIndex().then(setExamples).catch(() => setExamples(null))
     return () => clearInterval(timer)
   }, [])
 
@@ -78,6 +80,7 @@ export default function App() {
     setRunning(true)
     setError(null)
     setJob(null)
+    setActiveExample(null)
     setStage('validating input…')
     try {
       const { job_id } = await analyze(useFiles, useQuery, params)
@@ -111,10 +114,26 @@ export default function App() {
     }
   }
 
+  /** Show a baked example instantly — no upload, no wait, same renderer. */
+  const openExample = async (entry) => {
+    setError(null)
+    setRunning(false)
+    setStage('')
+    try {
+      const record = await exampleJob(entry.slug)
+      setJob(record)
+      setActiveExample(entry.slug)
+      setQuery(entry.query)
+      setFiles([])
+    } catch (e) {
+      setError(e.message)
+    }
+  }
+
   return (
     <div className="app">
       <header>
-        <div className="brand" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+        <div className="brand">
           <span className="brand-mark">
             <Satellite />
           </span>
@@ -271,6 +290,14 @@ export default function App() {
         </section>
 
         <section className="right">
+          <ExamplesPanel
+            index={examples}
+            activeSlug={activeExample}
+            onOpen={openExample}
+            onRunLive={runDemo}
+            busy={running}
+          />
+
           {!job && !running && (
             <div className="empty">
               <h3>
@@ -292,6 +319,13 @@ export default function App() {
           )}
 
           {running && !job && <LoadingSkeleton />}
+
+          {job && activeExample && (
+            <p className="example-banner tiny">
+              Showing a <b>stored example</b> — this is the actual recorded output for these inputs,
+              not a placeholder. Press <b>run live</b> on the card to recompute it now.
+            </p>
+          )}
 
           {job && <AnswerCard job={job} />}
           {job && job.status === 'done' && (

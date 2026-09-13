@@ -20,6 +20,10 @@ export const registry = () => fetch('/api/registry').then(json)
 export const demoInfo = () => fetch('/api/demo').then(json)
 export const recentJobs = () => fetch('/api/jobs?limit=12').then(json)
 
+/** Pre-computed showcase runs, rendered instantly through the live-job components. */
+export const examplesIndex = () => fetch('/api/examples').then(json)
+export const exampleJob = (slug) => fetch(`/api/examples/${encodeURIComponent(slug)}`).then(json)
+
 export async function analyze(files, query, params) {
   const body = new FormData()
   files.forEach((f) => body.append('files', f, f.name))
