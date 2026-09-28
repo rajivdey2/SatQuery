@@ -1,0 +1,21 @@
+# SatQuery AI — one web service, one process.
+# The FastAPI app (backend/api/main.py) serves BOTH the JSON API and the built
+# React frontend, so Render only needs a single `uvicorn` process.
+services:
+  - type: web
+    name: satquery-ai
+    runtime: python
+    plan: free
+    healthCheckPath: /health
+    buildCommand: |
+      pip install -r requirements.txt
+      npm --prefix frontend ci
+      npm --prefix frontend run build
+      python scripts/make_demo_data.py
+      python scripts/build_examples.py
+    startCommand: uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: NODE_VERSION
+        value: 22.19.0

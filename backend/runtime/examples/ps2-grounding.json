@@ -8,27 +8,27 @@
   "files": [
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif"
   ],
-  "created_at": 1788176437.7256393,
+  "created_at": 1790635385.8250225,
   "result": {
     "run_id": "example_ps2_grounding",
     "query": "Highlight the water body referred to in the query.",
     "task": "single_grounding",
-    "text": "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.5, 99.7, 76.6] in 0-100 image coordinates (30.8 ha). 2 candidate regions of this class were considered before the qualifiers were applied.",
+    "text": "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.2, 99.7, 76.6] in 0-100 image coordinates (31.6 ha). 2 candidate regions of this class were considered before the qualifiers were applied.",
     "answers": [
-      "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.5, 99.7, 76.6] in 0-100 image coordinates (30.8 ha). 2 candidate regions of this class were considered before the qualifiers were applied."
+      "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.2, 99.7, 76.6] in 0-100 image coordinates (31.6 ha). 2 candidate regions of this class were considered before the qualifiers were applied."
     ],
     "boxes": [
       {
         "label": "water",
         "bbox": [
           0.26,
-          67.45,
+          67.19,
           99.74,
           76.56
         ],
-        "score": 0.567,
+        "score": 0.568,
         "class_name": "water",
-        "area_ha": 30.82,
+        "area_ha": 31.63,
         "position": "south"
       }
     ],
@@ -71,7 +71,7 @@
         },
         {
           "name": "region_score",
-          "value": 0.567,
+          "value": 0.568,
           "weight": 0.2,
           "note": "geometric quality of the grounded region"
         },
@@ -97,26 +97,26 @@
             "class_name": "water",
             "bbox_norm": [
               0.26,
-              67.45,
+              67.19,
               99.74,
               76.56
             ],
             "bbox_px": [
               1,
-              259,
+              258,
               383,
               294
             ],
             "centroid_norm": [
-              49.88,
-              72.5
+              50.41,
+              72.49
             ],
-            "area_px": 3082,
-            "area_ha": 30.82,
-            "fraction": 0.0209,
+            "area_px": 3163,
+            "area_ha": 31.63,
+            "fraction": 0.02145,
             "position": "south",
-            "compactness": 0.231,
-            "score": 0.567
+            "compactness": 0.23,
+            "score": 0.568
           }
         ],
         "candidates_considered": 2,
@@ -128,19 +128,19 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 5850,
-              "fraction": 0.0396728515625,
-              "area_ha": 58.5,
-              "evidence_basis": "MNDWI > +0.199 (otsu) with NIR-darkness guard",
+              "pixel_count": 5931,
+              "fraction": 0.04022216796875,
+              "area_ha": 59.31,
+              "evidence_basis": "MNDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
             {
               "name": "vegetation",
               "label": "vegetation",
-              "pixel_count": 76133,
-              "fraction": 0.5163099500868056,
-              "area_ha": 761.33,
+              "pixel_count": 76112,
+              "fraction": 0.5161675347222222,
+              "area_ha": 761.12,
               "evidence_basis": "NDVI > +0.250 (otsu_rejected_prior_used)",
               "reliability": "high",
               "region_count": 2
@@ -148,19 +148,19 @@
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 7703,
-              "fraction": 0.052239312065972224,
-              "area_ha": 77.03,
-              "evidence_basis": "NDBI > +0.000 (otsu_rejected_prior_used)",
+              "pixel_count": 7305,
+              "fraction": 0.049540201822916664,
+              "area_ha": 73.05,
+              "evidence_basis": "NDBI > +0.000 (prior_fixed)",
               "reliability": "high",
-              "region_count": 29
+              "region_count": 22
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 584,
-              "fraction": 0.003960503472222222,
-              "area_ha": 5.84,
+              "pixel_count": 561,
+              "fraction": 0.0038045247395833335,
+              "area_ha": 5.61,
               "evidence_basis": "unvegetated, non-water residue with 5x5 texture <= p60 (0.047)",
               "reliability": "high",
               "region_count": 0
@@ -168,9 +168,9 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 57186,
-              "fraction": 0.3878173828125,
-              "area_ha": 571.86,
+              "pixel_count": 57547,
+              "fraction": 0.3902655707465278,
+              "area_ha": 575.47,
               "evidence_basis": "no class threshold satisfied",
               "reliability": "high",
               "region_count": 12
@@ -197,10 +197,10 @@
               "std": 0.2978,
               "p05": -0.6247,
               "p95": 0.11,
-              "threshold": 0.1989,
-              "threshold_method": "otsu",
+              "threshold": 0.0,
+              "threshold_method": "prior_fixed",
               "separability": 0.6574,
-              "note": "data-driven split inside the plausible MNDWI window [-0.30, +0.30]"
+              "note": "MNDWI histogram is not convincingly bimodal (eta=0.66 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDBI",
@@ -210,9 +210,9 @@
               "p05": -0.5389,
               "p95": 0.1791,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6677,
-              "note": "Otsu suggested -0.20, outside the plausible NDBI window [-0.10, +0.10] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDBI histogram is not convincingly bimodal (eta=0.67 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDVI",
@@ -268,12 +268,12 @@
                 156
               ],
               "centroid_norm": [
-                52.89,
-                19.51
+                52.9,
+                19.5
               ],
-              "area_px": 49426,
-              "area_ha": 494.26,
-              "fraction": 0.33519,
+              "area_px": 49413,
+              "area_ha": 494.13,
+              "fraction": 0.3351,
               "position": "north",
               "compactness": 0.835,
               "score": 0.934
@@ -294,12 +294,12 @@
                 245
               ],
               "centroid_norm": [
-                49.49,
-                52.13
+                49.5,
+                52.14
               ],
-              "area_px": 26195,
-              "area_ha": 261.95,
-              "fraction": 0.17765,
+              "area_px": 26193,
+              "area_ha": 261.93,
+              "fraction": 0.17763,
               "position": "centre",
               "compactness": 0.797,
               "score": 0.919
@@ -309,26 +309,26 @@
               "class_name": "water",
               "bbox_norm": [
                 0.26,
-                67.45,
+                67.19,
                 99.74,
                 76.56
               ],
               "bbox_px": [
                 1,
-                259,
+                258,
                 383,
                 294
               ],
               "centroid_norm": [
-                49.88,
-                72.5
+                50.41,
+                72.49
               ],
-              "area_px": 3082,
-              "area_ha": 30.82,
-              "fraction": 0.0209,
+              "area_px": 3163,
+              "area_ha": 31.63,
+              "fraction": 0.02145,
               "position": "south",
-              "compactness": 0.231,
-              "score": 0.567
+              "compactness": 0.23,
+              "score": 0.568
             },
             {
               "label": "water",
@@ -360,105 +360,105 @@
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                76.3,
-                76.04,
-                95.05,
-                84.64
+                54.69,
+                78.39,
+                79.17,
+                87.24
               ],
               "bbox_px": [
-                293,
-                292,
-                365,
-                325
+                210,
+                301,
+                304,
+                335
               ],
               "centroid_norm": [
-                86.75,
-                80.25
+                65.28,
+                83.69
               ],
-              "area_px": 712,
-              "area_ha": 7.12,
-              "fraction": 0.00483,
-              "position": "south-east",
-              "compactness": 0.3,
-              "score": 0.576
+              "area_px": 769,
+              "area_ha": 7.69,
+              "fraction": 0.00522,
+              "position": "south",
+              "compactness": 0.241,
+              "score": 0.553
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
+                54.95,
                 71.35,
                 70.57,
                 80.21
               ],
               "bbox_px": [
-                213,
+                211,
                 274,
                 271,
                 308
               ],
               "centroid_norm": [
-                64.35,
-                75.78
+                63.64,
+                75.94
               ],
-              "area_px": 622,
-              "area_ha": 6.22,
-              "fraction": 0.00422,
+              "area_px": 651,
+              "area_ha": 6.51,
+              "fraction": 0.00441,
               "position": "south",
-              "compactness": 0.315,
-              "score": 0.581
+              "compactness": 0.319,
+              "score": 0.583
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
-                86.46,
-                66.41,
-                94.27
+                81.25,
+                77.08,
+                95.05,
+                84.64
               ],
               "bbox_px": [
-                213,
-                332,
-                255,
-                362
+                312,
+                296,
+                365,
+                325
               ],
               "centroid_norm": [
-                59.78,
-                90.31
+                88.81,
+                80.29
               ],
-              "area_px": 432,
-              "area_ha": 4.32,
-              "fraction": 0.00293,
-              "position": "south",
-              "compactness": 0.343,
+              "area_px": 525,
+              "area_ha": 5.25,
+              "fraction": 0.00356,
+              "position": "south-east",
+              "compactness": 0.342,
               "score": 0.591
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                54.69,
-                78.65,
-                66.67,
-                86.72
-              ],
-              "bbox_px": [
-                210,
-                302,
-                256,
-                333
-              ],
-              "centroid_norm": [
-                59.59,
+                71.35,
+                75.26,
+                80.99,
                 82.81
               ],
-              "area_px": 396,
-              "area_ha": 3.96,
-              "fraction": 0.00269,
-              "position": "south",
-              "compactness": 0.278,
-              "score": 0.564
+              "bbox_px": [
+                274,
+                289,
+                311,
+                318
+              ],
+              "centroid_norm": [
+                75.55,
+                78.45
+              ],
+              "area_px": 364,
+              "area_ha": 3.64,
+              "fraction": 0.00247,
+              "position": "south-east",
+              "compactness": 0.339,
+              "score": 0.589
             }
           ],
           "quality": {
@@ -539,7 +539,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'sentinel-2'",
+          "modality_reason": "metadata mentions 'multispectral'",
           "width": 384,
           "height": 384,
           "band_count": 12,
@@ -612,7 +612,7 @@
         "modality:multispectral",
         "georeference",
         "areaA_20230101.tif: GEOTIFF, 384x384, 12 band(s), int16",
-        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
         "areaA_20230101.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
         "Single-image input (multispectral)."
@@ -633,7 +633,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -675,7 +675,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'sentinel-2'",
+            "modality_reason": "metadata mentions 'multispectral'",
             "width": 384,
             "height": 384,
             "band_count": 12,
@@ -820,7 +820,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 59,
+        "duration_ms": 55,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -869,15 +869,15 @@
           "smoothing_window": 3
         },
         "outputs_summary": "dominant=vegetation; indices=BRIGHTNESS,MNDWI,NDBI,NDVI,NDWI,TEXTURE; separability=0.7155",
-        "duration_ms": 131,
+        "duration_ms": 113,
         "status": "ok",
         "detail": {
           "class_fractions": {
-            "water": 0.0396728515625,
-            "vegetation": 0.5163099500868056,
-            "built_up": 0.052239312065972224,
-            "bare_soil": 0.003960503472222222,
-            "other": 0.3878173828125
+            "water": 0.04022216796875,
+            "vegetation": 0.5161675347222222,
+            "built_up": 0.049540201822916664,
+            "bare_soil": 0.0038045247395833335,
+            "other": 0.3902655707465278
           }
         }
       },
@@ -904,7 +904,7 @@
         "task": "single_grounding",
         "parameters": {},
         "outputs_summary": "example_ps2_grounding_areaA_20230101_grounding.png",
-        "duration_ms": 18,
+        "duration_ms": 16,
         "status": "ok",
         "detail": {}
       },
@@ -921,7 +921,7 @@
           "max_regions": 5
         },
         "outputs_summary": "254 chars, 1 box(es), mask=none, narration=measurement",
-        "duration_ms": 153,
+        "duration_ms": 132,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'single_grounding'",
@@ -950,26 +950,26 @@
             "class_name": "water",
             "bbox_norm": [
               0.26,
-              67.45,
+              67.19,
               99.74,
               76.56
             ],
             "bbox_px": [
               1,
-              259,
+              258,
               383,
               294
             ],
             "centroid_norm": [
-              49.88,
-              72.5
+              50.41,
+              72.49
             ],
-            "area_px": 3082,
-            "area_ha": 30.82,
-            "fraction": 0.0209,
+            "area_px": 3163,
+            "area_ha": 31.63,
+            "fraction": 0.02145,
             "position": "south",
-            "compactness": 0.231,
-            "score": 0.567
+            "compactness": 0.23,
+            "score": 0.568
           }
         ],
         "candidates_considered": 2,
@@ -981,19 +981,19 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 5850,
-              "fraction": 0.0396728515625,
-              "area_ha": 58.5,
-              "evidence_basis": "MNDWI > +0.199 (otsu) with NIR-darkness guard",
+              "pixel_count": 5931,
+              "fraction": 0.04022216796875,
+              "area_ha": 59.31,
+              "evidence_basis": "MNDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
             {
               "name": "vegetation",
               "label": "vegetation",
-              "pixel_count": 76133,
-              "fraction": 0.5163099500868056,
-              "area_ha": 761.33,
+              "pixel_count": 76112,
+              "fraction": 0.5161675347222222,
+              "area_ha": 761.12,
               "evidence_basis": "NDVI > +0.250 (otsu_rejected_prior_used)",
               "reliability": "high",
               "region_count": 2
@@ -1001,19 +1001,19 @@
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 7703,
-              "fraction": 0.052239312065972224,
-              "area_ha": 77.03,
-              "evidence_basis": "NDBI > +0.000 (otsu_rejected_prior_used)",
+              "pixel_count": 7305,
+              "fraction": 0.049540201822916664,
+              "area_ha": 73.05,
+              "evidence_basis": "NDBI > +0.000 (prior_fixed)",
               "reliability": "high",
-              "region_count": 29
+              "region_count": 22
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 584,
-              "fraction": 0.003960503472222222,
-              "area_ha": 5.84,
+              "pixel_count": 561,
+              "fraction": 0.0038045247395833335,
+              "area_ha": 5.61,
               "evidence_basis": "unvegetated, non-water residue with 5x5 texture <= p60 (0.047)",
               "reliability": "high",
               "region_count": 0
@@ -1021,9 +1021,9 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 57186,
-              "fraction": 0.3878173828125,
-              "area_ha": 571.86,
+              "pixel_count": 57547,
+              "fraction": 0.3902655707465278,
+              "area_ha": 575.47,
               "evidence_basis": "no class threshold satisfied",
               "reliability": "high",
               "region_count": 12
@@ -1050,10 +1050,10 @@
               "std": 0.2978,
               "p05": -0.6247,
               "p95": 0.11,
-              "threshold": 0.1989,
-              "threshold_method": "otsu",
+              "threshold": 0.0,
+              "threshold_method": "prior_fixed",
               "separability": 0.6574,
-              "note": "data-driven split inside the plausible MNDWI window [-0.30, +0.30]"
+              "note": "MNDWI histogram is not convincingly bimodal (eta=0.66 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDBI",
@@ -1063,9 +1063,9 @@
               "p05": -0.5389,
               "p95": 0.1791,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6677,
-              "note": "Otsu suggested -0.20, outside the plausible NDBI window [-0.10, +0.10] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDBI histogram is not convincingly bimodal (eta=0.67 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDVI",
@@ -1121,12 +1121,12 @@
                 156
               ],
               "centroid_norm": [
-                52.89,
-                19.51
+                52.9,
+                19.5
               ],
-              "area_px": 49426,
-              "area_ha": 494.26,
-              "fraction": 0.33519,
+              "area_px": 49413,
+              "area_ha": 494.13,
+              "fraction": 0.3351,
               "position": "north",
               "compactness": 0.835,
               "score": 0.934
@@ -1147,12 +1147,12 @@
                 245
               ],
               "centroid_norm": [
-                49.49,
-                52.13
+                49.5,
+                52.14
               ],
-              "area_px": 26195,
-              "area_ha": 261.95,
-              "fraction": 0.17765,
+              "area_px": 26193,
+              "area_ha": 261.93,
+              "fraction": 0.17763,
               "position": "centre",
               "compactness": 0.797,
               "score": 0.919
@@ -1162,26 +1162,26 @@
               "class_name": "water",
               "bbox_norm": [
                 0.26,
-                67.45,
+                67.19,
                 99.74,
                 76.56
               ],
               "bbox_px": [
                 1,
-                259,
+                258,
                 383,
                 294
               ],
               "centroid_norm": [
-                49.88,
-                72.5
+                50.41,
+                72.49
               ],
-              "area_px": 3082,
-              "area_ha": 30.82,
-              "fraction": 0.0209,
+              "area_px": 3163,
+              "area_ha": 31.63,
+              "fraction": 0.02145,
               "position": "south",
-              "compactness": 0.231,
-              "score": 0.567
+              "compactness": 0.23,
+              "score": 0.568
             },
             {
               "label": "water",
@@ -1213,105 +1213,105 @@
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                76.3,
-                76.04,
-                95.05,
-                84.64
+                54.69,
+                78.39,
+                79.17,
+                87.24
               ],
               "bbox_px": [
-                293,
-                292,
-                365,
-                325
+                210,
+                301,
+                304,
+                335
               ],
               "centroid_norm": [
-                86.75,
-                80.25
+                65.28,
+                83.69
               ],
-              "area_px": 712,
-              "area_ha": 7.12,
-              "fraction": 0.00483,
-              "position": "south-east",
-              "compactness": 0.3,
-              "score": 0.576
+              "area_px": 769,
+              "area_ha": 7.69,
+              "fraction": 0.00522,
+              "position": "south",
+              "compactness": 0.241,
+              "score": 0.553
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
+                54.95,
                 71.35,
                 70.57,
                 80.21
               ],
               "bbox_px": [
-                213,
+                211,
                 274,
                 271,
                 308
               ],
               "centroid_norm": [
-                64.35,
-                75.78
+                63.64,
+                75.94
               ],
-              "area_px": 622,
-              "area_ha": 6.22,
-              "fraction": 0.00422,
+              "area_px": 651,
+              "area_ha": 6.51,
+              "fraction": 0.00441,
               "position": "south",
-              "compactness": 0.315,
-              "score": 0.581
+              "compactness": 0.319,
+              "score": 0.583
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
-                86.46,
-                66.41,
-                94.27
+                81.25,
+                77.08,
+                95.05,
+                84.64
               ],
               "bbox_px": [
-                213,
-                332,
-                255,
-                362
+                312,
+                296,
+                365,
+                325
               ],
               "centroid_norm": [
-                59.78,
-                90.31
+                88.81,
+                80.29
               ],
-              "area_px": 432,
-              "area_ha": 4.32,
-              "fraction": 0.00293,
-              "position": "south",
-              "compactness": 0.343,
+              "area_px": 525,
+              "area_ha": 5.25,
+              "fraction": 0.00356,
+              "position": "south-east",
+              "compactness": 0.342,
               "score": 0.591
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                54.69,
-                78.65,
-                66.67,
-                86.72
-              ],
-              "bbox_px": [
-                210,
-                302,
-                256,
-                333
-              ],
-              "centroid_norm": [
-                59.59,
+                71.35,
+                75.26,
+                80.99,
                 82.81
               ],
-              "area_px": 396,
-              "area_ha": 3.96,
-              "fraction": 0.00269,
-              "position": "south",
-              "compactness": 0.278,
-              "score": 0.564
+              "bbox_px": [
+                274,
+                289,
+                311,
+                318
+              ],
+              "centroid_norm": [
+                75.55,
+                78.45
+              ],
+              "area_px": 364,
+              "area_ha": 3.64,
+              "fraction": 0.00247,
+              "position": "south-east",
+              "compactness": 0.339,
+              "score": 0.589
             }
           ],
           "quality": {
@@ -1371,7 +1371,7 @@
     },
     "outputs": {
       "text": {
-        "text": "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.5, 99.7, 76.6] in 0-100 image coordinates (30.8 ha). 2 candidate regions of this class were considered before the qualifiers were applied.",
+        "text": "Localised 1 water region for \"Highlight the water body referred to in the query.\": south of the scene, box [0.3, 67.2, 99.7, 76.6] in 0-100 image coordinates (31.6 ha). 2 candidate regions of this class were considered before the qualifiers were applied.",
         "narration_source": "measurement",
         "n_samples": 1
       },
@@ -1380,13 +1380,13 @@
           "label": "water",
           "bbox": [
             0.26,
-            67.45,
+            67.19,
             99.74,
             76.56
           ],
-          "score": 0.567,
+          "score": 0.568,
           "class_name": "water",
-          "area_ha": 30.82,
+          "area_ha": 31.63,
           "position": "south"
         }
       ],
@@ -1437,7 +1437,7 @@
         },
         {
           "name": "region_score",
-          "value": 0.567,
+          "value": 0.568,
           "weight": 0.2,
           "note": "geometric quality of the grounded region"
         },
@@ -1450,19 +1450,19 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was."
     },
-    "execution_time_ms": 248,
+    "execution_time_ms": 222,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
       "device": "cpu",
-      "torch_available": false,
+      "torch_available": true,
       "vlm_narration_enabled": false,
       "vlm_model_id": null,
       "mock_mode": false,
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-08-31T11:40:37.725639+00:00",
+    "created_at": "2026-09-28T22:43:05.823018+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -1476,7 +1476,7 @@
     ],
     "highlight": "The referring expression is resolved to a class, then to a connected region, and returned as a box in the same 0\u2013100 coordinates the audit trace reports.",
     "expects": "single_grounding",
-    "baked_at": "2026-08-31T17:10:37",
+    "baked_at": "2026-09-29T04:13:05",
     "backend": "analysis_engine"
   }
 }

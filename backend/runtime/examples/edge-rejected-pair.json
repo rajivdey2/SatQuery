@@ -10,7 +10,7 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaD_mismatch.tif"
   ],
-  "created_at": 1788176439.284774,
+  "created_at": 1790635387.2538407,
   "result": {
     "run_id": "example_edge_rejected_pair",
     "query": "What changed between these two dates?",
@@ -64,7 +64,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -102,7 +102,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'msi'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -188,7 +188,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'sentinel-2'",
+          "modality_reason": "metadata mentions 'multispectral'",
           "width": 384,
           "height": 384,
           "band_count": 12,
@@ -222,7 +222,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'sentinel-2'",
+          "modality_reason": "metadata mentions 'msi'",
           "width": 384,
           "height": 384,
           "band_count": 12,
@@ -271,11 +271,11 @@
         "georeference",
         "temporal_dates_differ",
         "areaA_20230101.tif: GEOTIFF, 384x384, 12 band(s), int16",
-        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
         "areaA_20230101.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
         "areaD_mismatch.tif: GEOTIFF, 384x384, 12 band(s), int16",
-        "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'msi'",
         "areaD_mismatch.tif: CRS EPSG:32643, pixel size [10.0, 10.0], extent [410000.0, 2000000.0, 413840.0, 2003840.0]",
         "areaD_mismatch.tif: acquisition date 2023-02-02 (from rasterio_tags)",
         "Same-modality pair detected (multispectral): treated as bi-temporal.",
@@ -300,7 +300,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -338,7 +338,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaD_mismatch.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'msi'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -416,7 +416,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'sentinel-2'",
+            "modality_reason": "metadata mentions 'multispectral'",
             "width": 384,
             "height": 384,
             "band_count": 12,
@@ -450,7 +450,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'sentinel-2'",
+            "modality_reason": "metadata mentions 'msi'",
             "width": 384,
             "height": 384,
             "band_count": 12,
@@ -535,19 +535,19 @@
       ],
       "note": "The input was rejected by deterministic compatibility checks, not by a model. The rejection is certain; no answer was produced."
     },
-    "execution_time_ms": 51,
+    "execution_time_ms": 39,
     "model_backend": "validator_gate",
     "environment": {
       "server_version": "0.2.0",
       "device": "cpu",
-      "torch_available": false,
+      "torch_available": true,
       "vlm_narration_enabled": false,
       "vlm_model_id": null,
       "mock_mode": false,
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-08-31T11:40:39.284774+00:00",
+    "created_at": "2026-09-28T22:43:07.251837+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -562,7 +562,7 @@
     ],
     "highlight": "Two scenes that do not overlap. The controller measures the overlap, refuses the run, and says why \u2014 the behaviour the unseen ISRO evaluation set rewards.",
     "expects": "rejected",
-    "baked_at": "2026-08-31T17:10:39",
+    "baked_at": "2026-09-29T04:13:07",
     "backend": "analysis_engine"
   }
 }

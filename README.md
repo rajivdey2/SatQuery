@@ -83,16 +83,32 @@ can be traced back to a threshold and a pixel count.
 
 ```bash
 python -m venv venv && venv\Scripts\activate       # Windows
-pip install -r backend/requirements.txt
+pip install -r requirements.txt      # root shim -> backend/requirements.txt
 
 python scripts/make_demo_data.py      # synthetic scenes with known ground truth
 python scripts/build_examples.py      # bake the showcase examples
-uvicorn backend.api.main:app --port 8000
+cd frontend && npm ci && npm run build && cd ..    # build the React SPA
+uvicorn backend.api.main:app --port 8000           # ONE server: API + UI
 ```
 
+Open **http://localhost:8000** — the landing page is at `/`, the app at
+`/#/app`. No second process, no Vite dev server needed. (For frontend
+iteration only: `cd frontend && npm run dev` still works against the API on
+port 8000 via the Vite proxy.)
+
+### Deploying on Render
+
+The repo ships a `render.yaml` blueprint: one free web service, one process.
+
 ```bash
-cd frontend && npm install && npm run dev          # http://localhost:5173
+git push origin main                # Render builds + deploys from render.yaml
 ```
+
+Build regenerates the demo inputs, the showcase examples (with rendered
+evidence) and the frontend bundle; start runs
+`uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT` with `/health`
+as the health check. No environment variables are required — CPU-only
+measurement engine by default.
 
 The dashboard opens with **eight pre-computed examples** — the five representative
 queries from the problem statement plus three cases that show input rejection,

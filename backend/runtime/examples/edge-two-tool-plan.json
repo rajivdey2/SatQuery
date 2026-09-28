@@ -10,14 +10,14 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_optical.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_sar.tif"
   ],
-  "created_at": 1788176439.8235826,
+  "created_at": 1790635387.7462287,
   "result": {
     "run_id": "example_edge_two_tool_plan",
     "query": "Use the optical and SAR images together and highlight where the water is.",
     "task": "sar_optical_fusion",
-    "text": "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (34.0 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.03 (optical 4.1%, SAR 17.3%); built-up / man-made surface kappa 0.03 (optical 2.3%, SAR 4.8%); mean kappa 0.03. Optical and SAR disagree about water (kappa 0.03): reported as low-agreement rather than merged. Optical and SAR disagree about built-up / man-made surface (kappa 0.03): reported as low-agreement rather than merged. Largest joint regions: water in the south (32.2 ha); water in the north-west (27.7 ha); built-up / man-made surface in the north (2.7 ha). Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI. SAR-only input: classes derive from backscatter level and roughness; vegetation vigour and water chemistry are not observable. Localised 1 water region for \"Use the optical and SAR images together and highlight where the water is.\": south of the scene, box [0.3, 66.9, 99.7, 76.8] in 0-100 image coordinates (32.2 ha). 2 candidate regions of this class were considered before the qualifiers were applied. Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI.",
+    "text": "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (33.9 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.24 (optical 4.1%, SAR 20.1%); built-up / man-made surface kappa 0.04 (optical 2.3%, SAR 1.4%); mean kappa 0.14. Optical and SAR disagree about built-up / man-made surface (kappa 0.04): reported as low-agreement rather than merged. Largest joint regions: water in the south (32.2 ha); water in the north-west (27.7 ha); built-up / man-made surface in the north (2.7 ha). Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI. SAR-only input: classes derive from backscatter level and roughness; vegetation vigour and water chemistry are not observable. Localised 1 water region for \"Use the optical and SAR images together and highlight where the water is.\": south of the scene, box [0.3, 66.9, 99.7, 76.8] in 0-100 image coordinates (32.2 ha). 2 candidate regions of this class were considered before the qualifiers were applied. Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI.",
     "answers": [
-      "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (34.0 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.03 (optical 4.1%, SAR 17.3%); built-up / man-made surface kappa 0.03 (optical 2.3%, SAR 4.8%); mean kappa 0.03. Optical and SAR disagree about water (kappa 0.03): reported as low-agreement rather than merged. Optical and SAR disagree about built-up / man-made surface (kappa 0.03): reported as low-agreement rather than merged. Largest joint regions: water in the south (32.2 ha); water in the north-west (27.7 ha); built-up / man-made surface in the north (2.7 ha). Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI. SAR-only input: classes derive from backscatter level and roughness; vegetation vigour and water chemistry are not observable. Localised 1 water region for \"Use the optical and SAR images together and highlight where the water is.\": south of the scene, box [0.3, 66.9, 99.7, 76.8] in 0-100 image coordinates (32.2 ha). 2 candidate regions of this class were considered before the qualifiers were applied. Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI."
+      "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (33.9 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.24 (optical 4.1%, SAR 20.1%); built-up / man-made surface kappa 0.04 (optical 2.3%, SAR 1.4%); mean kappa 0.14. Optical and SAR disagree about built-up / man-made surface (kappa 0.04): reported as low-agreement rather than merged. Largest joint regions: water in the south (32.2 ha); water in the north-west (27.7 ha); built-up / man-made surface in the north (2.7 ha). Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI. SAR-only input: classes derive from backscatter level and roughness; vegetation vigour and water chemistry are not observable. Localised 1 water region for \"Use the optical and SAR images together and highlight where the water is.\": south of the scene, box [0.3, 66.9, 99.7, 76.8] in 0-100 image coordinates (32.2 ha). 2 candidate regions of this class were considered before the qualifiers were applied. Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI."
     ],
     "boxes": [
       {
@@ -142,13 +142,13 @@
       }
     ],
     "confidence": {
-      "value": 0.428,
+      "value": 0.457,
       "source": "cross_modal_agreement",
       "calibrated": false,
       "components": [
         {
           "name": "cross_modal_kappa",
-          "value": 0.0271,
+          "value": 0.1361,
           "weight": 0.35,
           "note": "Cohen's kappa between optical and SAR evidence"
         },
@@ -203,9 +203,9 @@
           {
             "name": "other",
             "label": "unclassified",
-            "pixel_count": 68036,
-            "fraction": 0.4613986545138889,
-            "area_ha": 680.36,
+            "pixel_count": 68045,
+            "fraction": 0.4614596896701389,
+            "area_ha": 680.45,
             "evidence_basis": "residual after joint assignment",
             "reliability": "medium",
             "region_count": 0
@@ -223,9 +223,9 @@
           {
             "name": "built_up",
             "label": "built-up / man-made surface",
-            "pixel_count": 3395,
-            "fraction": 0.023023817274305556,
-            "area_ha": 33.95,
+            "pixel_count": 3386,
+            "fraction": 0.022962782118055556,
+            "area_ha": 33.86,
             "evidence_basis": "cross-modal: pixels confirmed by both sensors, plus SAR-only detections where the optical scene is obscured, plus optical-only detections in clear areas",
             "reliability": "high",
             "region_count": 0
@@ -235,22 +235,22 @@
           {
             "class_name": "water",
             "optical_fraction": 0.04089,
-            "sar_fraction": 0.17291,
+            "sar_fraction": 0.20075,
             "joint_fraction": 0.04102,
-            "iou": 0.0472,
-            "cohen_kappa": 0.0256,
-            "sar_only_fraction": 0.16328,
-            "optical_only_fraction": 0.03126
+            "iou": 0.1686,
+            "cohen_kappa": 0.2367,
+            "sar_only_fraction": 0.16589,
+            "optical_only_fraction": 0.00602
           },
           {
             "class_name": "built_up",
             "optical_fraction": 0.023,
-            "sar_fraction": 0.04787,
-            "joint_fraction": 0.02302,
-            "iou": 0.0303,
-            "cohen_kappa": 0.0286,
-            "sar_only_fraction": 0.04578,
-            "optical_only_fraction": 0.02092
+            "sar_fraction": 0.01409,
+            "joint_fraction": 0.02296,
+            "iou": 0.0268,
+            "cohen_kappa": 0.0354,
+            "sar_only_fraction": 0.01312,
+            "optical_only_fraction": 0.02203
           },
           {
             "class_name": "vegetation",
@@ -263,11 +263,10 @@
             "optical_only_fraction": 0.47468
           }
         ],
-        "mean_agreement": 0.0271,
+        "mean_agreement": 0.1361,
         "obscured_fraction": 0.0049,
         "complementarity": [
-          "Optical and SAR disagree about water (kappa 0.03): reported as low-agreement rather than merged.",
-          "Optical and SAR disagree about built-up / man-made surface (kappa 0.03): reported as low-agreement rather than merged."
+          "Optical and SAR disagree about built-up / man-made surface (kappa 0.04): reported as low-agreement rather than merged."
         ],
         "regions": [
           {
@@ -437,7 +436,7 @@
               "pixel_count": 6029,
               "fraction": 0.040886773003472224,
               "area_ha": 60.29,
-              "evidence_basis": "NDWI > +0.000 (otsu_rejected_prior_used) with NIR-darkness guard",
+              "evidence_basis": "NDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
@@ -516,9 +515,9 @@
               "p05": -0.8071,
               "p95": 0.1553,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6519,
-              "note": "Otsu suggested -0.42, outside the plausible NDWI window [-0.25, +0.25] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDWI histogram is not convincingly bimodal (eta=0.65 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "TEXTURE",
@@ -906,12 +905,12 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 25497,
-              "fraction": 0.17291259765625,
-              "area_ha": 254.97,
-              "evidence_basis": "backscatter < 48.0 dB (dark_mode_otsu, scene-relative (uncalibrated DN)) with low roughness (texture <= p45 = 0.24 dB): specular water surface",
+              "pixel_count": 29602,
+              "fraction": 0.2007514105902778,
+              "area_ha": 296.02,
+              "evidence_basis": "backscatter < 48.0 dB (dark_mode_otsu, scene-relative (uncalibrated DN)) with low roughness (texture <= p45 = 0.24 dB), or below 44.0 dB regardless of roughness: specular water surface",
               "reliability": "medium",
-              "region_count": 21
+              "region_count": 22
             },
             {
               "name": "vegetation",
@@ -926,19 +925,19 @@
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 7058,
-              "fraction": 0.04786512586805555,
-              "area_ha": 70.58,
-              "evidence_basis": "backscatter > p75 (51.3 dB) with roughness > 0.99 dB: double-bounce returns adjacent to radar shadow",
+              "pixel_count": 2078,
+              "fraction": 0.014092339409722222,
+              "area_ha": 20.78,
+              "evidence_basis": "backscatter > p75 (51.3 dB) with roughness > 1.60 dB: double-bounce returns adjacent to radar shadow",
               "reliability": "medium",
-              "region_count": 6
+              "region_count": 10
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 38788,
-              "fraction": 0.2630479600694444,
-              "area_ha": 387.88,
+              "pixel_count": 38779,
+              "fraction": 0.2629869249131944,
+              "area_ha": 387.79,
               "evidence_basis": "low-roughness surface residue, consistent with bare or fallow ground",
               "reliability": "medium",
               "region_count": 13
@@ -946,12 +945,12 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 76113,
-              "fraction": 0.51617431640625,
-              "area_ha": 761.13,
+              "pixel_count": 76997,
+              "fraction": 0.5221693250868056,
+              "area_ha": 769.97,
               "evidence_basis": "intermediate backscatter and roughness, not assigned",
               "reliability": "medium",
-              "region_count": 46
+              "region_count": 42
             }
           ],
           "dominant": "bare_soil",
@@ -978,7 +977,7 @@
               "threshold": 48.0295,
               "threshold_method": "dark_mode_otsu",
               "separability": 0.6333,
-              "note": "backscatter: darkest histogram mode split at 48.03 (scene-relative; the product carries an unknown gain)"
+              "note": "backscatter: distinct dark mode split at 48.03 (valley depth 0.92; scene-relative, because the product carries an unknown gain)"
             },
             {
               "name": "SAR_TEXTURE",
@@ -987,10 +986,10 @@
               "std": 0.5186,
               "p05": 0.1393,
               "p95": 1.4544,
-              "threshold": 0.9879,
-              "threshold_method": "otsu",
+              "threshold": 1.6,
+              "threshold_method": "prior_fixed",
               "separability": 0.703,
-              "note": "data-driven split inside the plausible SAR_TEXTURE window [+0.40, +2.80]"
+              "note": "SAR_TEXTURE histogram is not convincingly bimodal (eta=0.70 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +1.60 was used rather than an arbitrary data split"
             },
             {
               "name": "TEXTURE",
@@ -1223,160 +1222,160 @@
               "score": 0.651
             },
             {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
+              "label": "water",
+              "class_name": "water",
               "bbox_norm": [
-                54.69,
-                69.79,
-                95.05,
-                95.05
+                0.26,
+                67.19,
+                99.74,
+                76.82
               ],
               "bbox_px": [
-                210,
-                268,
-                365,
-                365
+                1,
+                258,
+                383,
+                295
               ],
               "centroid_norm": [
-                73.69,
-                84.31
+                43.2,
+                72.67
               ],
-              "area_px": 1810,
-              "area_ha": 18.1,
-              "fraction": 0.01227,
-              "position": "south-east",
-              "compactness": 0.12,
-              "score": 0.513
-            },
-            {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
-              "bbox_norm": [
-                7.03,
-                39.06,
-                48.18,
-                42.97
-              ],
-              "bbox_px": [
-                27,
-                150,
-                185,
-                165
-              ],
-              "centroid_norm": [
-                27.65,
-                40.74
-              ],
-              "area_px": 1683,
-              "area_ha": 16.83,
-              "fraction": 0.01141,
-              "position": "west",
-              "compactness": 0.71,
-              "score": 0.748
+              "area_px": 2879,
+              "area_ha": 28.79,
+              "fraction": 0.01952,
+              "position": "south",
+              "compactness": 0.204,
+              "score": 0.555
             },
             {
               "label": "water",
               "class_name": "water",
               "bbox_norm": [
-                13.02,
-                12.76,
-                27.34,
-                23.44
+                11.46,
+                11.2,
+                28.39,
+                24.48
               ],
               "bbox_px": [
-                50,
-                49,
-                105,
-                90
+                44,
+                43,
+                109,
+                94
               ],
               "centroid_norm": [
-                19.66,
-                17.82
+                19.71,
+                17.84
               ],
-              "area_px": 1420,
-              "area_ha": 14.2,
-              "fraction": 0.00963,
+              "area_px": 2646,
+              "area_ha": 26.46,
+              "fraction": 0.01794,
               "position": "north-west",
-              "compactness": 0.63,
-              "score": 0.713
+              "compactness": 0.798,
+              "score": 0.791
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                54.69,
-                62.24,
+                66.15,
+                94.01,
+                92.71,
+                95.05
+              ],
+              "bbox_px": [
+                254,
+                361,
+                356,
+                365
+              ],
+              "centroid_norm": [
+                79.21,
+                94.33
+              ],
+              "area_px": 336,
+              "area_ha": 3.36,
+              "fraction": 0.00228,
+              "position": "south-east",
+              "compactness": 0.824,
+              "score": 0.782
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                92.97,
+                76.82,
+                95.05,
+                94.79
+              ],
+              "bbox_px": [
+                357,
+                295,
+                365,
+                364
+              ],
+              "centroid_norm": [
+                94.26,
+                85.32
+              ],
+              "area_px": 244,
+              "area_ha": 2.44,
+              "fraction": 0.00165,
+              "position": "south-east",
+              "compactness": 0.442,
+              "score": 0.629
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                88.02,
+                62.76,
                 94.79,
                 74.22
               ],
               "bbox_px": [
-                210,
-                239,
+                338,
+                241,
                 364,
                 285
               ],
               "centroid_norm": [
-                76.38,
-                66.23
+                93.08,
+                69.5
               ],
-              "area_px": 1418,
-              "area_ha": 14.18,
-              "fraction": 0.00962,
-              "position": "east",
-              "compactness": 0.2,
-              "score": 0.542
-            },
-            {
-              "label": "water",
-              "class_name": "water",
-              "bbox_norm": [
-                80.73,
-                77.86,
-                99.74,
-                99.74
-              ],
-              "bbox_px": [
-                310,
-                299,
-                383,
-                383
-              ],
-              "centroid_norm": [
-                94.34,
-                92.64
-              ],
-              "area_px": 1360,
-              "area_ha": 13.6,
-              "fraction": 0.00922,
+              "area_px": 217,
+              "area_ha": 2.17,
+              "fraction": 0.00147,
               "position": "south-east",
-              "compactness": 0.222,
-              "score": 0.55
+              "compactness": 0.19,
+              "score": 0.528
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                49.22,
-                39.06,
-                83.33,
-                42.71
+                54.69,
+                83.85,
+                59.9,
+                94.79
               ],
               "bbox_px": [
-                189,
-                150,
-                320,
-                164
+                210,
+                322,
+                230,
+                364
               ],
               "centroid_norm": [
-                66.8,
-                40.71
+                55.89,
+                90.49
               ],
-              "area_px": 1327,
-              "area_ha": 13.27,
-              "fraction": 0.009,
-              "position": "east",
-              "compactness": 0.724,
-              "score": 0.75
+              "area_px": 173,
+              "area_ha": 1.73,
+              "fraction": 0.00117,
+              "position": "south",
+              "compactness": 0.206,
+              "score": 0.534
             }
           ],
           "quality": {
@@ -1485,7 +1484,7 @@
               "pixel_count": 6029,
               "fraction": 0.040886773003472224,
               "area_ha": 60.29,
-              "evidence_basis": "NDWI > +0.000 (otsu_rejected_prior_used) with NIR-darkness guard",
+              "evidence_basis": "NDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
@@ -1564,9 +1563,9 @@
               "p05": -0.8071,
               "p95": 0.1553,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6519,
-              "note": "Otsu suggested -0.42, outside the plausible NDWI window [-0.25, +0.25] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDWI histogram is not convincingly bimodal (eta=0.65 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "TEXTURE",
@@ -1998,7 +1997,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'cartosat-2s mx'",
+          "modality_reason": "metadata mentions 'multispectral'",
           "width": 384,
           "height": 384,
           "band_count": 4,
@@ -2055,7 +2054,7 @@
           "format": "GEOTIFF",
           "modality": "sar",
           "modality_confidence": "high",
-          "modality_reason": "metadata/filename mentions 'risat'",
+          "modality_reason": "metadata/filename mentions 'amplitude'",
           "width": 384,
           "height": 384,
           "band_count": 1,
@@ -2146,11 +2145,11 @@
         "georeference",
         "modality:sar",
         "areaB_optical.tif: GEOTIFF, 384x384, 4 band(s), int16",
-        "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'cartosat-2s mx'",
+        "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
         "areaB_optical.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaB_optical.tif: acquisition date 2023-03-15 (from rasterio_tags)",
         "areaB_sar.tif: GEOTIFF, 384x384, 1 band(s), uint16",
-        "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'risat'",
+        "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'amplitude'",
         "areaB_sar.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaB_sar.tif: acquisition date 2023-03-15 (from rasterio_tags)",
         "Cross-modal pair detected: one optical/multispectral and one SAR image.",
@@ -2173,7 +2172,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'cartosat-2s mx'",
+          "message": "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -2211,7 +2210,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'risat'",
+          "message": "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'amplitude'",
           "detail": {
             "modality": "sar",
             "confidence": "high",
@@ -2283,7 +2282,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'cartosat-2s mx'",
+            "modality_reason": "metadata mentions 'multispectral'",
             "width": 384,
             "height": 384,
             "band_count": 4,
@@ -2340,7 +2339,7 @@
             "format": "GEOTIFF",
             "modality": "sar",
             "modality_confidence": "high",
-            "modality_reason": "metadata/filename mentions 'risat'",
+            "modality_reason": "metadata/filename mentions 'amplitude'",
             "width": 384,
             "height": 384,
             "band_count": 1,
@@ -2524,7 +2523,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 29,
+        "duration_ms": 27,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -2546,7 +2545,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "sar \u00b7 sar_named \u00b7 384x384 analysis grid",
-        "duration_ms": 82,
+        "duration_ms": 69,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -2592,30 +2591,30 @@
           "smoothing_window": 3,
           "regions_per_class": 4
         },
-        "outputs_summary": "mean cross-modal kappa=0.0271; joint water=0.041, built-up=0.023; obscured=0.005",
-        "duration_ms": 204,
+        "outputs_summary": "mean cross-modal kappa=0.1361; joint water=0.041, built-up=0.023; obscured=0.005",
+        "duration_ms": 190,
         "status": "ok",
         "detail": {
           "agreement": [
             {
               "class_name": "water",
               "optical_fraction": 0.04089,
-              "sar_fraction": 0.17291,
+              "sar_fraction": 0.20075,
               "joint_fraction": 0.04102,
-              "iou": 0.0472,
-              "cohen_kappa": 0.0256,
-              "sar_only_fraction": 0.16328,
-              "optical_only_fraction": 0.03126
+              "iou": 0.1686,
+              "cohen_kappa": 0.2367,
+              "sar_only_fraction": 0.16589,
+              "optical_only_fraction": 0.00602
             },
             {
               "class_name": "built_up",
               "optical_fraction": 0.023,
-              "sar_fraction": 0.04787,
-              "joint_fraction": 0.02302,
-              "iou": 0.0303,
-              "cohen_kappa": 0.0286,
-              "sar_only_fraction": 0.04578,
-              "optical_only_fraction": 0.02092
+              "sar_fraction": 0.01409,
+              "joint_fraction": 0.02296,
+              "iou": 0.0268,
+              "cohen_kappa": 0.0354,
+              "sar_only_fraction": 0.01312,
+              "optical_only_fraction": 0.02203
             },
             {
               "class_name": "vegetation",
@@ -2629,8 +2628,7 @@
             }
           ],
           "complementarity": [
-            "Optical and SAR disagree about water (kappa 0.03): reported as low-agreement rather than merged.",
-            "Optical and SAR disagree about built-up / man-made surface (kappa 0.03): reported as low-agreement rather than merged."
+            "Optical and SAR disagree about built-up / man-made surface (kappa 0.04): reported as low-agreement rather than merged."
           ]
         }
       },
@@ -2640,7 +2638,7 @@
         "task": "sar_optical_fusion",
         "parameters": {},
         "outputs_summary": "example_edge_two_tool_plan_fusion.png, example_edge_two_tool_plan_fusion_pair.png",
-        "duration_ms": 53,
+        "duration_ms": 48,
         "status": "ok",
         "detail": {}
       },
@@ -2656,8 +2654,8 @@
           "regions_per_class": 4,
           "speckle_filter": true
         },
-        "outputs_summary": "920 chars, 6 box(es), mask=fusion_map, narration=measurement",
-        "duration_ms": 257,
+        "outputs_summary": "823 chars, 6 box(es), mask=fusion_map, narration=measurement",
+        "duration_ms": 239,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'sar_optical_fusion'",
@@ -2694,7 +2692,7 @@
           "smoothing_window": 3
         },
         "outputs_summary": "dominant=vegetation; indices=BRIGHTNESS,NDVI,NDWI,TEXTURE; separability=0.7376",
-        "duration_ms": 103,
+        "duration_ms": 94,
         "status": "ok",
         "detail": {
           "class_fractions": {
@@ -2729,7 +2727,7 @@
         "task": "single_grounding",
         "parameters": {},
         "outputs_summary": "example_edge_two_tool_plan_areaB_optical_grounding.png",
-        "duration_ms": 16,
+        "duration_ms": 15,
         "status": "ok",
         "detail": {}
       },
@@ -2746,7 +2744,7 @@
           "max_regions": 5
         },
         "outputs_summary": "421 chars, 1 box(es), mask=none, narration=measurement",
-        "duration_ms": 121,
+        "duration_ms": 111,
         "status": "ok",
         "detail": {
           "reason_in_plan": "query asks for localisation in addition to joint extraction; the grounding entry runs on the optical image of the pair",
@@ -2780,9 +2778,9 @@
           {
             "name": "other",
             "label": "unclassified",
-            "pixel_count": 68036,
-            "fraction": 0.4613986545138889,
-            "area_ha": 680.36,
+            "pixel_count": 68045,
+            "fraction": 0.4614596896701389,
+            "area_ha": 680.45,
             "evidence_basis": "residual after joint assignment",
             "reliability": "medium",
             "region_count": 0
@@ -2800,9 +2798,9 @@
           {
             "name": "built_up",
             "label": "built-up / man-made surface",
-            "pixel_count": 3395,
-            "fraction": 0.023023817274305556,
-            "area_ha": 33.95,
+            "pixel_count": 3386,
+            "fraction": 0.022962782118055556,
+            "area_ha": 33.86,
             "evidence_basis": "cross-modal: pixels confirmed by both sensors, plus SAR-only detections where the optical scene is obscured, plus optical-only detections in clear areas",
             "reliability": "high",
             "region_count": 0
@@ -2812,22 +2810,22 @@
           {
             "class_name": "water",
             "optical_fraction": 0.04089,
-            "sar_fraction": 0.17291,
+            "sar_fraction": 0.20075,
             "joint_fraction": 0.04102,
-            "iou": 0.0472,
-            "cohen_kappa": 0.0256,
-            "sar_only_fraction": 0.16328,
-            "optical_only_fraction": 0.03126
+            "iou": 0.1686,
+            "cohen_kappa": 0.2367,
+            "sar_only_fraction": 0.16589,
+            "optical_only_fraction": 0.00602
           },
           {
             "class_name": "built_up",
             "optical_fraction": 0.023,
-            "sar_fraction": 0.04787,
-            "joint_fraction": 0.02302,
-            "iou": 0.0303,
-            "cohen_kappa": 0.0286,
-            "sar_only_fraction": 0.04578,
-            "optical_only_fraction": 0.02092
+            "sar_fraction": 0.01409,
+            "joint_fraction": 0.02296,
+            "iou": 0.0268,
+            "cohen_kappa": 0.0354,
+            "sar_only_fraction": 0.01312,
+            "optical_only_fraction": 0.02203
           },
           {
             "class_name": "vegetation",
@@ -2840,11 +2838,10 @@
             "optical_only_fraction": 0.47468
           }
         ],
-        "mean_agreement": 0.0271,
+        "mean_agreement": 0.1361,
         "obscured_fraction": 0.0049,
         "complementarity": [
-          "Optical and SAR disagree about water (kappa 0.03): reported as low-agreement rather than merged.",
-          "Optical and SAR disagree about built-up / man-made surface (kappa 0.03): reported as low-agreement rather than merged."
+          "Optical and SAR disagree about built-up / man-made surface (kappa 0.04): reported as low-agreement rather than merged."
         ],
         "regions": [
           {
@@ -3014,7 +3011,7 @@
               "pixel_count": 6029,
               "fraction": 0.040886773003472224,
               "area_ha": 60.29,
-              "evidence_basis": "NDWI > +0.000 (otsu_rejected_prior_used) with NIR-darkness guard",
+              "evidence_basis": "NDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
@@ -3093,9 +3090,9 @@
               "p05": -0.8071,
               "p95": 0.1553,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6519,
-              "note": "Otsu suggested -0.42, outside the plausible NDWI window [-0.25, +0.25] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDWI histogram is not convincingly bimodal (eta=0.65 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "TEXTURE",
@@ -3483,12 +3480,12 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 25497,
-              "fraction": 0.17291259765625,
-              "area_ha": 254.97,
-              "evidence_basis": "backscatter < 48.0 dB (dark_mode_otsu, scene-relative (uncalibrated DN)) with low roughness (texture <= p45 = 0.24 dB): specular water surface",
+              "pixel_count": 29602,
+              "fraction": 0.2007514105902778,
+              "area_ha": 296.02,
+              "evidence_basis": "backscatter < 48.0 dB (dark_mode_otsu, scene-relative (uncalibrated DN)) with low roughness (texture <= p45 = 0.24 dB), or below 44.0 dB regardless of roughness: specular water surface",
               "reliability": "medium",
-              "region_count": 21
+              "region_count": 22
             },
             {
               "name": "vegetation",
@@ -3503,19 +3500,19 @@
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 7058,
-              "fraction": 0.04786512586805555,
-              "area_ha": 70.58,
-              "evidence_basis": "backscatter > p75 (51.3 dB) with roughness > 0.99 dB: double-bounce returns adjacent to radar shadow",
+              "pixel_count": 2078,
+              "fraction": 0.014092339409722222,
+              "area_ha": 20.78,
+              "evidence_basis": "backscatter > p75 (51.3 dB) with roughness > 1.60 dB: double-bounce returns adjacent to radar shadow",
               "reliability": "medium",
-              "region_count": 6
+              "region_count": 10
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 38788,
-              "fraction": 0.2630479600694444,
-              "area_ha": 387.88,
+              "pixel_count": 38779,
+              "fraction": 0.2629869249131944,
+              "area_ha": 387.79,
               "evidence_basis": "low-roughness surface residue, consistent with bare or fallow ground",
               "reliability": "medium",
               "region_count": 13
@@ -3523,12 +3520,12 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 76113,
-              "fraction": 0.51617431640625,
-              "area_ha": 761.13,
+              "pixel_count": 76997,
+              "fraction": 0.5221693250868056,
+              "area_ha": 769.97,
               "evidence_basis": "intermediate backscatter and roughness, not assigned",
               "reliability": "medium",
-              "region_count": 46
+              "region_count": 42
             }
           ],
           "dominant": "bare_soil",
@@ -3555,7 +3552,7 @@
               "threshold": 48.0295,
               "threshold_method": "dark_mode_otsu",
               "separability": 0.6333,
-              "note": "backscatter: darkest histogram mode split at 48.03 (scene-relative; the product carries an unknown gain)"
+              "note": "backscatter: distinct dark mode split at 48.03 (valley depth 0.92; scene-relative, because the product carries an unknown gain)"
             },
             {
               "name": "SAR_TEXTURE",
@@ -3564,10 +3561,10 @@
               "std": 0.5186,
               "p05": 0.1393,
               "p95": 1.4544,
-              "threshold": 0.9879,
-              "threshold_method": "otsu",
+              "threshold": 1.6,
+              "threshold_method": "prior_fixed",
               "separability": 0.703,
-              "note": "data-driven split inside the plausible SAR_TEXTURE window [+0.40, +2.80]"
+              "note": "SAR_TEXTURE histogram is not convincingly bimodal (eta=0.70 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +1.60 was used rather than an arbitrary data split"
             },
             {
               "name": "TEXTURE",
@@ -3800,160 +3797,160 @@
               "score": 0.651
             },
             {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
+              "label": "water",
+              "class_name": "water",
               "bbox_norm": [
-                54.69,
-                69.79,
-                95.05,
-                95.05
+                0.26,
+                67.19,
+                99.74,
+                76.82
               ],
               "bbox_px": [
-                210,
-                268,
-                365,
-                365
+                1,
+                258,
+                383,
+                295
               ],
               "centroid_norm": [
-                73.69,
-                84.31
+                43.2,
+                72.67
               ],
-              "area_px": 1810,
-              "area_ha": 18.1,
-              "fraction": 0.01227,
-              "position": "south-east",
-              "compactness": 0.12,
-              "score": 0.513
-            },
-            {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
-              "bbox_norm": [
-                7.03,
-                39.06,
-                48.18,
-                42.97
-              ],
-              "bbox_px": [
-                27,
-                150,
-                185,
-                165
-              ],
-              "centroid_norm": [
-                27.65,
-                40.74
-              ],
-              "area_px": 1683,
-              "area_ha": 16.83,
-              "fraction": 0.01141,
-              "position": "west",
-              "compactness": 0.71,
-              "score": 0.748
+              "area_px": 2879,
+              "area_ha": 28.79,
+              "fraction": 0.01952,
+              "position": "south",
+              "compactness": 0.204,
+              "score": 0.555
             },
             {
               "label": "water",
               "class_name": "water",
               "bbox_norm": [
-                13.02,
-                12.76,
-                27.34,
-                23.44
+                11.46,
+                11.2,
+                28.39,
+                24.48
               ],
               "bbox_px": [
-                50,
-                49,
-                105,
-                90
+                44,
+                43,
+                109,
+                94
               ],
               "centroid_norm": [
-                19.66,
-                17.82
+                19.71,
+                17.84
               ],
-              "area_px": 1420,
-              "area_ha": 14.2,
-              "fraction": 0.00963,
+              "area_px": 2646,
+              "area_ha": 26.46,
+              "fraction": 0.01794,
               "position": "north-west",
-              "compactness": 0.63,
-              "score": 0.713
+              "compactness": 0.798,
+              "score": 0.791
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                54.69,
-                62.24,
+                66.15,
+                94.01,
+                92.71,
+                95.05
+              ],
+              "bbox_px": [
+                254,
+                361,
+                356,
+                365
+              ],
+              "centroid_norm": [
+                79.21,
+                94.33
+              ],
+              "area_px": 336,
+              "area_ha": 3.36,
+              "fraction": 0.00228,
+              "position": "south-east",
+              "compactness": 0.824,
+              "score": 0.782
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                92.97,
+                76.82,
+                95.05,
+                94.79
+              ],
+              "bbox_px": [
+                357,
+                295,
+                365,
+                364
+              ],
+              "centroid_norm": [
+                94.26,
+                85.32
+              ],
+              "area_px": 244,
+              "area_ha": 2.44,
+              "fraction": 0.00165,
+              "position": "south-east",
+              "compactness": 0.442,
+              "score": 0.629
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                88.02,
+                62.76,
                 94.79,
                 74.22
               ],
               "bbox_px": [
-                210,
-                239,
+                338,
+                241,
                 364,
                 285
               ],
               "centroid_norm": [
-                76.38,
-                66.23
+                93.08,
+                69.5
               ],
-              "area_px": 1418,
-              "area_ha": 14.18,
-              "fraction": 0.00962,
-              "position": "east",
-              "compactness": 0.2,
-              "score": 0.542
-            },
-            {
-              "label": "water",
-              "class_name": "water",
-              "bbox_norm": [
-                80.73,
-                77.86,
-                99.74,
-                99.74
-              ],
-              "bbox_px": [
-                310,
-                299,
-                383,
-                383
-              ],
-              "centroid_norm": [
-                94.34,
-                92.64
-              ],
-              "area_px": 1360,
-              "area_ha": 13.6,
-              "fraction": 0.00922,
+              "area_px": 217,
+              "area_ha": 2.17,
+              "fraction": 0.00147,
               "position": "south-east",
-              "compactness": 0.222,
-              "score": 0.55
+              "compactness": 0.19,
+              "score": 0.528
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                49.22,
-                39.06,
-                83.33,
-                42.71
+                54.69,
+                83.85,
+                59.9,
+                94.79
               ],
               "bbox_px": [
-                189,
-                150,
-                320,
-                164
+                210,
+                322,
+                230,
+                364
               ],
               "centroid_norm": [
-                66.8,
-                40.71
+                55.89,
+                90.49
               ],
-              "area_px": 1327,
-              "area_ha": 13.27,
-              "fraction": 0.009,
-              "position": "east",
-              "compactness": 0.724,
-              "score": 0.75
+              "area_px": 173,
+              "area_ha": 1.73,
+              "fraction": 0.00117,
+              "position": "south",
+              "compactness": 0.206,
+              "score": 0.534
             }
           ],
           "quality": {
@@ -4062,7 +4059,7 @@
               "pixel_count": 6029,
               "fraction": 0.040886773003472224,
               "area_ha": 60.29,
-              "evidence_basis": "NDWI > +0.000 (otsu_rejected_prior_used) with NIR-darkness guard",
+              "evidence_basis": "NDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
@@ -4141,9 +4138,9 @@
               "p05": -0.8071,
               "p95": 0.1553,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6519,
-              "note": "Otsu suggested -0.42, outside the plausible NDWI window [-0.25, +0.25] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDWI histogram is not convincingly bimodal (eta=0.65 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "TEXTURE",
@@ -4553,7 +4550,7 @@
     },
     "outputs": {
       "text": {
-        "text": "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (34.0 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.03 (optical 4.1%, SAR 17.3%); built-up / man-made surface kappa 0.03 (optical 2.3%, SAR 4.8%); mean kappa 0.03. Optical and SAR disagree about water (kappa 0.03): reported as low-agreement rather than merged. Optical and SAR disagree about built-up / man-made surface (kappa 0.03): reported as low-agreement rather than merged. Largest joint regions: water in the south (32.2 ha); water in the north-west (27.7 ha); built-up / man-made surface in the north (2.7 ha). Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI. SAR-only input: classes derive from backscatter level and roughness; vegetation vigour and water chemistry are not observable. Localised 1 water region for \"Use the optical and SAR images together and highlight where the water is.\": south of the scene, box [0.3, 66.9, 99.7, 76.8] in 0-100 image coordinates (32.2 ha). 2 candidate regions of this class were considered before the qualifiers were applied. Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI.",
+        "text": "Using the optical and SAR images jointly: built-up / man-made surface 2.3% (33.9 ha); water-covered 4.1% (60.5 ha); vegetation 47.5% (699.8 ha). Cross-modal agreement \u2014 water kappa 0.24 (optical 4.1%, SAR 20.1%); built-up / man-made surface kappa 0.04 (optical 2.3%, SAR 1.4%); mean kappa 0.14. Optical and SAR disagree about built-up / man-made surface (kappa 0.04): reported as low-agreement rather than merged. Largest joint regions: water in the south (32.2 ha); water in the north-west (27.7 ha); built-up / man-made surface in the north (2.7 ha). Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI. SAR-only input: classes derive from backscatter level and roughness; vegetation vigour and water chemistry are not observable. Localised 1 water region for \"Use the optical and SAR images together and highlight where the water is.\": south of the scene, box [0.3, 66.9, 99.7, 76.8] in 0-100 image coordinates (32.2 ha). 2 candidate regions of this class were considered before the qualifiers were applied. Caveats: No SWIR band: water uses NDWI (more sensitive to built-up confusion than MNDWI) and built-up uses brightness+texture rather than NDBI.",
         "narration_source": "measurement",
         "n_samples": 1
       },
@@ -4691,13 +4688,13 @@
       ]
     },
     "confidence": {
-      "value": 0.428,
+      "value": 0.457,
       "source": "cross_modal_agreement",
       "calibrated": false,
       "components": [
         {
           "name": "cross_modal_kappa",
-          "value": 0.0271,
+          "value": 0.1361,
           "weight": 0.35,
           "note": "Cohen's kappa between optical and SAR evidence"
         },
@@ -4734,19 +4731,19 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 3 measurement limitation(s) reduced the score by 15%."
     },
-    "execution_time_ms": 534,
+    "execution_time_ms": 491,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
       "device": "cpu",
-      "torch_available": false,
+      "torch_available": true,
       "vlm_narration_enabled": false,
       "vlm_model_id": null,
       "mock_mode": false,
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-08-31T11:40:39.821577+00:00",
+    "created_at": "2026-09-28T22:43:07.744222+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -4761,7 +4758,7 @@
     ],
     "highlight": "The query asks for something the fusion entry does not produce, so the router adds the grounding entry and the trace shows both steps.",
     "expects": "sar_optical_fusion",
-    "baked_at": "2026-08-31T17:10:39",
+    "baked_at": "2026-09-29T04:13:07",
     "backend": "analysis_engine"
   }
 }

@@ -10,14 +10,14 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230701.tif"
   ],
-  "created_at": 1788176439.2315464,
+  "created_at": 1790635387.210776,
   "result": {
     "run_id": "example_ps5_change_vqa",
     "query": "Has the built-up area increased, decreased, or remained unchanged?",
     "task": "change_vqa",
-    "text": "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.2% of the scene at the earlier date versus 4.0% at the later date (change -1.18 percentage points, -17.4 ha), which does not clear the measurement noise floor. Caveats: Relative radiometric normalisation applied to the later acquisition (band0: gain 0.977, offset -33.912; band1: gain 0.983, offset -47.838; band2: gain 0.988, offset -54.625; band3: gain 0.995, offset -90.698, ...). Change Vector Analysis over NDVI, NDWI, MNDWI, NDBI, BRIGHTNESS; threshold 0.7770 (Otsu 0.6963, separability 0.69, noise floor 0.7770)",
+    "text": "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.0% of the scene at the earlier date versus 3.9% at the later date (change -1.05 percentage points, -15.5 ha), which does not clear the measurement noise floor. Caveats: Relative radiometric normalisation applied to the later acquisition (band0: gain 0.977, offset -33.912; band1: gain 0.983, offset -47.838; band2: gain 0.988, offset -54.625; band3: gain 0.995, offset -90.698, ...). Change Vector Analysis over NDVI, NDWI, MNDWI, NDBI, BRIGHTNESS; threshold 0.7770 (Otsu 0.6963, separability 0.69, noise floor 0.7770)",
     "answers": [
-      "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.2% of the scene at the earlier date versus 4.0% at the later date (change -1.18 percentage points, -17.4 ha), which does not clear the measurement noise floor. Caveats: Relative radiometric normalisation applied to the later acquisition (band0: gain 0.977, offset -33.912; band1: gain 0.983, offset -47.838; band2: gain 0.988, offset -54.625; band3: gain 0.995, offset -90.698, ...). Change Vector Analysis over NDVI, NDWI, MNDWI, NDBI, BRIGHTNESS; threshold 0.7770 (Otsu 0.6963, separability 0.69, noise floor 0.7770)"
+      "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.0% of the scene at the earlier date versus 3.9% at the later date (change -1.05 percentage points, -15.5 ha), which does not clear the measurement noise floor. Caveats: Relative radiometric normalisation applied to the later acquisition (band0: gain 0.977, offset -33.912; band1: gain 0.983, offset -47.838; band2: gain 0.988, offset -54.625; band3: gain 0.995, offset -90.698, ...). Change Vector Analysis over NDVI, NDWI, MNDWI, NDBI, BRIGHTNESS; threshold 0.7770 (Otsu 0.6963, separability 0.69, noise floor 0.7770)"
     ],
     "boxes": [
       {
@@ -164,44 +164,44 @@
           {
             "name": "water",
             "label": "water",
-            "t1_fraction": 0.03967,
-            "t2_fraction": 0.03143,
-            "delta_fraction": -0.00825,
-            "delta_ha": -12.16,
-            "relative_change": -0.2079,
+            "t1_fraction": 0.04022,
+            "t2_fraction": 0.03177,
+            "delta_fraction": -0.00845,
+            "delta_ha": -12.46,
+            "relative_change": -0.2101,
             "direction": "unchanged",
             "significant": false
           },
           {
             "name": "vegetation",
             "label": "vegetation",
-            "t1_fraction": 0.51631,
-            "t2_fraction": 0.50165,
-            "delta_fraction": -0.01466,
-            "delta_ha": -21.61,
-            "relative_change": -0.0284,
+            "t1_fraction": 0.51617,
+            "t2_fraction": 0.50206,
+            "delta_fraction": -0.01411,
+            "delta_ha": -20.8,
+            "relative_change": -0.0273,
             "direction": "unchanged",
             "significant": false
           },
           {
             "name": "built_up",
             "label": "built-up / man-made surface",
-            "t1_fraction": 0.05224,
-            "t2_fraction": 0.04047,
-            "delta_fraction": -0.01177,
-            "delta_ha": -17.36,
-            "relative_change": -0.2254,
+            "t1_fraction": 0.04954,
+            "t2_fraction": 0.03906,
+            "delta_fraction": -0.01048,
+            "delta_ha": -15.46,
+            "relative_change": -0.2116,
             "direction": "unchanged",
             "significant": false
           },
           {
             "name": "bare_soil",
             "label": "bare soil or fallow ground",
-            "t1_fraction": 0.00396,
-            "t2_fraction": 0.00431,
-            "delta_fraction": 0.00035,
-            "delta_ha": 0.52,
-            "relative_change": 0.089,
+            "t1_fraction": 0.0038,
+            "t2_fraction": 0.00411,
+            "delta_fraction": 0.00031,
+            "delta_ha": 0.45,
+            "relative_change": 0.0802,
             "direction": "unchanged",
             "significant": false
           }
@@ -210,26 +210,26 @@
           {
             "from": "vegetation",
             "to": "other",
-            "pixels": 4426,
-            "fraction": 0.03002,
-            "area_ha": 44.26,
+            "pixels": 4477,
+            "fraction": 0.03036,
+            "area_ha": 44.77,
             "location": "north"
-          },
-          {
-            "from": "vegetation",
-            "to": "built_up",
-            "pixels": 1040,
-            "fraction": 0.00705,
-            "area_ha": 10.4,
-            "location": "north-east"
           },
           {
             "from": "water",
             "to": "other",
-            "pixels": 1035,
-            "fraction": 0.00702,
-            "area_ha": 10.35,
+            "pixels": 1032,
+            "fraction": 0.007,
+            "area_ha": 10.32,
             "location": "north-west"
+          },
+          {
+            "from": "vegetation",
+            "to": "built_up",
+            "pixels": 1002,
+            "fraction": 0.0068,
+            "area_ha": 10.02,
+            "location": "north-east"
           },
           {
             "from": "water",
@@ -242,18 +242,10 @@
           {
             "from": "vegetation",
             "to": "bare_soil",
-            "pixels": 75,
-            "fraction": 0.00051,
-            "area_ha": 0.75,
+            "pixels": 72,
+            "fraction": 0.00049,
+            "area_ha": 0.72,
             "location": "north-west"
-          },
-          {
-            "from": "other",
-            "to": "water",
-            "pixels": 1,
-            "fraction": 1e-05,
-            "area_ha": 0.01,
-            "location": "south-east"
           }
         ],
         "changed_fraction": 0.05965,
@@ -428,19 +420,19 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 5850,
-              "fraction": 0.0396728515625,
-              "area_ha": 58.5,
-              "evidence_basis": "MNDWI > +0.199 (otsu) with NIR-darkness guard",
+              "pixel_count": 5931,
+              "fraction": 0.04022216796875,
+              "area_ha": 59.31,
+              "evidence_basis": "MNDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
             {
               "name": "vegetation",
               "label": "vegetation",
-              "pixel_count": 76133,
-              "fraction": 0.5163099500868056,
-              "area_ha": 761.33,
+              "pixel_count": 76112,
+              "fraction": 0.5161675347222222,
+              "area_ha": 761.12,
               "evidence_basis": "NDVI > +0.250 (otsu_rejected_prior_used)",
               "reliability": "high",
               "region_count": 2
@@ -448,19 +440,19 @@
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 7703,
-              "fraction": 0.052239312065972224,
-              "area_ha": 77.03,
-              "evidence_basis": "NDBI > +0.000 (otsu_rejected_prior_used)",
+              "pixel_count": 7305,
+              "fraction": 0.049540201822916664,
+              "area_ha": 73.05,
+              "evidence_basis": "NDBI > +0.000 (prior_fixed)",
               "reliability": "high",
-              "region_count": 29
+              "region_count": 22
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 584,
-              "fraction": 0.003960503472222222,
-              "area_ha": 5.84,
+              "pixel_count": 561,
+              "fraction": 0.0038045247395833335,
+              "area_ha": 5.61,
               "evidence_basis": "unvegetated, non-water residue with 5x5 texture <= p60 (0.047)",
               "reliability": "high",
               "region_count": 0
@@ -468,9 +460,9 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 57186,
-              "fraction": 0.3878173828125,
-              "area_ha": 571.86,
+              "pixel_count": 57547,
+              "fraction": 0.3902655707465278,
+              "area_ha": 575.47,
               "evidence_basis": "no class threshold satisfied",
               "reliability": "high",
               "region_count": 12
@@ -497,10 +489,10 @@
               "std": 0.2978,
               "p05": -0.6247,
               "p95": 0.11,
-              "threshold": 0.1989,
-              "threshold_method": "otsu",
+              "threshold": 0.0,
+              "threshold_method": "prior_fixed",
               "separability": 0.6574,
-              "note": "data-driven split inside the plausible MNDWI window [-0.30, +0.30]"
+              "note": "MNDWI histogram is not convincingly bimodal (eta=0.66 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDBI",
@@ -510,9 +502,9 @@
               "p05": -0.5389,
               "p95": 0.1791,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6677,
-              "note": "Otsu suggested -0.20, outside the plausible NDBI window [-0.10, +0.10] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDBI histogram is not convincingly bimodal (eta=0.67 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDVI",
@@ -568,12 +560,12 @@
                 156
               ],
               "centroid_norm": [
-                52.89,
-                19.51
+                52.9,
+                19.5
               ],
-              "area_px": 49426,
-              "area_ha": 494.26,
-              "fraction": 0.33519,
+              "area_px": 49413,
+              "area_ha": 494.13,
+              "fraction": 0.3351,
               "position": "north",
               "compactness": 0.835,
               "score": 0.934
@@ -594,12 +586,12 @@
                 245
               ],
               "centroid_norm": [
-                49.49,
-                52.13
+                49.5,
+                52.14
               ],
-              "area_px": 26195,
-              "area_ha": 261.95,
-              "fraction": 0.17765,
+              "area_px": 26193,
+              "area_ha": 261.93,
+              "fraction": 0.17763,
               "position": "centre",
               "compactness": 0.797,
               "score": 0.919
@@ -609,26 +601,26 @@
               "class_name": "water",
               "bbox_norm": [
                 0.26,
-                67.45,
+                67.19,
                 99.74,
                 76.56
               ],
               "bbox_px": [
                 1,
-                259,
+                258,
                 383,
                 294
               ],
               "centroid_norm": [
-                49.88,
-                72.5
+                50.41,
+                72.49
               ],
-              "area_px": 3082,
-              "area_ha": 30.82,
-              "fraction": 0.0209,
+              "area_px": 3163,
+              "area_ha": 31.63,
+              "fraction": 0.02145,
               "position": "south",
-              "compactness": 0.231,
-              "score": 0.567
+              "compactness": 0.23,
+              "score": 0.568
             },
             {
               "label": "water",
@@ -660,105 +652,105 @@
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                76.3,
-                76.04,
-                95.05,
-                84.64
+                54.69,
+                78.39,
+                79.17,
+                87.24
               ],
               "bbox_px": [
-                293,
-                292,
-                365,
-                325
+                210,
+                301,
+                304,
+                335
               ],
               "centroid_norm": [
-                86.75,
-                80.25
+                65.28,
+                83.69
               ],
-              "area_px": 712,
-              "area_ha": 7.12,
-              "fraction": 0.00483,
-              "position": "south-east",
-              "compactness": 0.3,
-              "score": 0.576
+              "area_px": 769,
+              "area_ha": 7.69,
+              "fraction": 0.00522,
+              "position": "south",
+              "compactness": 0.241,
+              "score": 0.553
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
+                54.95,
                 71.35,
                 70.57,
                 80.21
               ],
               "bbox_px": [
-                213,
+                211,
                 274,
                 271,
                 308
               ],
               "centroid_norm": [
-                64.35,
-                75.78
+                63.64,
+                75.94
               ],
-              "area_px": 622,
-              "area_ha": 6.22,
-              "fraction": 0.00422,
+              "area_px": 651,
+              "area_ha": 6.51,
+              "fraction": 0.00441,
               "position": "south",
-              "compactness": 0.315,
-              "score": 0.581
+              "compactness": 0.319,
+              "score": 0.583
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
-                86.46,
-                66.41,
-                94.27
+                81.25,
+                77.08,
+                95.05,
+                84.64
               ],
               "bbox_px": [
-                213,
-                332,
-                255,
-                362
+                312,
+                296,
+                365,
+                325
               ],
               "centroid_norm": [
-                59.78,
-                90.31
+                88.81,
+                80.29
               ],
-              "area_px": 432,
-              "area_ha": 4.32,
-              "fraction": 0.00293,
-              "position": "south",
-              "compactness": 0.343,
+              "area_px": 525,
+              "area_ha": 5.25,
+              "fraction": 0.00356,
+              "position": "south-east",
+              "compactness": 0.342,
               "score": 0.591
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                54.69,
-                78.65,
-                66.67,
-                86.72
-              ],
-              "bbox_px": [
-                210,
-                302,
-                256,
-                333
-              ],
-              "centroid_norm": [
-                59.59,
+                71.35,
+                75.26,
+                80.99,
                 82.81
               ],
-              "area_px": 396,
-              "area_ha": 3.96,
-              "fraction": 0.00269,
-              "position": "south",
-              "compactness": 0.278,
-              "score": 0.564
+              "bbox_px": [
+                274,
+                289,
+                311,
+                318
+              ],
+              "centroid_norm": [
+                75.55,
+                78.45
+              ],
+              "area_px": 364,
+              "area_ha": 3.64,
+              "fraction": 0.00247,
+              "position": "south-east",
+              "compactness": 0.339,
+              "score": 0.589
             }
           ],
           "quality": {
@@ -796,39 +788,39 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 4634,
-              "fraction": 0.031426323784722224,
-              "area_ha": 46.34,
-              "evidence_basis": "MNDWI > +0.266 (otsu) with NIR-darkness guard",
+              "pixel_count": 4685,
+              "fraction": 0.03177218967013889,
+              "area_ha": 46.85,
+              "evidence_basis": "MNDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
             {
               "name": "vegetation",
               "label": "vegetation",
-              "pixel_count": 73972,
-              "fraction": 0.5016547309027778,
-              "area_ha": 739.72,
-              "evidence_basis": "NDVI > +0.250 (otsu_rejected_prior_used)",
+              "pixel_count": 74032,
+              "fraction": 0.5020616319444444,
+              "area_ha": 740.32,
+              "evidence_basis": "NDVI > +0.250 (prior_fixed)",
               "reliability": "high",
-              "region_count": 1
+              "region_count": 3
             },
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 5967,
-              "fraction": 0.04046630859375,
-              "area_ha": 59.67,
-              "evidence_basis": "NDBI > +0.000 (otsu_rejected_prior_used)",
+              "pixel_count": 5759,
+              "fraction": 0.039055718315972224,
+              "area_ha": 57.59,
+              "evidence_basis": "NDBI > +0.000 (prior_fixed)",
               "reliability": "high",
-              "region_count": 24
+              "region_count": 25
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 636,
-              "fraction": 0.004313151041666667,
-              "area_ha": 6.36,
+              "pixel_count": 606,
+              "fraction": 0.004109700520833333,
+              "area_ha": 6.06,
               "evidence_basis": "unvegetated, non-water residue with 5x5 texture <= p60 (0.050)",
               "reliability": "high",
               "region_count": 0
@@ -836,9 +828,9 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 62247,
-              "fraction": 0.4221394856770833,
-              "area_ha": 622.47,
+              "pixel_count": 62374,
+              "fraction": 0.4230007595486111,
+              "area_ha": 623.74,
               "evidence_basis": "no class threshold satisfied",
               "reliability": "high",
               "region_count": 10
@@ -865,10 +857,10 @@
               "std": 0.3044,
               "p05": -0.6492,
               "p95": 0.0641,
-              "threshold": 0.2665,
-              "threshold_method": "otsu",
+              "threshold": 0.0,
+              "threshold_method": "prior_fixed",
               "separability": 0.6246,
-              "note": "data-driven split inside the plausible MNDWI window [-0.30, +0.30]"
+              "note": "MNDWI histogram is not convincingly bimodal (eta=0.62 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDBI",
@@ -878,9 +870,9 @@
               "p05": -0.541,
               "p95": 0.2445,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6333,
-              "note": "Otsu suggested -0.17, outside the plausible NDBI window [-0.10, +0.10] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDBI histogram is not convincingly bimodal (eta=0.63 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDVI",
@@ -890,9 +882,9 @@
               "p05": -0.1474,
               "p95": 0.9247,
               "threshold": 0.25,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.7445,
-              "note": "Otsu suggested +0.48, outside the plausible NDVI window [+0.07, +0.43] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.25 was used instead"
+              "note": "NDVI histogram is not convincingly bimodal (eta=0.74 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.25 was used rather than an arbitrary data split"
             },
             {
               "name": "NDWI",
@@ -927,24 +919,50 @@
                 0.26,
                 0.26,
                 99.74,
-                64.32
+                40.89
               ],
               "bbox_px": [
                 1,
                 1,
                 383,
+                157
+              ],
+              "centroid_norm": [
+                51.19,
+                19.36
+              ],
+              "area_px": 44077,
+              "area_ha": 440.77,
+              "fraction": 0.29892,
+              "position": "north",
+              "compactness": 0.74,
+              "score": 0.896
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                0.26,
+                41.15,
+                99.74,
+                64.32
+              ],
+              "bbox_px": [
+                1,
+                158,
+                383,
                 247
               ],
               "centroid_norm": [
-                50.42,
-                31.77
+                49.13,
+                52.22
               ],
-              "area_px": 70746,
-              "area_ha": 707.46,
-              "fraction": 0.47978,
-              "position": "northern",
-              "compactness": 0.753,
-              "score": 0.901
+              "area_px": 26706,
+              "area_ha": 267.06,
+              "fraction": 0.18111,
+              "position": "centre",
+              "compactness": 0.786,
+              "score": 0.914
             },
             {
               "label": "water",
@@ -953,23 +971,23 @@
                 0.26,
                 67.45,
                 99.74,
-                76.56
+                76.82
               ],
               "bbox_px": [
                 1,
                 259,
                 383,
-                294
+                295
               ],
               "centroid_norm": [
-                49.9,
-                72.5
+                50.3,
+                72.51
               ],
-              "area_px": 3087,
-              "area_ha": 30.87,
-              "fraction": 0.02094,
+              "area_px": 3134,
+              "area_ha": 31.34,
+              "fraction": 0.02125,
               "position": "south",
-              "compactness": 0.231,
+              "compactness": 0.228,
               "score": 0.567
             },
             {
@@ -989,118 +1007,144 @@
               ],
               "centroid_norm": [
                 19.78,
-                16.92
+                16.93
               ],
-              "area_px": 1547,
-              "area_ha": 15.47,
-              "fraction": 0.01049,
+              "area_px": 1551,
+              "area_ha": 15.51,
+              "fraction": 0.01052,
               "position": "north-west",
-              "compactness": 0.82,
+              "compactness": 0.822,
               "score": 0.791
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                71.09,
+                79.95,
+                77.86,
+                86.72,
+                85.16
+              ],
+              "bbox_px": [
+                307,
+                299,
+                333,
+                327
+              ],
+              "centroid_norm": [
+                83.63,
+                80.96
+              ],
+              "area_px": 206,
+              "area_ha": 2.06,
+              "fraction": 0.0014,
+              "position": "south-east",
+              "compactness": 0.283,
+              "score": 0.565
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                60.42,
+                86.98,
+                65.1,
+                94.27
+              ],
+              "bbox_px": [
+                232,
+                334,
+                250,
+                362
+              ],
+              "centroid_norm": [
+                62.7,
+                90.29
+              ],
+              "area_px": 177,
+              "area_ha": 1.77,
+              "fraction": 0.0012,
+              "position": "south",
+              "compactness": 0.351,
+              "score": 0.592
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                71.35,
                 22.4,
                 77.86,
-                31.51
+                27.08
               ],
               "bbox_px": [
-                273,
+                274,
                 86,
                 299,
-                121
+                104
               ],
               "centroid_norm": [
-                74.64,
-                26.58
+                74.51,
+                24.29
               ],
-              "area_px": 279,
-              "area_ha": 2.79,
-              "fraction": 0.00189,
+              "area_px": 144,
+              "area_ha": 1.44,
+              "fraction": 0.00098,
               "position": "north-east",
-              "compactness": 0.307,
-              "score": 0.575
+              "compactness": 0.32,
+              "score": 0.579
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                86.2,
-                63.02,
-                93.23,
-                70.05
+                64.06,
+                82.81,
+                69.27,
+                87.76
               ],
               "bbox_px": [
-                331,
-                242,
-                358,
-                269
+                246,
+                318,
+                266,
+                337
               ],
               "centroid_norm": [
-                89.52,
-                66.38
+                67.3,
+                85.58
               ],
-              "area_px": 238,
-              "area_ha": 2.38,
-              "fraction": 0.00161,
-              "position": "east",
-              "compactness": 0.326,
-              "score": 0.583
-            },
-            {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
-              "bbox_norm": [
-                79.17,
-                78.39,
-                87.5,
-                82.03
-              ],
-              "bbox_px": [
-                304,
-                301,
-                336,
-                315
-              ],
-              "centroid_norm": [
-                83.12,
-                80.07
-              ],
-              "area_px": 183,
-              "area_ha": 1.83,
-              "fraction": 0.00124,
+              "area_px": 138,
+              "area_ha": 1.38,
+              "fraction": 0.00094,
               "position": "south-east",
-              "compactness": 0.408,
-              "score": 0.615
+              "compactness": 0.363,
+              "score": 0.596
             },
             {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
+              "label": "vegetation",
+              "class_name": "vegetation",
               "bbox_norm": [
-                87.76,
-                81.25,
-                92.45,
-                89.84
+                21.61,
+                89.32,
+                25.0,
+                92.71
               ],
               "bbox_px": [
-                337,
-                312,
-                355,
-                345
+                83,
+                343,
+                96,
+                356
               ],
               "centroid_norm": [
-                89.89,
-                85.49
+                23.26,
+                91.02
               ],
-              "area_px": 174,
-              "area_ha": 1.74,
-              "fraction": 0.00118,
-              "position": "south-east",
-              "compactness": 0.293,
-              "score": 0.569
+              "area_px": 75,
+              "area_ha": 0.75,
+              "fraction": 0.00051,
+              "position": "south-west",
+              "compactness": 0.444,
+              "score": 0.628
             }
           ],
           "quality": {
@@ -1183,7 +1227,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'sentinel-2'",
+          "modality_reason": "metadata mentions 'multispectral'",
           "width": 384,
           "height": 384,
           "band_count": 12,
@@ -1243,7 +1287,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'sentinel-2'",
+          "modality_reason": "metadata mentions 'multispectral'",
           "width": 384,
           "height": 384,
           "band_count": 12,
@@ -1318,11 +1362,11 @@
         "georeference",
         "temporal_dates_differ",
         "areaA_20230101.tif: GEOTIFF, 384x384, 12 band(s), int16",
-        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
         "areaA_20230101.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaA_20230101.tif: acquisition date 2023-01-01 (from rasterio_tags)",
         "areaA_20230701.tif: GEOTIFF, 384x384, 12 band(s), int16",
-        "areaA_20230701.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+        "areaA_20230701.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
         "areaA_20230701.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaA_20230701.tif: acquisition date 2023-07-01 (from rasterio_tags)",
         "Same-modality pair detected (multispectral): treated as bi-temporal.",
@@ -1345,7 +1389,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaA_20230101.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -1383,7 +1427,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaA_20230701.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'sentinel-2'",
+          "message": "areaA_20230701.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -1455,7 +1499,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'sentinel-2'",
+            "modality_reason": "metadata mentions 'multispectral'",
             "width": 384,
             "height": 384,
             "band_count": 12,
@@ -1515,7 +1559,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'sentinel-2'",
+            "modality_reason": "metadata mentions 'multispectral'",
             "width": 384,
             "height": 384,
             "band_count": 12,
@@ -1665,7 +1709,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 62,
+        "duration_ms": 56,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -1690,7 +1734,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 62,
+        "duration_ms": 57,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -1735,14 +1779,14 @@
           "normalize_radiometry": true
         },
         "outputs_summary": "5.96% changed; method=cva_ndvi_ndwi_mndwi_ndbi_brightness; threshold=0.77703",
-        "duration_ms": 292,
+        "duration_ms": 295,
         "status": "ok",
         "detail": {
           "per_class_delta": {
-            "water": -0.00825,
-            "vegetation": -0.01466,
-            "built_up": -0.01177,
-            "bare_soil": 0.00035
+            "water": -0.00845,
+            "vegetation": -0.01411,
+            "built_up": -0.01048,
+            "bare_soil": 0.00031
           },
           "significant": [],
           "noise_floor": 0.77703
@@ -1756,7 +1800,7 @@
           "clusters": 6
         },
         "outputs_summary": "example_ps5_change_vqa_change.png",
-        "duration_ms": 38,
+        "duration_ms": 36,
         "status": "ok",
         "detail": {}
       },
@@ -1774,7 +1818,7 @@
           "normalize_radiometry": true
         },
         "outputs_summary": "618 chars, 6 box(es), mask=change_map, narration=measurement",
-        "duration_ms": 331,
+        "duration_ms": 332,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'change_vqa'",
@@ -1799,44 +1843,44 @@
           {
             "name": "water",
             "label": "water",
-            "t1_fraction": 0.03967,
-            "t2_fraction": 0.03143,
-            "delta_fraction": -0.00825,
-            "delta_ha": -12.16,
-            "relative_change": -0.2079,
+            "t1_fraction": 0.04022,
+            "t2_fraction": 0.03177,
+            "delta_fraction": -0.00845,
+            "delta_ha": -12.46,
+            "relative_change": -0.2101,
             "direction": "unchanged",
             "significant": false
           },
           {
             "name": "vegetation",
             "label": "vegetation",
-            "t1_fraction": 0.51631,
-            "t2_fraction": 0.50165,
-            "delta_fraction": -0.01466,
-            "delta_ha": -21.61,
-            "relative_change": -0.0284,
+            "t1_fraction": 0.51617,
+            "t2_fraction": 0.50206,
+            "delta_fraction": -0.01411,
+            "delta_ha": -20.8,
+            "relative_change": -0.0273,
             "direction": "unchanged",
             "significant": false
           },
           {
             "name": "built_up",
             "label": "built-up / man-made surface",
-            "t1_fraction": 0.05224,
-            "t2_fraction": 0.04047,
-            "delta_fraction": -0.01177,
-            "delta_ha": -17.36,
-            "relative_change": -0.2254,
+            "t1_fraction": 0.04954,
+            "t2_fraction": 0.03906,
+            "delta_fraction": -0.01048,
+            "delta_ha": -15.46,
+            "relative_change": -0.2116,
             "direction": "unchanged",
             "significant": false
           },
           {
             "name": "bare_soil",
             "label": "bare soil or fallow ground",
-            "t1_fraction": 0.00396,
-            "t2_fraction": 0.00431,
-            "delta_fraction": 0.00035,
-            "delta_ha": 0.52,
-            "relative_change": 0.089,
+            "t1_fraction": 0.0038,
+            "t2_fraction": 0.00411,
+            "delta_fraction": 0.00031,
+            "delta_ha": 0.45,
+            "relative_change": 0.0802,
             "direction": "unchanged",
             "significant": false
           }
@@ -1845,26 +1889,26 @@
           {
             "from": "vegetation",
             "to": "other",
-            "pixels": 4426,
-            "fraction": 0.03002,
-            "area_ha": 44.26,
+            "pixels": 4477,
+            "fraction": 0.03036,
+            "area_ha": 44.77,
             "location": "north"
-          },
-          {
-            "from": "vegetation",
-            "to": "built_up",
-            "pixels": 1040,
-            "fraction": 0.00705,
-            "area_ha": 10.4,
-            "location": "north-east"
           },
           {
             "from": "water",
             "to": "other",
-            "pixels": 1035,
-            "fraction": 0.00702,
-            "area_ha": 10.35,
+            "pixels": 1032,
+            "fraction": 0.007,
+            "area_ha": 10.32,
             "location": "north-west"
+          },
+          {
+            "from": "vegetation",
+            "to": "built_up",
+            "pixels": 1002,
+            "fraction": 0.0068,
+            "area_ha": 10.02,
+            "location": "north-east"
           },
           {
             "from": "water",
@@ -1877,18 +1921,10 @@
           {
             "from": "vegetation",
             "to": "bare_soil",
-            "pixels": 75,
-            "fraction": 0.00051,
-            "area_ha": 0.75,
+            "pixels": 72,
+            "fraction": 0.00049,
+            "area_ha": 0.72,
             "location": "north-west"
-          },
-          {
-            "from": "other",
-            "to": "water",
-            "pixels": 1,
-            "fraction": 1e-05,
-            "area_ha": 0.01,
-            "location": "south-east"
           }
         ],
         "changed_fraction": 0.05965,
@@ -2063,19 +2099,19 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 5850,
-              "fraction": 0.0396728515625,
-              "area_ha": 58.5,
-              "evidence_basis": "MNDWI > +0.199 (otsu) with NIR-darkness guard",
+              "pixel_count": 5931,
+              "fraction": 0.04022216796875,
+              "area_ha": 59.31,
+              "evidence_basis": "MNDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
             {
               "name": "vegetation",
               "label": "vegetation",
-              "pixel_count": 76133,
-              "fraction": 0.5163099500868056,
-              "area_ha": 761.33,
+              "pixel_count": 76112,
+              "fraction": 0.5161675347222222,
+              "area_ha": 761.12,
               "evidence_basis": "NDVI > +0.250 (otsu_rejected_prior_used)",
               "reliability": "high",
               "region_count": 2
@@ -2083,19 +2119,19 @@
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 7703,
-              "fraction": 0.052239312065972224,
-              "area_ha": 77.03,
-              "evidence_basis": "NDBI > +0.000 (otsu_rejected_prior_used)",
+              "pixel_count": 7305,
+              "fraction": 0.049540201822916664,
+              "area_ha": 73.05,
+              "evidence_basis": "NDBI > +0.000 (prior_fixed)",
               "reliability": "high",
-              "region_count": 29
+              "region_count": 22
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 584,
-              "fraction": 0.003960503472222222,
-              "area_ha": 5.84,
+              "pixel_count": 561,
+              "fraction": 0.0038045247395833335,
+              "area_ha": 5.61,
               "evidence_basis": "unvegetated, non-water residue with 5x5 texture <= p60 (0.047)",
               "reliability": "high",
               "region_count": 0
@@ -2103,9 +2139,9 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 57186,
-              "fraction": 0.3878173828125,
-              "area_ha": 571.86,
+              "pixel_count": 57547,
+              "fraction": 0.3902655707465278,
+              "area_ha": 575.47,
               "evidence_basis": "no class threshold satisfied",
               "reliability": "high",
               "region_count": 12
@@ -2132,10 +2168,10 @@
               "std": 0.2978,
               "p05": -0.6247,
               "p95": 0.11,
-              "threshold": 0.1989,
-              "threshold_method": "otsu",
+              "threshold": 0.0,
+              "threshold_method": "prior_fixed",
               "separability": 0.6574,
-              "note": "data-driven split inside the plausible MNDWI window [-0.30, +0.30]"
+              "note": "MNDWI histogram is not convincingly bimodal (eta=0.66 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDBI",
@@ -2145,9 +2181,9 @@
               "p05": -0.5389,
               "p95": 0.1791,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6677,
-              "note": "Otsu suggested -0.20, outside the plausible NDBI window [-0.10, +0.10] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDBI histogram is not convincingly bimodal (eta=0.67 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDVI",
@@ -2203,12 +2239,12 @@
                 156
               ],
               "centroid_norm": [
-                52.89,
-                19.51
+                52.9,
+                19.5
               ],
-              "area_px": 49426,
-              "area_ha": 494.26,
-              "fraction": 0.33519,
+              "area_px": 49413,
+              "area_ha": 494.13,
+              "fraction": 0.3351,
               "position": "north",
               "compactness": 0.835,
               "score": 0.934
@@ -2229,12 +2265,12 @@
                 245
               ],
               "centroid_norm": [
-                49.49,
-                52.13
+                49.5,
+                52.14
               ],
-              "area_px": 26195,
-              "area_ha": 261.95,
-              "fraction": 0.17765,
+              "area_px": 26193,
+              "area_ha": 261.93,
+              "fraction": 0.17763,
               "position": "centre",
               "compactness": 0.797,
               "score": 0.919
@@ -2244,26 +2280,26 @@
               "class_name": "water",
               "bbox_norm": [
                 0.26,
-                67.45,
+                67.19,
                 99.74,
                 76.56
               ],
               "bbox_px": [
                 1,
-                259,
+                258,
                 383,
                 294
               ],
               "centroid_norm": [
-                49.88,
-                72.5
+                50.41,
+                72.49
               ],
-              "area_px": 3082,
-              "area_ha": 30.82,
-              "fraction": 0.0209,
+              "area_px": 3163,
+              "area_ha": 31.63,
+              "fraction": 0.02145,
               "position": "south",
-              "compactness": 0.231,
-              "score": 0.567
+              "compactness": 0.23,
+              "score": 0.568
             },
             {
               "label": "water",
@@ -2295,105 +2331,105 @@
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                76.3,
-                76.04,
-                95.05,
-                84.64
+                54.69,
+                78.39,
+                79.17,
+                87.24
               ],
               "bbox_px": [
-                293,
-                292,
-                365,
-                325
+                210,
+                301,
+                304,
+                335
               ],
               "centroid_norm": [
-                86.75,
-                80.25
+                65.28,
+                83.69
               ],
-              "area_px": 712,
-              "area_ha": 7.12,
-              "fraction": 0.00483,
-              "position": "south-east",
-              "compactness": 0.3,
-              "score": 0.576
+              "area_px": 769,
+              "area_ha": 7.69,
+              "fraction": 0.00522,
+              "position": "south",
+              "compactness": 0.241,
+              "score": 0.553
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
+                54.95,
                 71.35,
                 70.57,
                 80.21
               ],
               "bbox_px": [
-                213,
+                211,
                 274,
                 271,
                 308
               ],
               "centroid_norm": [
-                64.35,
-                75.78
+                63.64,
+                75.94
               ],
-              "area_px": 622,
-              "area_ha": 6.22,
-              "fraction": 0.00422,
+              "area_px": 651,
+              "area_ha": 6.51,
+              "fraction": 0.00441,
               "position": "south",
-              "compactness": 0.315,
-              "score": 0.581
+              "compactness": 0.319,
+              "score": 0.583
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                55.47,
-                86.46,
-                66.41,
-                94.27
+                81.25,
+                77.08,
+                95.05,
+                84.64
               ],
               "bbox_px": [
-                213,
-                332,
-                255,
-                362
+                312,
+                296,
+                365,
+                325
               ],
               "centroid_norm": [
-                59.78,
-                90.31
+                88.81,
+                80.29
               ],
-              "area_px": 432,
-              "area_ha": 4.32,
-              "fraction": 0.00293,
-              "position": "south",
-              "compactness": 0.343,
+              "area_px": 525,
+              "area_ha": 5.25,
+              "fraction": 0.00356,
+              "position": "south-east",
+              "compactness": 0.342,
               "score": 0.591
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                54.69,
-                78.65,
-                66.67,
-                86.72
-              ],
-              "bbox_px": [
-                210,
-                302,
-                256,
-                333
-              ],
-              "centroid_norm": [
-                59.59,
+                71.35,
+                75.26,
+                80.99,
                 82.81
               ],
-              "area_px": 396,
-              "area_ha": 3.96,
-              "fraction": 0.00269,
-              "position": "south",
-              "compactness": 0.278,
-              "score": 0.564
+              "bbox_px": [
+                274,
+                289,
+                311,
+                318
+              ],
+              "centroid_norm": [
+                75.55,
+                78.45
+              ],
+              "area_px": 364,
+              "area_ha": 3.64,
+              "fraction": 0.00247,
+              "position": "south-east",
+              "compactness": 0.339,
+              "score": 0.589
             }
           ],
           "quality": {
@@ -2431,39 +2467,39 @@
             {
               "name": "water",
               "label": "water",
-              "pixel_count": 4634,
-              "fraction": 0.031426323784722224,
-              "area_ha": 46.34,
-              "evidence_basis": "MNDWI > +0.266 (otsu) with NIR-darkness guard",
+              "pixel_count": 4685,
+              "fraction": 0.03177218967013889,
+              "area_ha": 46.85,
+              "evidence_basis": "MNDWI > +0.000 (prior_fixed) with NIR-darkness guard",
               "reliability": "high",
               "region_count": 2
             },
             {
               "name": "vegetation",
               "label": "vegetation",
-              "pixel_count": 73972,
-              "fraction": 0.5016547309027778,
-              "area_ha": 739.72,
-              "evidence_basis": "NDVI > +0.250 (otsu_rejected_prior_used)",
+              "pixel_count": 74032,
+              "fraction": 0.5020616319444444,
+              "area_ha": 740.32,
+              "evidence_basis": "NDVI > +0.250 (prior_fixed)",
               "reliability": "high",
-              "region_count": 1
+              "region_count": 3
             },
             {
               "name": "built_up",
               "label": "built-up / man-made surface",
-              "pixel_count": 5967,
-              "fraction": 0.04046630859375,
-              "area_ha": 59.67,
-              "evidence_basis": "NDBI > +0.000 (otsu_rejected_prior_used)",
+              "pixel_count": 5759,
+              "fraction": 0.039055718315972224,
+              "area_ha": 57.59,
+              "evidence_basis": "NDBI > +0.000 (prior_fixed)",
               "reliability": "high",
-              "region_count": 24
+              "region_count": 25
             },
             {
               "name": "bare_soil",
               "label": "bare soil or fallow ground",
-              "pixel_count": 636,
-              "fraction": 0.004313151041666667,
-              "area_ha": 6.36,
+              "pixel_count": 606,
+              "fraction": 0.004109700520833333,
+              "area_ha": 6.06,
               "evidence_basis": "unvegetated, non-water residue with 5x5 texture <= p60 (0.050)",
               "reliability": "high",
               "region_count": 0
@@ -2471,9 +2507,9 @@
             {
               "name": "other",
               "label": "unclassified",
-              "pixel_count": 62247,
-              "fraction": 0.4221394856770833,
-              "area_ha": 622.47,
+              "pixel_count": 62374,
+              "fraction": 0.4230007595486111,
+              "area_ha": 623.74,
               "evidence_basis": "no class threshold satisfied",
               "reliability": "high",
               "region_count": 10
@@ -2500,10 +2536,10 @@
               "std": 0.3044,
               "p05": -0.6492,
               "p95": 0.0641,
-              "threshold": 0.2665,
-              "threshold_method": "otsu",
+              "threshold": 0.0,
+              "threshold_method": "prior_fixed",
               "separability": 0.6246,
-              "note": "data-driven split inside the plausible MNDWI window [-0.30, +0.30]"
+              "note": "MNDWI histogram is not convincingly bimodal (eta=0.62 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDBI",
@@ -2513,9 +2549,9 @@
               "p05": -0.541,
               "p95": 0.2445,
               "threshold": 0.0,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.6333,
-              "note": "Otsu suggested -0.17, outside the plausible NDBI window [-0.10, +0.10] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.00 was used instead"
+              "note": "NDBI histogram is not convincingly bimodal (eta=0.63 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.00 was used rather than an arbitrary data split"
             },
             {
               "name": "NDVI",
@@ -2525,9 +2561,9 @@
               "p05": -0.1474,
               "p95": 0.9247,
               "threshold": 0.25,
-              "threshold_method": "otsu_rejected_prior_used",
+              "threshold_method": "prior_fixed",
               "separability": 0.7445,
-              "note": "Otsu suggested +0.48, outside the plausible NDVI window [+0.07, +0.43] \u2014 the dominant histogram split is not this class boundary, so the physical threshold +0.25 was used instead"
+              "note": "NDVI histogram is not convincingly bimodal (eta=0.74 < 0.75; a single Gaussian scores about 0.64), so the physical threshold +0.25 was used rather than an arbitrary data split"
             },
             {
               "name": "NDWI",
@@ -2562,24 +2598,50 @@
                 0.26,
                 0.26,
                 99.74,
-                64.32
+                40.89
               ],
               "bbox_px": [
                 1,
                 1,
                 383,
+                157
+              ],
+              "centroid_norm": [
+                51.19,
+                19.36
+              ],
+              "area_px": 44077,
+              "area_ha": 440.77,
+              "fraction": 0.29892,
+              "position": "north",
+              "compactness": 0.74,
+              "score": 0.896
+            },
+            {
+              "label": "vegetation",
+              "class_name": "vegetation",
+              "bbox_norm": [
+                0.26,
+                41.15,
+                99.74,
+                64.32
+              ],
+              "bbox_px": [
+                1,
+                158,
+                383,
                 247
               ],
               "centroid_norm": [
-                50.42,
-                31.77
+                49.13,
+                52.22
               ],
-              "area_px": 70746,
-              "area_ha": 707.46,
-              "fraction": 0.47978,
-              "position": "northern",
-              "compactness": 0.753,
-              "score": 0.901
+              "area_px": 26706,
+              "area_ha": 267.06,
+              "fraction": 0.18111,
+              "position": "centre",
+              "compactness": 0.786,
+              "score": 0.914
             },
             {
               "label": "water",
@@ -2588,23 +2650,23 @@
                 0.26,
                 67.45,
                 99.74,
-                76.56
+                76.82
               ],
               "bbox_px": [
                 1,
                 259,
                 383,
-                294
+                295
               ],
               "centroid_norm": [
-                49.9,
-                72.5
+                50.3,
+                72.51
               ],
-              "area_px": 3087,
-              "area_ha": 30.87,
-              "fraction": 0.02094,
+              "area_px": 3134,
+              "area_ha": 31.34,
+              "fraction": 0.02125,
               "position": "south",
-              "compactness": 0.231,
+              "compactness": 0.228,
               "score": 0.567
             },
             {
@@ -2624,118 +2686,144 @@
               ],
               "centroid_norm": [
                 19.78,
-                16.92
+                16.93
               ],
-              "area_px": 1547,
-              "area_ha": 15.47,
-              "fraction": 0.01049,
+              "area_px": 1551,
+              "area_ha": 15.51,
+              "fraction": 0.01052,
               "position": "north-west",
-              "compactness": 0.82,
+              "compactness": 0.822,
               "score": 0.791
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                71.09,
+                79.95,
+                77.86,
+                86.72,
+                85.16
+              ],
+              "bbox_px": [
+                307,
+                299,
+                333,
+                327
+              ],
+              "centroid_norm": [
+                83.63,
+                80.96
+              ],
+              "area_px": 206,
+              "area_ha": 2.06,
+              "fraction": 0.0014,
+              "position": "south-east",
+              "compactness": 0.283,
+              "score": 0.565
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                60.42,
+                86.98,
+                65.1,
+                94.27
+              ],
+              "bbox_px": [
+                232,
+                334,
+                250,
+                362
+              ],
+              "centroid_norm": [
+                62.7,
+                90.29
+              ],
+              "area_px": 177,
+              "area_ha": 1.77,
+              "fraction": 0.0012,
+              "position": "south",
+              "compactness": 0.351,
+              "score": 0.592
+            },
+            {
+              "label": "built-up / man-made surface",
+              "class_name": "built_up",
+              "bbox_norm": [
+                71.35,
                 22.4,
                 77.86,
-                31.51
+                27.08
               ],
               "bbox_px": [
-                273,
+                274,
                 86,
                 299,
-                121
+                104
               ],
               "centroid_norm": [
-                74.64,
-                26.58
+                74.51,
+                24.29
               ],
-              "area_px": 279,
-              "area_ha": 2.79,
-              "fraction": 0.00189,
+              "area_px": 144,
+              "area_ha": 1.44,
+              "fraction": 0.00098,
               "position": "north-east",
-              "compactness": 0.307,
-              "score": 0.575
+              "compactness": 0.32,
+              "score": 0.579
             },
             {
               "label": "built-up / man-made surface",
               "class_name": "built_up",
               "bbox_norm": [
-                86.2,
-                63.02,
-                93.23,
-                70.05
+                64.06,
+                82.81,
+                69.27,
+                87.76
               ],
               "bbox_px": [
-                331,
-                242,
-                358,
-                269
+                246,
+                318,
+                266,
+                337
               ],
               "centroid_norm": [
-                89.52,
-                66.38
+                67.3,
+                85.58
               ],
-              "area_px": 238,
-              "area_ha": 2.38,
-              "fraction": 0.00161,
-              "position": "east",
-              "compactness": 0.326,
-              "score": 0.583
-            },
-            {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
-              "bbox_norm": [
-                79.17,
-                78.39,
-                87.5,
-                82.03
-              ],
-              "bbox_px": [
-                304,
-                301,
-                336,
-                315
-              ],
-              "centroid_norm": [
-                83.12,
-                80.07
-              ],
-              "area_px": 183,
-              "area_ha": 1.83,
-              "fraction": 0.00124,
+              "area_px": 138,
+              "area_ha": 1.38,
+              "fraction": 0.00094,
               "position": "south-east",
-              "compactness": 0.408,
-              "score": 0.615
+              "compactness": 0.363,
+              "score": 0.596
             },
             {
-              "label": "built-up / man-made surface",
-              "class_name": "built_up",
+              "label": "vegetation",
+              "class_name": "vegetation",
               "bbox_norm": [
-                87.76,
-                81.25,
-                92.45,
-                89.84
+                21.61,
+                89.32,
+                25.0,
+                92.71
               ],
               "bbox_px": [
-                337,
-                312,
-                355,
-                345
+                83,
+                343,
+                96,
+                356
               ],
               "centroid_norm": [
-                89.89,
-                85.49
+                23.26,
+                91.02
               ],
-              "area_px": 174,
-              "area_ha": 1.74,
-              "fraction": 0.00118,
-              "position": "south-east",
-              "compactness": 0.293,
-              "score": 0.569
+              "area_px": 75,
+              "area_ha": 0.75,
+              "fraction": 0.00051,
+              "position": "south-west",
+              "compactness": 0.444,
+              "score": 0.628
             }
           ],
           "quality": {
@@ -2797,7 +2885,7 @@
     },
     "outputs": {
       "text": {
-        "text": "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.2% of the scene at the earlier date versus 4.0% at the later date (change -1.18 percentage points, -17.4 ha), which does not clear the measurement noise floor. Caveats: Relative radiometric normalisation applied to the later acquisition (band0: gain 0.977, offset -33.912; band1: gain 0.983, offset -47.838; band2: gain 0.988, offset -54.625; band3: gain 0.995, offset -90.698, ...). Change Vector Analysis over NDVI, NDWI, MNDWI, NDBI, BRIGHTNESS; threshold 0.7770 (Otsu 0.6963, separability 0.69, noise floor 0.7770)",
+        "text": "built-up / man-made surface has remained essentially unchanged between 2023-01-01 and 2023-07-01: 5.0% of the scene at the earlier date versus 3.9% at the later date (change -1.05 percentage points, -15.5 ha), which does not clear the measurement noise floor. Caveats: Relative radiometric normalisation applied to the later acquisition (band0: gain 0.977, offset -33.912; band1: gain 0.983, offset -47.838; band2: gain 0.988, offset -54.625; band3: gain 0.995, offset -90.698, ...). Change Vector Analysis over NDVI, NDWI, MNDWI, NDBI, BRIGHTNESS; threshold 0.7770 (Otsu 0.6963, separability 0.69, noise floor 0.7770)",
         "narration_source": "measurement",
         "n_samples": 1
       },
@@ -2947,19 +3035,19 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 2 measurement limitation(s) reduced the score by 10%."
     },
-    "execution_time_ms": 537,
+    "execution_time_ms": 516,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
       "device": "cpu",
-      "torch_available": false,
+      "torch_available": true,
       "vlm_narration_enabled": false,
       "vlm_model_id": null,
       "mock_mode": false,
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-08-31T11:40:39.227796+00:00",
+    "created_at": "2026-09-28T22:43:07.208770+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -2974,7 +3062,7 @@
     ],
     "highlight": "A direction verdict that only fires when the measured delta clears both the noise floor and the classifier's own flip rate on unchanged ground.",
     "expects": "change_vqa",
-    "baked_at": "2026-08-31T17:10:39",
+    "baked_at": "2026-09-29T04:13:07",
     "backend": "analysis_engine"
   }
 }

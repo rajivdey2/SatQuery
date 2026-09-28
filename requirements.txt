@@ -1,0 +1,4 @@
+# Single-server deploy: Render installs this file, which pulls in the backend's
+# pinned runtime set. The frontend is built with npm during the buildCommand
+# in render.yaml (no Python packaging needed for the React app).
+-r backend/requirements.txt

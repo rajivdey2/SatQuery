@@ -1,5 +1,10 @@
 """SatQuery AI — FastAPI entrypoint.
 
+Single-server deployment: this one FastAPI app serves BOTH the JSON API and the
+built React frontend (``frontend/dist``), so Render (or any host) only needs one
+``uvicorn backend.api.main:app`` process. API routes are registered first; the
+static frontend + SPA fallback are mounted last so they never shadow ``/api/*``.
+
 Endpoints
   GET  /health                      backend + adapted-head status
   GET  /api/registry                the predefined model/tool registry (graded artefact)
@@ -10,6 +15,7 @@ Endpoints
   GET  /api/jobs/{id}/trace         the audit trace as a downloadable JSON file
   GET  /api/jobs/{id}/report        downloadable PDF report
   GET  /api/files/{name}            rendered evidence PNGs
+  GET  /                            the React SPA (when frontend/dist is built)
 """
 from __future__ import annotations
 
@@ -24,7 +30,7 @@ from starlette.responses import FileResponse, JSONResponse
 from backend.analysis import scene_labels
 from backend.api import examples as example_store
 from backend.api.jobs import create_job, get_job, list_jobs
-from backend.config import DEMO_DIR, OUTPUT_DIR, TRACE_DIR, settings
+from backend.config import DEMO_DIR, OUTPUT_DIR, PROJECT_DIR, TRACE_DIR, settings
 from backend.controller.registry import describe_registry
 from backend.reports.pdf_report import build_report
 from backend.specialists import describe_all
@@ -189,3 +195,41 @@ def serve_file(name: str):
 async def http_exception_handler(request, exc: HTTPException):  # pragma: no cover
     return JSONResponse(status_code=exc.status_code,
                         content={"detail": exc.detail, "path": str(request.url.path)})
+
+
+# --------------------------------------------------------------------------- #
+# Single-server frontend: serve the built React app from this same process.
+# Registered LAST so /health and /api/* always win over the SPA fallback.
+# --------------------------------------------------------------------------- #
+
+FRONTEND_DIST = (Path(PROJECT_DIR) / "frontend" / "dist").resolve()
+
+
+def _frontend_enabled() -> bool:
+    return (FRONTEND_DIST / "index.html").exists()
+
+
+if _frontend_enabled():  # pragma: no cover - exercised in prod, not unit tests
+    from fastapi.staticfiles import StaticFiles
+
+    _assets = FRONTEND_DIST / "assets"
+    if _assets.exists():
+        app.mount("/assets", StaticFiles(directory=str(_assets)), name="frontend-assets")
+
+    @app.get("/", include_in_schema=False)
+    def serve_spa_root():
+        return FileResponse(str(FRONTEND_DIST / "index.html"), media_type="text/html")
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    def serve_spa_fallback(full_path: str):
+        """Static file if it exists in dist, else index.html (HashRouter SPA)."""
+        if full_path.startswith(("api/", "health")):
+            raise HTTPException(status_code=404, detail="not found")
+        candidate = (FRONTEND_DIST / full_path)
+        try:
+            resolved = candidate.resolve()
+        except OSError:
+            return FileResponse(str(FRONTEND_DIST / "index.html"), media_type="text/html")
+        if str(resolved).startswith(str(FRONTEND_DIST)) and resolved.is_file():
+            return FileResponse(str(resolved))
+        return FileResponse(str(FRONTEND_DIST / "index.html"), media_type="text/html")

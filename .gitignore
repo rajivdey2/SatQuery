@@ -12,3 +12,15 @@ backend/runtime/jobs/
 backend/runtime/outputs/
 backend/runtime/traces/
 backend/runtime/uploads/
+backend/runtime/*.log
+backend/runtime/*.json
+!backend/runtime/demo_data/
+!backend/runtime/examples/
+
+# Logs
+*.log
+
+# Test / session scratch
+.pytest_cache/
+session-*.md
+temp.txt
