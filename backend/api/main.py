@@ -76,8 +76,11 @@ DEMO_QUERIES = [
 ]
 
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health() -> dict:
+    # HEAD must be accepted explicitly: uptime monitors (UptimeRobot "HTTP
+    # Method: HEAD") probe with HEAD, and a GET-only route answers them 405,
+    # which reads as an outage. Starlette strips the body on HEAD for us.
     head = scene_labels.describe()
     return {"status": "ok", "version": settings.version,
             "backend": ("mock" if settings.use_mock else
