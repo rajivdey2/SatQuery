@@ -49,6 +49,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.on_event("startup")
+def _startup_demo_heal() -> None:
+    """Regenerate missing demo inputs / Showcase evidence in the background.
+
+    Never blocks boot or /health (see backend/api/startup.py): a deploy that
+    skipped the bake step heals itself a minute or two after coming up.
+    """
+    from backend.api.startup import schedule_startup_heal
+
+    schedule_startup_heal()
+
 # The five representative queries from the problem statement, verbatim.
 DEMO_QUERIES = [
     {"query": "Describe the land-cover and major objects visible in this image.",

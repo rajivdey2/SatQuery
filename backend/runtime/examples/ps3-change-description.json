@@ -10,7 +10,7 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230701.tif"
   ],
-  "created_at": 1790635386.305742,
+  "created_at": 1790636114.058728,
   "result": {
     "run_id": "example_ps3_change_description",
     "query": "What changed between these two dates, and where did the change occur?",
@@ -1711,7 +1711,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 57,
+        "duration_ms": 59,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -1736,7 +1736,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 56,
+        "duration_ms": 59,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -1781,7 +1781,7 @@
           "normalize_radiometry": true
         },
         "outputs_summary": "5.96% changed; method=cva_ndvi_ndwi_mndwi_ndbi_brightness; threshold=0.77703",
-        "duration_ms": 262,
+        "duration_ms": 274,
         "status": "ok",
         "detail": {
           "per_class_delta": {
@@ -1802,7 +1802,7 @@
           "clusters": 6
         },
         "outputs_summary": "example_ps3_change_description_change.png",
-        "duration_ms": 35,
+        "duration_ms": 37,
         "status": "ok",
         "detail": {}
       },
@@ -1820,7 +1820,7 @@
           "normalize_radiometry": true
         },
         "outputs_summary": "673 chars, 6 box(es), mask=change_map, narration=measurement",
-        "duration_ms": 298,
+        "duration_ms": 312,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'change_description'",
@@ -3037,7 +3037,7 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 2 measurement limitation(s) reduced the score by 10%."
     },
-    "execution_time_ms": 467,
+    "execution_time_ms": 502,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
@@ -3049,7 +3049,7 @@
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-09-28T22:43:06.294670+00:00",
+    "created_at": "2026-09-28T22:55:14.058728+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -3064,7 +3064,7 @@
     ],
     "highlight": "Change vector analysis against an estimated noise floor, a per-class transition table, and a rendered before / after / change triptych.",
     "expects": "change_description",
-    "baked_at": "2026-09-29T04:13:06",
+    "baked_at": "2026-09-29T04:25:14",
     "backend": "analysis_engine"
   }
 }

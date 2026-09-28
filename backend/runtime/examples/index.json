@@ -1,6 +1,6 @@
 {
   "available": true,
-  "baked_at": "2026-09-29T04:13:07",
+  "baked_at": "2026-09-29T04:25:15",
   "backend": "analysis_engine",
   "server_version": "0.2.0",
   "examples": [
@@ -56,7 +56,7 @@
         "value": 0.774,
         "source": "measurement_composite"
       },
-      "execution_time_ms": 222,
+      "execution_time_ms": 241,
       "n_boxes": 1,
       "mask_kind": "none",
       "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps2_grounding_areaA_20230101_grounding.png",
@@ -86,7 +86,7 @@
         "value": 0.548,
         "source": "measurement_composite"
       },
-      "execution_time_ms": 467,
+      "execution_time_ms": 502,
       "n_boxes": 6,
       "mask_kind": "change_map",
       "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps3_change_description_change.png",
@@ -116,7 +116,7 @@
         "value": 0.452,
         "source": "cross_modal_agreement"
       },
-      "execution_time_ms": 365,
+      "execution_time_ms": 415,
       "n_boxes": 6,
       "mask_kind": "fusion_map",
       "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps4_optical_sar_fusion_fusion.png",
@@ -146,7 +146,7 @@
         "value": 0.548,
         "source": "measurement_composite"
       },
-      "execution_time_ms": 516,
+      "execution_time_ms": 508,
       "n_boxes": 6,
       "mask_kind": "change_map",
       "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_ps5_change_vqa_change.png",
@@ -172,7 +172,7 @@
         "value": 1.0,
         "source": "validator_gate"
       },
-      "execution_time_ms": 39,
+      "execution_time_ms": 45,
       "n_boxes": 0,
       "mask_kind": "none",
       "thumbnail": null,
@@ -204,7 +204,7 @@
         "value": 0.457,
         "source": "cross_modal_agreement"
       },
-      "execution_time_ms": 491,
+      "execution_time_ms": 520,
       "n_boxes": 7,
       "mask_kind": "fusion_map",
       "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_two_tool_plan_areaB_optical_grounding.png",
@@ -233,7 +233,7 @@
         "value": 0.542,
         "source": "measurement_composite"
       },
-      "execution_time_ms": 155,
+      "execution_time_ms": 175,
       "n_boxes": 0,
       "mask_kind": "class_map",
       "thumbnail": "C:\\project\\satquery\\backend\\runtime\\outputs\\example_edge_benchmark_png_optical_city_classmap.png",

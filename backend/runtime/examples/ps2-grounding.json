@@ -8,7 +8,7 @@
   "files": [
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif"
   ],
-  "created_at": 1790635385.8250225,
+  "created_at": 1790636113.5565715,
   "result": {
     "run_id": "example_ps2_grounding",
     "query": "Highlight the water body referred to in the query.",
@@ -820,7 +820,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 55,
+        "duration_ms": 59,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -869,7 +869,7 @@
           "smoothing_window": 3
         },
         "outputs_summary": "dominant=vegetation; indices=BRIGHTNESS,MNDWI,NDBI,NDVI,NDWI,TEXTURE; separability=0.7155",
-        "duration_ms": 113,
+        "duration_ms": 118,
         "status": "ok",
         "detail": {
           "class_fractions": {
@@ -904,7 +904,7 @@
         "task": "single_grounding",
         "parameters": {},
         "outputs_summary": "example_ps2_grounding_areaA_20230101_grounding.png",
-        "duration_ms": 16,
+        "duration_ms": 18,
         "status": "ok",
         "detail": {}
       },
@@ -921,7 +921,7 @@
           "max_regions": 5
         },
         "outputs_summary": "254 chars, 1 box(es), mask=none, narration=measurement",
-        "duration_ms": 132,
+        "duration_ms": 139,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'single_grounding'",
@@ -1450,7 +1450,7 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was."
     },
-    "execution_time_ms": 222,
+    "execution_time_ms": 241,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
@@ -1462,7 +1462,7 @@
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-09-28T22:43:05.823018+00:00",
+    "created_at": "2026-09-28T22:55:13.556571+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -1476,7 +1476,7 @@
     ],
     "highlight": "The referring expression is resolved to a class, then to a connected region, and returned as a box in the same 0\u2013100 coordinates the audit trace reports.",
     "expects": "single_grounding",
-    "baked_at": "2026-09-29T04:13:05",
+    "baked_at": "2026-09-29T04:25:13",
     "backend": "analysis_engine"
   }
 }

@@ -6,6 +6,9 @@ through natural-language queries.**
 SIH problem statement **26167** — ISRO / Space Applications Centre, Department of
 Space. *Software · Space Technology.*
 
+**Live demo:** https://satquery-60g2.onrender.com — free tier, so the first
+load can take ~30s while the instance wakes up.
+
 ![architecture](docs/architecture.png)
 
 SatQuery AI is not a single fine-tuned VLM. It is an **agentic controller** that

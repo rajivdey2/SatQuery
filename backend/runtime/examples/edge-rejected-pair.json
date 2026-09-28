@@ -10,7 +10,7 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaD_mismatch.tif"
   ],
-  "created_at": 1790635387.2538407,
+  "created_at": 1790636115.0265393,
   "result": {
     "run_id": "example_edge_rejected_pair",
     "query": "What changed between these two dates?",
@@ -535,7 +535,7 @@
       ],
       "note": "The input was rejected by deterministic compatibility checks, not by a model. The rejection is certain; no answer was produced."
     },
-    "execution_time_ms": 39,
+    "execution_time_ms": 45,
     "model_backend": "validator_gate",
     "environment": {
       "server_version": "0.2.0",
@@ -547,7 +547,7 @@
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-09-28T22:43:07.251837+00:00",
+    "created_at": "2026-09-28T22:55:15.026539+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -562,7 +562,7 @@
     ],
     "highlight": "Two scenes that do not overlap. The controller measures the overlap, refuses the run, and says why \u2014 the behaviour the unseen ISRO evaluation set rewards.",
     "expects": "rejected",
-    "baked_at": "2026-09-29T04:13:07",
+    "baked_at": "2026-09-29T04:25:15",
     "backend": "analysis_engine"
   }
 }

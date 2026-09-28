@@ -10,7 +10,7 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_optical.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_sar.tif"
   ],
-  "created_at": 1790635386.6903532,
+  "created_at": 1790636114.4739347,
   "result": {
     "run_id": "example_ps4_optical_sar_fusion",
     "query": "Use the optical and SAR images together to identify built-up and water-covered regions.",
@@ -1438,7 +1438,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'multispectral'",
+          "modality_reason": "metadata mentions 'cartosat-2s mx'",
           "width": 384,
           "height": 384,
           "band_count": 4,
@@ -1495,7 +1495,7 @@
           "format": "GEOTIFF",
           "modality": "sar",
           "modality_confidence": "high",
-          "modality_reason": "metadata/filename mentions 'amplitude'",
+          "modality_reason": "metadata/filename mentions 'sar'",
           "width": 384,
           "height": 384,
           "band_count": 1,
@@ -1586,11 +1586,11 @@
         "georeference",
         "modality:sar",
         "areaB_optical.tif: GEOTIFF, 384x384, 4 band(s), int16",
-        "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
+        "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'cartosat-2s mx'",
         "areaB_optical.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaB_optical.tif: acquisition date 2023-03-15 (from rasterio_tags)",
         "areaB_sar.tif: GEOTIFF, 384x384, 1 band(s), uint16",
-        "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'amplitude'",
+        "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'sar'",
         "areaB_sar.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaB_sar.tif: acquisition date 2023-03-15 (from rasterio_tags)",
         "Cross-modal pair detected: one optical/multispectral and one SAR image.",
@@ -1613,7 +1613,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
+          "message": "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'cartosat-2s mx'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -1651,7 +1651,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'amplitude'",
+          "message": "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'sar'",
           "detail": {
             "modality": "sar",
             "confidence": "high",
@@ -1723,7 +1723,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'multispectral'",
+            "modality_reason": "metadata mentions 'cartosat-2s mx'",
             "width": 384,
             "height": 384,
             "band_count": 4,
@@ -1780,7 +1780,7 @@
             "format": "GEOTIFF",
             "modality": "sar",
             "modality_confidence": "high",
-            "modality_reason": "metadata/filename mentions 'amplitude'",
+            "modality_reason": "metadata/filename mentions 'sar'",
             "width": 384,
             "height": 384,
             "band_count": 1,
@@ -1945,7 +1945,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 27,
+        "duration_ms": 30,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -1967,7 +1967,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "sar \u00b7 sar_named \u00b7 384x384 analysis grid",
-        "duration_ms": 69,
+        "duration_ms": 76,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -2014,7 +2014,7 @@
           "regions_per_class": 4
         },
         "outputs_summary": "mean cross-modal kappa=0.1361; joint water=0.041, built-up=0.023; obscured=0.005",
-        "duration_ms": 193,
+        "duration_ms": 206,
         "status": "ok",
         "detail": {
           "agreement": [
@@ -2060,7 +2060,7 @@
         "task": "sar_optical_fusion",
         "parameters": {},
         "outputs_summary": "example_ps4_optical_sar_fusion_fusion.png, example_ps4_optical_sar_fusion_fusion_pair.png",
-        "duration_ms": 49,
+        "duration_ms": 50,
         "status": "ok",
         "detail": {}
       },
@@ -2077,7 +2077,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "823 chars, 6 box(es), mask=fusion_map, narration=measurement",
-        "duration_ms": 243,
+        "duration_ms": 257,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'sar_optical_fusion'",
@@ -3505,7 +3505,7 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 3 measurement limitation(s) reduced the score by 15%."
     },
-    "execution_time_ms": 365,
+    "execution_time_ms": 415,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
@@ -3517,7 +3517,7 @@
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-09-28T22:43:06.674366+00:00",
+    "created_at": "2026-09-28T22:55:14.473934+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -3532,7 +3532,7 @@
     ],
     "highlight": "Both sensors are measured independently and then compared: per-class Cohen's kappa, and the area the radar recovers where cloud blocks the optical scene.",
     "expects": "sar_optical_fusion",
-    "baked_at": "2026-09-29T04:13:06",
+    "baked_at": "2026-09-29T04:25:14",
     "backend": "analysis_engine"
   }
 }

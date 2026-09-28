@@ -10,7 +10,7 @@
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_optical.tif",
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaB_sar.tif"
   ],
-  "created_at": 1790635387.7462287,
+  "created_at": 1790636115.5464368,
   "result": {
     "run_id": "example_edge_two_tool_plan",
     "query": "Use the optical and SAR images together and highlight where the water is.",
@@ -1997,7 +1997,7 @@
           "format": "GEOTIFF",
           "modality": "multispectral",
           "modality_confidence": "high",
-          "modality_reason": "metadata mentions 'multispectral'",
+          "modality_reason": "metadata mentions 'cartosat-2s mx'",
           "width": 384,
           "height": 384,
           "band_count": 4,
@@ -2054,7 +2054,7 @@
           "format": "GEOTIFF",
           "modality": "sar",
           "modality_confidence": "high",
-          "modality_reason": "metadata/filename mentions 'amplitude'",
+          "modality_reason": "metadata/filename mentions 'sar'",
           "width": 384,
           "height": 384,
           "band_count": 1,
@@ -2145,11 +2145,11 @@
         "georeference",
         "modality:sar",
         "areaB_optical.tif: GEOTIFF, 384x384, 4 band(s), int16",
-        "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
+        "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'cartosat-2s mx'",
         "areaB_optical.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaB_optical.tif: acquisition date 2023-03-15 (from rasterio_tags)",
         "areaB_sar.tif: GEOTIFF, 384x384, 1 band(s), uint16",
-        "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'amplitude'",
+        "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'sar'",
         "areaB_sar.tif: CRS EPSG:32644, pixel size [10.0, 10.0], extent [523000.0, 3120000.0, 526840.0, 3123840.0]",
         "areaB_sar.tif: acquisition date 2023-03-15 (from rasterio_tags)",
         "Cross-modal pair detected: one optical/multispectral and one SAR image.",
@@ -2172,7 +2172,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'multispectral'",
+          "message": "areaB_optical.tif: modality 'multispectral' (high confidence) \u2014 metadata mentions 'cartosat-2s mx'",
           "detail": {
             "modality": "multispectral",
             "confidence": "high",
@@ -2210,7 +2210,7 @@
         {
           "name": "modality",
           "status": "passed",
-          "message": "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'amplitude'",
+          "message": "areaB_sar.tif: modality 'sar' (high confidence) \u2014 metadata/filename mentions 'sar'",
           "detail": {
             "modality": "sar",
             "confidence": "high",
@@ -2282,7 +2282,7 @@
             "format": "GEOTIFF",
             "modality": "multispectral",
             "modality_confidence": "high",
-            "modality_reason": "metadata mentions 'multispectral'",
+            "modality_reason": "metadata mentions 'cartosat-2s mx'",
             "width": 384,
             "height": 384,
             "band_count": 4,
@@ -2339,7 +2339,7 @@
             "format": "GEOTIFF",
             "modality": "sar",
             "modality_confidence": "high",
-            "modality_reason": "metadata/filename mentions 'amplitude'",
+            "modality_reason": "metadata/filename mentions 'sar'",
             "width": 384,
             "height": 384,
             "band_count": 1,
@@ -2523,7 +2523,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 27,
+        "duration_ms": 29,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -2545,7 +2545,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "sar \u00b7 sar_named \u00b7 384x384 analysis grid",
-        "duration_ms": 69,
+        "duration_ms": 74,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -2592,7 +2592,7 @@
           "regions_per_class": 4
         },
         "outputs_summary": "mean cross-modal kappa=0.1361; joint water=0.041, built-up=0.023; obscured=0.005",
-        "duration_ms": 190,
+        "duration_ms": 201,
         "status": "ok",
         "detail": {
           "agreement": [
@@ -2638,7 +2638,7 @@
         "task": "sar_optical_fusion",
         "parameters": {},
         "outputs_summary": "example_edge_two_tool_plan_fusion.png, example_edge_two_tool_plan_fusion_pair.png",
-        "duration_ms": 48,
+        "duration_ms": 51,
         "status": "ok",
         "detail": {}
       },
@@ -2655,7 +2655,7 @@
           "speckle_filter": true
         },
         "outputs_summary": "823 chars, 6 box(es), mask=fusion_map, narration=measurement",
-        "duration_ms": 239,
+        "duration_ms": 252,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'sar_optical_fusion'",
@@ -2692,7 +2692,7 @@
           "smoothing_window": 3
         },
         "outputs_summary": "dominant=vegetation; indices=BRIGHTNESS,NDVI,NDWI,TEXTURE; separability=0.7376",
-        "duration_ms": 94,
+        "duration_ms": 102,
         "status": "ok",
         "detail": {
           "class_fractions": {
@@ -2727,7 +2727,7 @@
         "task": "single_grounding",
         "parameters": {},
         "outputs_summary": "example_edge_two_tool_plan_areaB_optical_grounding.png",
-        "duration_ms": 15,
+        "duration_ms": 16,
         "status": "ok",
         "detail": {}
       },
@@ -2744,7 +2744,7 @@
           "max_regions": 5
         },
         "outputs_summary": "421 chars, 1 box(es), mask=none, narration=measurement",
-        "duration_ms": 111,
+        "duration_ms": 120,
         "status": "ok",
         "detail": {
           "reason_in_plan": "query asks for localisation in addition to joint extraction; the grounding entry runs on the optical image of the pair",
@@ -4731,7 +4731,7 @@
       ],
       "note": "Bounded composite of the measured signals listed above, not a calibrated probability: no reliability fit against labelled data has been performed. Read it as a relative indication of how well-posed this measurement was. 3 measurement limitation(s) reduced the score by 15%."
     },
-    "execution_time_ms": 491,
+    "execution_time_ms": 520,
     "model_backend": "analysis_engine",
     "environment": {
       "server_version": "0.2.0",
@@ -4743,7 +4743,7 @@
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-09-28T22:43:07.744222+00:00",
+    "created_at": "2026-09-28T22:55:15.546436+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -4758,7 +4758,7 @@
     ],
     "highlight": "The query asks for something the fusion entry does not produce, so the router adds the grounding entry and the trace shows both steps.",
     "expects": "sar_optical_fusion",
-    "baked_at": "2026-09-29T04:13:07",
+    "baked_at": "2026-09-29T04:25:15",
     "backend": "analysis_engine"
   }
 }

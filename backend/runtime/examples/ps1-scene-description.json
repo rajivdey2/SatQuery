@@ -8,7 +8,7 @@
   "files": [
     "C:\\project\\satquery\\backend\\runtime\\demo_data\\areaA_20230101.tif"
   ],
-  "created_at": 1790635385.6018572,
+  "created_at": 1790636113.3154886,
   "result": {
     "run_id": "example_ps1_scene_description",
     "query": "Describe the land-cover and major objects visible in this image.",
@@ -736,7 +736,7 @@
           "speckle_filter": null
         },
         "outputs_summary": "multispectral \u00b7 optical_named \u00b7 384x384 analysis grid",
-        "duration_ms": 57,
+        "duration_ms": 61,
         "status": "ok",
         "detail": {
           "band_roles": {
@@ -785,7 +785,7 @@
           "smoothing_window": 3
         },
         "outputs_summary": "dominant=vegetation; indices=BRIGHTNESS,MNDWI,NDBI,NDVI,NDWI,TEXTURE; separability=0.7155",
-        "duration_ms": 115,
+        "duration_ms": 120,
         "status": "ok",
         "detail": {
           "class_fractions": {
@@ -803,7 +803,7 @@
         "task": "single_caption",
         "parameters": {},
         "outputs_summary": "example_ps1_scene_description_areaA_20230101_classmap.png",
-        "duration_ms": 25,
+        "duration_ms": 26,
         "status": "ok",
         "detail": {}
       },
@@ -818,7 +818,7 @@
           "temperature": 0.2
         },
         "outputs_summary": "372 chars, 0 box(es), mask=class_map, narration=measurement",
-        "duration_ms": 141,
+        "duration_ms": 148,
         "status": "ok",
         "detail": {
           "reason_in_plan": "registry entry for classified task 'single_caption'",
@@ -1275,7 +1275,7 @@
       "max_analysis_pixels": 4194304
     },
     "error": null,
-    "created_at": "2026-09-28T22:43:05.599852+00:00",
+    "created_at": "2026-09-28T22:55:13.315488+00:00",
     "server_version": "0.2.0"
   },
   "error": null,
@@ -1289,7 +1289,7 @@
     ],
     "highlight": "Twelve-band Sentinel-2-style input: every spectral index is available, so class extents come with hectares and a high separability score.",
     "expects": "single_caption",
-    "baked_at": "2026-09-29T04:13:05",
+    "baked_at": "2026-09-29T04:25:13",
     "backend": "analysis_engine"
   }
 }
